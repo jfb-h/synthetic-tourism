@@ -55,7 +55,6 @@
   
 )
 
-
 = Introduction <introduction>
 
 The COVID-19 pandemic triggered an unprecedented crisis in global tourism from 2020 to 2022, leading to a loss of USD 2.5 trillion in export revenues - nearly 1.5 times the earnings of 2019.
@@ -84,8 +83,7 @@ In the following sections, we first outline the impact exceptional architecture 
 We then present the case of the Elbphilharmonie in detail in Section 3, followed by an overview of the empirical analysis in Section 4.
 We summarize the results in Section 4 and conclude with implications for future research on the relationship between exceptional architecture and tourism.
 
-
-= The touristic effects of \ exceptional architecture
+= Tourism and architecture
 
 Over the past decades, tourism has evolved into one of the largest and fastest-growing industries globally, contributing significantly to the gross domestic product of many regions.
 For example, in 2019, tourism revenues in Europe amounted to a substantial 514.9 billion euros @worldtourismorganization2021.
@@ -112,7 +110,7 @@ However, they posit that the impact on tourism is more attributed to the archite
 Our study builds on this assumption by using the Elbphilharmonie in Hamburg as a case study to explore the forward linkage effects @gelman2013a @hiller1998 of its inauguration to explore how exceptional architecture can influence overnight stays in the tourism sector.
 
 
-= Case and Data 
+= The Elbphilharmonie 
 
 Germany, a major player in the global tourism export market @gossling2022, has experienced severe impacts from the COVID-19 pandemic, particularly in the hospitality sector.
 Hotels, restaurants, and cafés have been hit hard since March 2020, with hotels, inns, and guest houses recording a 57% decline in revenue from March 2020 to January 2021 compared to the previous year @destatis2021a.
@@ -138,7 +136,29 @@ To study of the impact of exceptional architecture on tourism, using the Elbphil
 First, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of @dreher2020.
 Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idiosyncratic contextual influencing factors such as the rapid transformation of a rundown industrial city, end of terrorism, etc., making it more feasible to accurately estimate the effects of exceptional architecture on tourism.
 
-= Method
+// TODO: Describe data
+
+= Data and Method
+
+== The synthetic control method
+
+In this paper, we use the synthetic control method to assess the touristic impact of the Elbphilharmonie @abadie2021.
+The synthetic control method aims to answer the question of whether a discrete intervention (here, the building of the Elbphilharmonie) had a causal effect on some quantity of interest (here, visitor numbers), i.e., whether there was an increase (or decrease) in the quantity of interest which would not have occurred without the intervention.
+In pursuit of this goal, the method follows a comparative case study design which contrasts the unit for which the intervention occurred (Hamburg) with a set of comparable units where the intervention didn't occur (other cities).
+More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit.
+Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest. 
+Given sufficient pre-intervention similarity (taken to indicate that the behaviour of the quantity of interest is well-approximated by the weighted average of the control units), post-intervention deviations between the synthetic and the real case are then interpreted as a consequence of the intervention.
+Robustness of this interpretation can be assessed by conducting different kinds of placebo tests:
+First, the analysis can be rerun with intervention shifted to different points in time. If these analyses yield similarly large post-intervention differences, results are likely to represent noise and should be interpreted with care.
+Second, instead of shifting the timepoint of the intervention, placebos can be constructed by assigning the intervention to other units than the one for which it occurred.
+If these simulations yield similarly large effects as the actually treated unit, results are again not robust.
+
+== Selection of control cases
+
+
+- robustness tests / placebo studies
+- variable selection
+- case selection
 
 = Results and discussion
 

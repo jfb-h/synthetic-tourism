@@ -8,15 +8,27 @@ cities <- c(
   "bremen", "bonn", "bochum", "bielefeld", "berlin", "amsterdam"
 )
 
-datanew <- read_xlsx("data/raphael/data_ueberblick2.xlsx") |>
-  select(Jahr, Monat, Stadt, GAST02__Gaesteuebernachtungen__Anzahl, art)
+datanew <- read_xlsx("data/processed/data_ueberblick2.xlsx") |>
+  select(
+    Jahr, Monat, Stadt,
+    GAST02__Gaesteuebernachtungen__Anzahl,
+    art
+  )
 
-finalyeargr <- expand.grid(Jahr = seq(1998, 2024), Monat = seq(1, 12), Stadt = cities)
+finalyeargr <- expand.grid(
+  Jahr = seq(1998, 2024),
+  Monat = seq(1, 12),
+  Stadt = cities
+)
 
-final2 <- left_join(finalyeargr, datanew, by=c("Jahr", "Monat", "Stadt"))
+final2 <- left_join(
+  finalyeargr,
+  datanew,
+  by=c("Jahr", "Monat", "Stadt")
+)
 
 finalq <- final2 |>
-  filter(art==FALSE) |>
+  filter(art == FALSE) |>
   mutate(Quarter = case_when(
     Monat %in% c(1, 2, 3)  ~ 1,
     Monat %in% c(4, 5, 6)  ~ 2,
@@ -24,7 +36,10 @@ finalq <- final2 |>
     Monat %in% c(10, 11, 12) ~ 4
   )) |>
   group_by(Jahr, Stadt, Quarter) |>
-  summarise(total = sum(GAST02__Gaesteuebernachtungen__Anzahl), .groups = "drop")
+  summarise(
+    total = sum(GAST02__Gaesteuebernachtungen__Anzahl),
+    .groups = "drop"
+  )
 
 dataq2 <- datanew |>
   select(Jahr, Stadt, Monat, art, GAST02__Gaesteuebernachtungen__Anzahl) |>
