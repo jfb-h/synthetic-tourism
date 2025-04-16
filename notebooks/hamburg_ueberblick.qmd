@@ -1,0 +1,272 @@
+---
+title: "hamburg_ueberblick"
+format: html
+editor: visual
+---
+
+## Vollständigkeit der Daten
+
+Überblick über die vorhandenen Daten der Städte und Jahre, sowie deren zeitliche Auflösung.
+
+```{r, fig.height=5., fig.width=10}
+library(tidyverse)
+library(readxl)
+library(ggrepel)
+library(dplyr)
+
+data <- read_xlsx("data_ueberblick.xlsx")
+
+plotdata <- data %>% select(Jahr, Monat,Stadt,GAST01__Gaesteankuenfte__Anzahl,GAST02__Gaesteuebernachtungen__Anzahl, art) %>%
+  mutate(an = is.na(GAST01__Gaesteankuenfte__Anzahl),
+         uen = is.na(GAST02__Gaesteuebernachtungen__Anzahl),
+         date = my(paste(Monat, Jahr, sep="-")),
+         score = case_when(
+           (uen == FALSE & an == FALSE) ~ "red4",
+           uen == FALSE ~ "red",
+           an == FALSE ~ "orange",
+           .default = NA
+         ),
+         score = case_when(
+           art == FALSE ~ score,
+           .default = "darkblue" 
+         )
+  )
+
+ggplot(plotdata, aes(date, Stadt)) + 
+  geom_tile(fill= plotdata$score) +
+  scale_x_date(date_breaks = 'year') + 
+  theme(axis.text.x = element_text(angle = 90))
+
+#ggsave("plot.pdf",height = 5, width = 15)
+    
+```
+
+## Jahresverlauf der Daten
+
+Jährlicher Verlauf der Daten als Anteil der jeweiligen Monate bzw. Quartale am Jahresgesamtwert für München und Nürnberg zur Überführung der jährlich aufgelösten Werte in quartalsweise Werte. Die Jahreswerte werden mit den berrechneten Proportionen auf die Quartale aufgeteilt
+
+```{r}
+data <- read_xlsx("data_ueberblick.xlsx")
+
+custom_colors <- c(
+  "1" = "#1b9e77", "2" = "#d95f02", "3" = "#7570b3", 
+  "4" = "#e7298a", "5" = "#66a61e", "6" = "#e6ab02",
+  "7" = "#a6761d", "8" = "#666666", "9" = "#e41a1c", 
+  "10" = "#377eb8", "11" = "#4daf4a", "12" = "#984ea3")
+#quarter_colors <- c(1 = "#1b9e77", 2 = "#d95f02", 3 = "#7570b3", 4 = "#e7298a")
+
+data2 <- data %>% select(Jahr, Stadt, Monat, art, GAST02__Gaesteuebernachtungen__Anzahl) %>%
+  filter(art == FALSE, Stadt == "München" | Stadt == "Nürnberg")
+
+data3 <- data2  %>%
+  group_by(Jahr, Stadt, Monat) %>%
+  summarise(total = sum(GAST02__Gaesteuebernachtungen__Anzahl), .groups = "drop") %>%
+  group_by(Jahr, Stadt) %>%
+  mutate(proportion = total / sum(total))
+
+ggplot(data3, aes(x = factor(Jahr), y = proportion, fill = factor(Monat))) +
+  geom_bar(stat = "identity") +
+  labs(x = "Year", y = "Monthly Proportion", fill = "Month") +
+  facet_wrap(~Stadt) +
+  scale_fill_manual(values = custom_colors) +
+  theme_minimal()+ 
+  theme(axis.text.x = element_text(angle = 90))
+
+
+#ggsave("months.pdf", height = 5, width = 10)
+
+
+
+dataq2 <- data %>%
+  select(Jahr, Stadt, Monat, art, GAST02__Gaesteuebernachtungen__Anzahl) %>%
+  filter(art == FALSE, Stadt %in% c("München", "Nürnberg")) %>%
+  mutate(Quarter = case_when(
+    Monat %in% c(1, 2, 3)  ~ 1,
+    Monat %in% c(4, 5, 6)  ~ 2,
+    Monat %in% c(7, 8, 9)  ~ 3,
+    Monat %in% c(10, 11, 12) ~ 4
+  ))
+
+dataq3 <- dataq2 %>%
+  group_by(Jahr, Stadt, Quarter) %>%
+  summarise(total = sum(GAST02__Gaesteuebernachtungen__Anzahl), .groups = "drop") %>%
+  group_by(Jahr, Stadt) %>%
+  mutate(proportion = total / sum(total))
+  
+ggplot(dataq3, aes(x = factor(Jahr), y = proportion, fill = Quarter)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Year", y = "Quarterly Proportion", fill = "Quarter") +
+  facet_wrap(~Stadt) +  # Separate plots for each city
+  #scale_fill_manual(values = quarter_colors) +  # Apply custom colors for quarters
+  theme_minimal()+ 
+  theme(axis.text.x = element_text(angle = 90))
+
+#ggsave("quarters.pdf", height = 5, width = 10)
+
+
+
+proportions <- dataq2 %>% 
+  filter(Jahr %in% 2006:2019) %>%
+  group_by(Jahr, Stadt, Quarter) %>%
+  summarise(total = sum(GAST02__Gaesteuebernachtungen__Anzahl), .groups = "drop") %>%
+  group_by(Jahr, Stadt) %>%
+  mutate(proportion = total / sum(total)) %>%
+  group_by(Stadt, Quarter) %>% summarise(proportion = mean(proportion))
+
+proportions
+
+```
+
+Manuell interpolierte Werte für Dezember 2011 als Mittelwert von Dezember 2009, 2010, 2012, 2013:
+
+|      |     |              |           |       |        |       |
+|------|-----|--------------|-----------|-------|--------|-------|
+| 2011 | 12  | Niederlande  | Rotterdam | NL339 | 83300  | FALSE |
+| 2011 | 12  | Niederlande  | Amsterdam | NL339 | 698250 | FALSE |
+
+```{r}
+
+datanew <- read_xlsx("data_ueberblick2.xlsx") %>% select(Jahr, Monat, Stadt, GAST02__Gaesteuebernachtungen__Anzahl, art)
+
+
+finalyeargr <- expand.grid(Jahr = seq(1998, 2024), Monat = seq(1, 12),
+            Stadt = c("Wuppertal","Stuttgart","Rotterdam","Oslo","Nürnberg","Münster","München","Kopenhagen","Köln","Helsinki","Hannover","Hamburg", "Essen","Düsseldorf", "Duisburg", "Dortmund", "Bremerhaven", "Bremen", "Bonn", "Bochum", "Bielefeld","Berlin","Amsterdam"))
+
+final2 <- left_join(finalyeargr, datanew, by=c("Jahr","Monat","Stadt"))
+
+
+finalq <- final2 %>%
+  filter(art==FALSE) %>%
+  mutate(Quarter = case_when(
+    Monat %in% c(1, 2, 3)  ~ 1,
+    Monat %in% c(4, 5, 6)  ~ 2,
+    Monat %in% c(7, 8, 9)  ~ 3,
+    Monat %in% c(10, 11, 12) ~ 4
+  )) %>%
+  group_by(Jahr, Stadt, Quarter) %>%
+  summarise(total = sum(GAST02__Gaesteuebernachtungen__Anzahl), .groups = "drop")
+
+
+finalj <- final2 %>%
+  filter(art==TRUE) %>%
+  mutate(Quarter = case_when(
+    Monat %in% c(1, 2, 3)  ~ 1,
+    Monat %in% c(4, 5, 6)  ~ 2,
+    Monat %in% c(7, 8, 9)  ~ 3,
+    Monat %in% c(10, 11, 12) ~ 4
+  )) %>%
+  select(Jahr, Stadt, Quarter, GAST02__Gaesteuebernachtungen__Anzahl) %>%
+  distinct() %>%  
+  left_join(proportions, by = c("Stadt", "Quarter")) %>%  # Join proportions
+  mutate(total = GAST02__Gaesteuebernachtungen__Anzahl * proportion) %>% 
+  select(Jahr, Stadt, Quarter, total)
+
+finalgr <- expand.grid(Jahr = seq(1998, 2024), Quarter = seq(1,4),
+            Stadt = c("Wuppertal","Stuttgart","Rotterdam","Oslo","Nürnberg","Münster","München","Kopenhagen","Köln","Helsinki","Hannover","Hamburg", "Essen","Düsseldorf", "Duisburg", "Dortmund", "Bremerhaven", "Bremen", "Bonn", "Bochum", "Bielefeld","Berlin","Amsterdam"))
+
+
+finaltest <- rbind(finalq, finalj)
+final <- left_join(finalgr, finaltest, by=c("Jahr","Quarter","Stadt")) %>%
+  filter(!(Jahr==2024 & (Quarter == 3 | Quarter == 4)))
+testwider <- pivot_wider(final, names_from = Quarter, values_from = total)
+
+
+#write.csv(final,"final.csv")
+#write.csv(testwider,"final_wide.csv")
+
+
+plotfinal <- final %>%  mutate(Quarter = case_when(
+  Quarter == 1 ~ as.Date(paste0("01/02/",as.character(Jahr)),format = "%d/%m/%Y"),
+  Quarter == 2 ~ as.Date(paste0("01/05/",as.character(Jahr)),format = "%d/%m/%Y"),
+  Quarter == 3 ~ as.Date(paste0("01/08/",as.character(Jahr)),format = "%d/%m/%Y"),
+  Quarter == 4 ~ as.Date(paste0("01/11/",as.character(Jahr)),format = "%d/%m/%Y")
+  ))
+
+plotfinal$CityGroup <- ifelse(plotfinal$Stadt == "Hamburg", "Hamburg", "Other")
+
+ggplot(data = plotfinal, aes(x = Quarter, y = total, group = Stadt, color = CityGroup)) +
+  geom_line(alpha = 0.5) + 
+  geom_line(data = subset(plotfinal, Stadt == "Hamburg"), size = 1.2) + 
+  scale_color_manual(values = c("Hamburg" = "orchid4", "Other" = "gray")) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y", expand = c(0.025, 0.05)) +
+  scale_y_log10() +  
+  theme_minimal() +  
+  theme(plot.title = element_text(hjust = 0), legend.position = "bottom", axis.text.x = element_text(angle = 45, hjust = 1), legend.title=element_blank() ) +
+  labs(x = "Year (Quarterly)", y = "Overnight stays (log10)", 
+       title = "Overnight stays (from 1998 to 2024)", color = "City")
+
+
+#ggsave("hamburg_verlauf.pdf", height = 7, width = 10)  
+```
+
+
+
+
+
+Daten mit EW und GDP zusammenfügen
+
+```{r} 
+ew <- read.csv2("EWdaten.csv") %>% janitor::clean_names() %>% 
+  pivot_longer(cols=c(x2014,x2015,x2016,x2017,x2018,x2019,x2020,x2021,x2022,x2023,x2024) ,names_to = "Year") %>%
+  mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year))) %>%
+  select(geo_labels,Year,value)%>%
+  rename(ew=value)
+
+gdp <- read.csv2("GDPdaten.csv") %>% janitor::clean_names() %>% 
+  pivot_longer(cols=c(x2000,x2001,x2002,x2003,x2004,x2005,x2006,x2007,x2008,x2009,x2010,x2011,x2012,x2013,x2014,x2015,x2016,x2017,x2018,x2019,x2020,x2021,x2022,x2023) ,names_to = "Year") %>%
+  mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year)))%>%
+  select(geo_labels,Year,value) %>%
+  rename(gdp=value)
+
+dat <- final %>% rename(city=Stadt,year=Jahr,overnightstays=total, quarter=Quarter) %>%
+  mutate(i = cur_group_id(), .by = c(quarter, year)) %>%
+  left_join(gdp, by = c("year"="Year", "city"="geo_labels"))%>%
+  left_join(ew, by = c("year"="Year", "city"="geo_labels"))
+
+```
+
+
+
+
+Alte Plots zu allen Städten und München/Nürnberg
+
+```{r}
+plotfinalmn <- plotfinal %>% filter(Stadt %in% c("München","Nürnberg"))
+
+ggplot(data = plotfinalmn, aes(x = Quarter, y = total, color = Stadt, group = Stadt)) +
+  geom_line(linewidth = 1) + 
+  geom_point(size = 2) + 
+  scale_y_log10() + 
+  scale_x_date(date_breaks = "1 year") +
+  theme_minimal() +  # Clean theme
+  labs(x = "Quarter", y = "Total (log10)", title = "Total Over Time by City") +
+  theme(plot.title = element_text(hjust = 5), axis.text.x = element_text(angle = 90, hjust = 1), theme(plot.margin = margin(5,5,5,5, "cm"))) 
+
+#ggsave("mnverlauf.pdf", height = 10, width = 15)
+
+
+ggplot(data = plotfinal, aes(x = Quarter, y = total, color = Stadt, group = Stadt)) +
+  geom_line(linewidth = 1) +  
+  geom_point(size = 2) + 
+  scale_y_log10() + 
+  scale_x_date(date_breaks = "1 year", expand = expansion(mult = 0.1)) +
+  theme_minimal() +  # Clean theme
+  theme(legend.position = "none") +  # Remove legend
+  # Add labels at the end of the lines
+  geom_text_repel(data = plotfinal %>% group_by(Stadt) %>% filter(Quarter == max(Quarter)), 
+                  aes(label = Stadt), 
+                  hjust = 0, 
+                  nudge_x = 20,
+                  direction = "y", 
+                  size = 2.5) +
+    geom_text_repel(data = plotfinal %>% group_by(Stadt) %>% filter(Quarter == min(Quarter)), 
+                  aes(label = Stadt), 
+                  hjust = 1, 
+                  nudge_x = -20, 
+                  direction = "y", 
+                  size = 2.5) +
+  labs(x = "Quarter", y = "Total (log10)", title = "Total Over Time by City") +
+  theme(plot.title = element_text(hjust = 5), axis.text.x = element_text(angle = 90, hjust = 1), theme(plot.margin = margin(5,5,5,5, "cm")))  
+#ggsave("verlauf.pdf", height = 10, width = 15)  
+```
+
