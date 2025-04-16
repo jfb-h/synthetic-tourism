@@ -1,18 +1,19 @@
 library(tidyverse)
 library(readxl)
 
-cities <- c("Wuppertal","Stuttgart","Rotterdam","Oslo","Nürnberg",
-            "Münster","München","Kopenhagen","Köln","Helsinki","Hannover",
-            "Hamburg", "Essen","Düsseldorf", "Duisburg", "Dortmund", "Bremerhaven",
-            "Bremen", "Bonn", "Bochum", "Bielefeld","Berlin","Amsterdam"
-            )
+cities <- c(
+  "Wuppertal", "Stuttgart", "Rotterdam", "Oslo", "Nürnberg",
+  "münster", "münchen", "kopenhagen", "köln", "helsinki", "hannover",
+  "hamburg", "essen", "düsseldorf", "duisburg", "dortmund", "bremerhaven",
+  "bremen", "bonn", "bochum", "bielefeld", "berlin", "amsterdam"
+)
 
 datanew <- read_xlsx("data/raphael/data_ueberblick2.xlsx") |>
   select(Jahr, Monat, Stadt, GAST02__Gaesteuebernachtungen__Anzahl, art)
 
 finalyeargr <- expand.grid(Jahr = seq(1998, 2024), Monat = seq(1, 12), Stadt = cities)
 
-final2 <- left_join(finalyeargr, datanew, by=c("Jahr","Monat","Stadt"))
+final2 <- left_join(finalyeargr, datanew, by=c("Jahr", "Monat", "Stadt"))
 
 finalq <- final2 |>
   filter(art==FALSE) |>

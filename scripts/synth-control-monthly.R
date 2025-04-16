@@ -153,12 +153,11 @@ synth_out <-
   ) |>
   generate_control()
 
-
-
 p2 <- synth_out |> plot_differences()
 p3 <- synth_out |> plot_weights()
 p4 <- synth_out |> plot_placebos()
 (p1 / p2) | (p3 / p4)
+
 ggsave("plot-results.png")
 
 synth_out |> plot_mspe_ratio()
