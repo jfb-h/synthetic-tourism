@@ -54,7 +54,10 @@ dataq2 <- datanew |>
 proportions <- dataq2 |> 
   filter(Jahr %in% 2006:2019) |>
   group_by(Jahr, Stadt, Quarter) |>
-  summarise(total = sum(GAST02__Gaesteuebernachtungen__Anzahl), .groups = "drop") |>
+  summarise(
+    total = sum(GAST02__Gaesteuebernachtungen__Anzahl),
+    .groups = "drop"
+  ) |>
   group_by(Jahr, Stadt) |>
   mutate(proportion = total / sum(total)) |>
   group_by(Stadt, Quarter) |> summarise(proportion = mean(proportion))
@@ -95,12 +98,16 @@ gdp <- read.csv2("data/raphael/GDPdaten.csv") |> janitor::clean_names() |>
   select(geo_labels,Year,value) |>
   rename(gdp=value)
 
-dat <- final |> rename(city=Stadt,year=Jahr,stays=total, quarter=Quarter) |>
+dat <- final |>
+  rename(
+    city = Stadt,
+    year = Jahr,
+    stays = total,
+    quarter = Quarter
+  ) |>
   arrange(year, quarter) |>
   mutate(i = cur_group_id(), .by = c(year, quarter)) |>
   left_join(gdp, by = c("year"="Year", "city"="geo_labels")) |>
   left_join(ew, by = c("year"="Year", "city"="geo_labels")) |>
   mutate(gdp = as.numeric(gdp), ew = as.numeric(ew)) |>
   tibble()
-
-
