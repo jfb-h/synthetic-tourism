@@ -54,8 +54,7 @@ yids <- function(years, start = 1996) {
   s:e
 }
 
-synth_out <-
-  dat |>
+synth_out <- dat |>
   synthetic_control(
     outcome = stays,
     unit = city,
@@ -150,6 +149,10 @@ synth_out <-
   generate_predictor(
     time_window = yids(2014:2016),
     ew_2014_2016 = mean(ew, na.rm = TRUE)
+  ) |>
+  generate_weights(
+    optimization_window = yids(1998:2017), 
+    margin_ipop = .02,sigf_ipop = 7,bound_ipop = 6 
   ) |>
   generate_control()
 

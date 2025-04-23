@@ -142,7 +142,7 @@ Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idio
 
 == The synthetic control method
 
-In this paper, we use the synthetic control method to assess the touristic impact of the Elbphilharmonie @abadie2021.
+In this paper, we use the synthetic control method @abadie2021 to assess the touristic impact of the Elbphilharmonie. 
 The synthetic control method aims to answer the question of whether a discrete intervention (here, the building of the Elbphilharmonie) had a causal effect on some quantity of interest (here, visitor numbers), i.e., whether there was an increase (or decrease) in the quantity of interest which would not have occurred without the intervention.
 In pursuit of this goal, the method follows a comparative case study design which contrasts the unit for which the intervention occurred (Hamburg) with a set of comparable units where the intervention didn't occur (other cities).
 More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit.
