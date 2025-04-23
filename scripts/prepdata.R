@@ -8,7 +8,7 @@ cities <- c("Wuppertal","Stuttgart","Rotterdam","Oslo","Nürnberg",
             "Bremen", "Bonn", "Bochum", "Bielefeld","Berlin","Amsterdam"
             )
 
-datanew <- read_xlsx("data/raw/data_ueberblick2.xlsx") |>
+datanew <- read_xlsx("data/intermediate/tourism.xlsx") |>
   select(Jahr, Monat, Stadt, GAST02__Gaesteuebernachtungen__Anzahl, art)
 
 finalyeargr <- expand.grid(Jahr = seq(1998, 2024), Monat = seq(1, 12), Stadt = cities)
@@ -68,13 +68,13 @@ finaltest <- rbind(finalq, finalj)
 final <- left_join(finalgr, finaltest, by=c("Jahr","Quarter","Stadt")) |>
   filter(!(Jahr==2024 & (Quarter == 3 | Quarter == 4)))
 
-ew <- read.csv2("data/raw/EWdaten.csv") |> janitor::clean_names() |>
+ew <- read.csv2("data/intermediate/population.csv") |> janitor::clean_names() |>
   pivot_longer(cols=starts_with("x") ,names_to = "Year") |>
   mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year))) |>
   select(geo_labels,Year,value) |>
   rename(ew=value)
 
-gdp <- read.csv2("data/raw/GDPdaten.csv") |> janitor::clean_names() |>
+gdp <- read.csv2("data/intermediate/gdp.csv") |> janitor::clean_names() |>
   pivot_longer(cols=starts_with("x") ,names_to = "Year") |>
   mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year)))|>
   select(geo_labels,Year,value) |>
