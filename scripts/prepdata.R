@@ -89,4 +89,4 @@ dat <- final |> rename(city=Stadt,year=Jahr,stays=total, quarter=Quarter) |>
   filter(city != "Oslo") |>
   tibble()
 
-write_parquet(dat, "data/intermediate/")
+write_parquet(dat, "data/processed/data.parquet")
