@@ -117,8 +117,8 @@ synth_out <-
     ew_2014_2016 = mean(ew, na.rm = TRUE)
   ) |>
   generate_weights(
-    optimization_window = yids(1998:2017), 
-    margin_ipop = .02,sigf_ipop = 7,bound_ipop = 6 
+    optimization_window = yids(1998:2017),
+    margin_ipop = .02, sigf_ipop = 7, bound_ipop = 6
   ) |>
   generate_control()
 
