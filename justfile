@@ -5,4 +5,4 @@ prepare-data:
     Rscript --vanilla  scripts/prepdata.R
     
 fit-model:
-    Rscript --vanilla scripts/
+    Rscript --vanilla scripts/fit-model.R

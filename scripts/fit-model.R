@@ -1,46 +1,11 @@
+library(tidyverse)
 library(tidysynth)
 library(patchwork)
+library(arrow)
 
-# dat <- arr |>
-#   filter(
-#     year(date) > 1995,
-#     year(date) < 2024
-#   ) |>
-#   filter(
-#     # TODO: Don't throw away data (due to missing stays)
-#     !(city %in% c("Flensburg", "Nürnberg", "München", "Frankfurt", "Kiel"))
-#   ) |>
-#   filter(
-#     # TODO: Don't throw away data (due to missing gdp)
-#     !(city %in% c("Hannover", "Bremerhaven"))
-#   ) |>
-#   mutate(year = year(date), quarter = quarter(date)) |>
-#   summarize(
-#     stays = sum(stays, na.rm = TRUE),
-#     .by = c(city, year, quarter)
-#   ) |>
-#   arrange(year, quarter) |>
-#   mutate(i = cur_group_id(), .by = c(quarter, year)) |>
-#   left_join(
-#     select(gdp, time, place, gdp),
-#     by = c("year" = "time", "city" = "place")
-#   ) |>
-#   left_join(
-#     select(pop, time, place, pop),
-#     by = c("year" = "time", "city" = "place")
-#   )
+dat <- read_parquet("data/processed/data.parquet")
 
 quartermonth <- function(x) c(1, 4, 7, 10)[x]
-
-# dat |>
-#   distinct(city, year, gdp) |>
-#   ggplot(aes(
-#     x = year,
-#     y = gdp,
-#     color = city
-#   )) +
-#   geom_line() +
-#   scale_y_log10()
 
 qids <- function(years, quarter, start = 1996) {
   if (years[1] < start) stop("start outside of period")
@@ -157,13 +122,13 @@ synth_out <-
   ) |>
   generate_control()
 
-
 p1 <- synth_out |> plot_trends()
 p2 <- synth_out |> plot_differences()
 p3 <- synth_out |> plot_weights()
 p4 <- synth_out |> plot_placebos()
-(p1 / p2) | (p3 / p4)
-ggsave("plot-results.png", height = 10, width = 15)
+p_combined <- (p1 / p2) | (p3 / p4)
+
+ggsave(p_combined, "figures/plot-combined.png", height = 10, width = 15)
 
 synth_out |> plot_mspe_ratio()
 synth_out |> grab_significance()
