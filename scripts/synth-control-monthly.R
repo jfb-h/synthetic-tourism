@@ -54,7 +54,8 @@ yids <- function(years, start = 1996) {
   s:e
 }
 
-synth_out <- dat |>
+synth_out <-
+  dat |>
   synthetic_control(
     outcome = stays,
     unit = city,
@@ -156,12 +157,13 @@ synth_out <- dat |>
   ) |>
   generate_control()
 
+
+p1 <- synth_out |> plot_trends()
 p2 <- synth_out |> plot_differences()
 p3 <- synth_out |> plot_weights()
 p4 <- synth_out |> plot_placebos()
 (p1 / p2) | (p3 / p4)
-
-ggsave("plot-results.png")
+ggsave("plot-results.png", height = 10, width = 15)
 
 synth_out |> plot_mspe_ratio()
 synth_out |> grab_significance()
