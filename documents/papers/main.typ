@@ -159,6 +159,7 @@ If these simulations yield similarly large effects as the actually treated unit,
 - robustness tests / placebo studies
 - variable selection
 - case selection
+- interpolation
 
 = Results and discussion
 
