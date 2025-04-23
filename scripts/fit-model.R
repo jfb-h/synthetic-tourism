@@ -128,7 +128,7 @@ p3 <- synth_out |> plot_weights()
 p4 <- synth_out |> plot_placebos()
 p_combined <- (p1 / p2) | (p3 / p4)
 
-ggsave(p_combined, "figures/plot-combined.png", height = 10, width = 15)
+ggsave("figures/plot-combined.png", p_combined, height = 10, width = 15)
 
 synth_out |> plot_mspe_ratio()
 synth_out |> grab_significance()
