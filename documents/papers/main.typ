@@ -143,7 +143,7 @@ Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idio
 == The synthetic control method
 
 In this paper, we use the synthetic control method @abadie2021 to assess the touristic impact of the Elbphilharmonie. 
-The synthetic control method aims to answer the question of whether a discrete intervention (here, the building of the Elbphilharmonie) had a causal effect on some quantity of interest (here, visitor numbers), i.e., whether there was an increase (or decrease) in the quantity of interest which would not have occurred without the intervention.
+The synthetic control method aims to answer the question of whether a discrete intervention (here, the building of the Elbphilharmonie) had a causal effect on some quantity of interest (here, overnight stays), i.e., whether there was an increase (or decrease) in the quantity of interest which would not have occurred without the intervention.
 In pursuit of this goal, the method follows a comparative case study design which contrasts the unit for which the intervention occurred (Hamburg) with a set of comparable units where the intervention didn't occur (other cities).
 More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit.
 Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest. 
@@ -151,17 +151,28 @@ Given sufficient pre-intervention similarity (taken to indicate that the behavio
 Robustness of this interpretation can be assessed by conducting different kinds of placebo tests:
 First, the analysis can be rerun with intervention shifted to different points in time. If these analyses yield similarly large post-intervention differences, results are likely to represent noise and should be interpreted with care.
 Second, instead of shifting the timepoint of the intervention, placebos can be constructed by assigning the intervention to other units than the one for which it occurred.
-If these simulations yield similarly large effects as the actually treated unit, results are again not robust.
+If these simulations yield similarly large effects as the actually treated unit, results are again deemed not robust.
 
-== Selection of control cases
+== Selection of variables and control cases
 
+Our primary variable of interest is the quarterly number of overnight stays, observed from 1998 to 2024.
+In addition, we also use per capita GDP as well as population size for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series. 
+For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki. 
+The latter were included to capture tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
+Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region, while quarterly data on overnight stays was assembled from state and municipal statistical authorities. 
+For some cities, such as Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
+For these years, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and distributing the available yearly data accordingly. 
 
-- robustness tests / placebo studies
-- variable selection
-- case selection
-- interpolation
+- quarterly specification of control variables
 
 = Results and discussion
+
+#figure(
+  image("../figures/plot-difference.png"),
+  scope: "parent",
+  placement: top,
+  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed (b).]
+)
 
 = Conclusion
 

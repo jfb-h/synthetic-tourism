@@ -2,18 +2,19 @@ library(tidyverse)
 library(tidysynth)
 library(patchwork)
 library(arrow)
+library(scales)
 
 dat <- read_parquet("data/processed/data.parquet")
 
 quartermonth <- function(x) c(1, 4, 7, 10)[x]
 
-qids <- function(years, quarter, start = 1996) {
+qids <- function(years, quarter, start = 1998) {
   if (years[1] < start) stop("start outside of period")
   s <- (years[1] - start) * 4 + quarter
   seq(s, s + length(years) * 4 - 1, by = 4)
 }
 
-yids <- function(years, start = 1996) {
+yids <- function(years, start = 1998) {
   s <- (first(years) - start) * 4 + 1
   e <- s + 3 + (last(years) - first(years)) * 4
   s:e
@@ -128,7 +129,45 @@ p3 <- synth_out |> plot_weights()
 p4 <- synth_out |> plot_placebos()
 p_combined <- (p1 / p2) | (p3 / p4)
 
-ggsave("figures/plot-combined.png", p_combined, height = 10, width = 15)
+quarter_numbers <- 1:106
+years <- 1997 + floor((quarter_numbers - 1) / 4)
+quarters <- ((quarter_numbers - 1) %% 4) + 1
+dates <- lubridate::ymd(paste(years, c(1,4,7,10)[quarters], "01", sep = "-"))
+
+p1 <- synth_out |>
+ grab_synthetic_control(placebo = FALSE) |>
+  rename(synthetic = synth_y, observed = real_y) |>
+  mutate(dates = dates) |>
+  pivot_longer(cols = c(observed, synthetic)) |>
+  ggplot(aes(dates, value, color = name, linetype = name)) + 
+    geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
+    geom_line(size = 1, alpha = 0.7) + 
+    #geom_point() + 
+    scale_color_manual(values = c("grey80", "black")) + 
+    scale_linetype_manual(values = c(1, 4)) + 
+    scale_y_continuous(labels = scales::comma) +
+    labs(y = "Oberved and synthetic overnight stays", x = NULL, color = NULL) +
+    theme_minimal() + 
+    # theme(text = element_text(family = "Courier")) +
+    guides(linetype = FALSE) +
+    theme(legend.position = "bottom")
+
+p2 <- synth_out |>
+ grab_synthetic_control(placebo = FALSE) |>
+ mutate(diff = real_y - synth_y, dates = dates) |>    
+    ggplot(aes(dates, diff)) + 
+    geom_hline(yintercept = 0, color = "black", linetype = 2) + 
+    geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
+    geom_line(size = 1, alpha = 0.75, color = "black") + 
+    # geom_point(color = "black") + 
+    scale_y_continuous(labels = scales::comma) +
+    theme_minimal() +
+    # theme(text = element_text(family = "Arial")) +
+    labs(y = "Observed - synthetic overnight stays", x = NULL)
+
+p_diff <- p1 / p2 + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
+
+ggsave("documents/figures/plot-difference.png", p_diff, height = 8, width = 12)
 
 synth_out |> plot_mspe_ratio()
 synth_out |> grab_significance()
