@@ -123,16 +123,18 @@ synth_out <-
   ) |>
   generate_control()
 
-p1 <- synth_out |> plot_trends()
-p2 <- synth_out |> plot_differences()
-p3 <- synth_out |> plot_weights()
-p4 <- synth_out |> plot_placebos()
-p_combined <- (p1 / p2) | (p3 / p4)
+# p1 <- synth_out |> plot_trends()
+# p2 <- synth_out |> plot_differences()
+# p3 <- synth_out |> plot_weights()
+# p4 <- synth_out |> plot_placebos()
+# p_combined <- (p1 / p2) | (p3 / p4)
 
 quarter_numbers <- 1:106
-years <- 1997 + floor((quarter_numbers - 1) / 4)
+years <- 1998 + floor((quarter_numbers - 1) / 4)
 quarters <- ((quarter_numbers - 1) %% 4) + 1
 dates <- lubridate::ymd(paste(years, c(1,4,7,10)[quarters], "01", sep = "-"))
+
+# Difference plot
 
 p1 <- synth_out |>
  grab_synthetic_control(placebo = FALSE) |>
@@ -168,6 +170,82 @@ p2 <- synth_out |>
 p_diff <- p1 / p2 + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
 
 ggsave("documents/figures/plot-difference.png", p_diff, height = 8, width = 12)
+
+# Placebo test
+
+time_window <- unique(synth_out$.original_data[[1]][["i"]])
+sig_data <- synth_out |> grab_significance(time_window = time_window)
+thres <- sig_data |> filter(type == "Treated") |> pull(pre_mspe) |> sqrt()
+
+retain <- sig_data |> 
+  select(unit_name, pre_mspe) |> 
+  filter(sqrt(pre_mspe) <= thres * 2) |> 
+  pull(unit_name)
+
+plot_data <- synth_out |>
+ grab_synthetic_control(placebo = TRUE) |>
+ mutate(diff = real_y - synth_y) |>
+ left_join(tibble(time_unit = 1:length(dates), dates = dates)) |>
+ mutate(
+      type_text = ifelse(.placebo == 0, "Hamburg", "control units"), 
+      type_text = factor(type_text, levels = c("Hamburg", "control units"))
+ ) |>
+ filter(.id %in% retain)
+
+p3 <- plot_data |> 
+  ggplot(aes(
+    dates, 
+    diff, 
+    group = .id, 
+    color = type_text, 
+    alpha = type_text, 
+    size = type_text
+  )) + 
+  geom_hline(yintercept = 0, color = "black", linetype = 2) + 
+  geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
+  geom_line() + 
+  scale_color_manual(values = c("black", "grey80")) + 
+  scale_alpha_manual(values = c(1, 0.4)) + 
+  scale_size_manual(values = c(1, 0.5)) + 
+  scale_y_continuous(labels = scales::comma) +
+  labs(
+    color = NULL, linetype = NULL, group = NULL, alpha = NULL, size = NULL,
+    x = NULL, y = "Observed - synthetic overnight stays"
+  ) + 
+  guides(linetype = FALSE) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+
+ggsave("documents/figures/plot-placebos.png", p3, height = 6, width = 12)
+
+# MSPE plot
+
+p4 <- synth_out |> 
+  grab_significance(time_window = time_window) |> 
+    mutate(
+      unit_name = fct_reorder(as.character(unit_name), mspe_ratio),
+      type = factor(
+        type, 
+        levels = c("Donor", "Treated"), 
+        labels = c("control", "treated")
+      )
+    ) |> 
+    ggplot(aes(unit_name, mspe_ratio, fill = type)) + 
+    geom_col(alpha = 0.65) + 
+    coord_flip() + 
+    labs(
+      y = "Post-period MSPE / pre-period MSPE", 
+      x = "", 
+      fill = "", 
+      color = "", 
+      title = ""
+    ) + 
+    scale_fill_manual(values = c("grey70", "black")) + 
+    scale_color_manual(values = c("grey70", "black")) + 
+    theme_minimal() + 
+    theme(legend.position = "bottom")
+
+ggsave("documents/figures/plot-mspe.png", p4, height = 7, width = 5)
 
 synth_out |> plot_mspe_ratio()
 synth_out |> grab_significance()

@@ -1,7 +1,9 @@
 #import "template.typ": template
 #show: template.with(
   title: [
-    Tourism magnet or money sink? Measuring the regional impact of the Elbphilharmonie
+    // Tourism magnet or money sink? Measuring the impact of the \ Elbphilharmonie in Hamburg
+
+    The regional impact of star architecture on tourism: A synthetic control study of the Elbphilharmonie in Hamburg
     
     // Hitting All the Right Notes? The Regional Impact of the Elbphilharmonie’s Exceptional Architecture on Tourism in Hamburg
     
@@ -49,7 +51,7 @@
     To address these existing knowledge gaps, our research examines the influence of exceptional architecture on tourism, focusing on the emblematic case of the ‘Elbphilharmonie’ concert hall in Hamburg.
     Methodologically, we employ a synthetic control method to quantify causal effects related to its inauguration.
     The outcomes of this analysis suggest that... 
-    Consequently, this study contributes to a nuanced comprehension of the effects of exceptional architecture on attracting tourism and sheds light on its impact in the (post)-pandemic period. 
+    Consequently, this study contributes to a nuanced comprehension of the effects of exceptional architecture on attracting tourism and sheds light on its impact in the (post)-pandemic period.
 
   ],
   
@@ -153,34 +155,55 @@ First, the analysis can be rerun with intervention shifted to different points i
 Second, instead of shifting the timepoint of the intervention, placebos can be constructed by assigning the intervention to other units than the one for which it occurred.
 If these simulations yield similarly large effects as the actually treated unit, results are again deemed not robust.
 
+- R package zitieren
+
 == Selection of variables and control cases
 
-Our primary variable of interest is the quarterly number of overnight stays, observed from 1998 to 2024.
+Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024.
 In addition, we also use per capita GDP as well as population size for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series. 
 For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki. 
 The latter were included to capture tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
 Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region, while quarterly data on overnight stays was assembled from state and municipal statistical authorities. 
 For some cities, such as Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
-For these years, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and distributing the available yearly data accordingly. 
+For these years, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
 
 - quarterly specification of control variables
+- covid
 
 = Results and discussion
+#lorem(150)
 
 #figure(
   image("../figures/plot-difference.png"),
   scope: "parent",
   placement: top,
-  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed (b).]
+  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). The dashed line marks the opening of the Elbphilharmonie in January 2017.]
+)
+
+#lorem(500)
+
+#figure(
+  image("../figures/plot-placebos.png"),
+  scope: "parent",
+  placement: top,
+  caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). The dashed line marks the opening of the Elbphilharmonie.]
+)
+
+#lorem(500)
+
+#figure(
+  image("../figures/plot-mspe.png"),
+  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
 )
 
 = Conclusion
 
-Here is the text with citations converted to the typst format without parentheses:
-
 This study has examined the causal effect of the inauguration of an exceptional architectural building on overnight stays in tourist accommodations, particularly in the context of post-pandemic recovery.
 Our contributions to the literature are threefold.
 First, we expand the scientific knowledge on the effects of the (post)-pandemic period in tourism research by contextualizing the role of exceptional architecture in tourism recovery.
+
+
+
 Our findings illustrate that exceptional architecture can act as catalysts for revitalizing urban tourism and sustaining long-term visitor engagement.
 Second, by employing a synthetic control method, we introduce a robust econometric framework for evaluating large-scale interventions, addressing concerns about “poorly conceived methodologies” in tourism research @zopiatis2021, p. 279.
 This methodological approach not only strengthens causal inference but also establishes a replicable model for future studies in regional tourism analysis.
