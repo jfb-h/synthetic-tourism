@@ -148,8 +148,8 @@ If these simulations yield similarly large effects as the actually treated unit,
 
 == Selection of variables and control cases
 
-Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024.
-In addition, we also use per capita GDP as well as population size for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series. 
+Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024. Compared to other measures of touristic activity, such as arrivals, the numbe of overnight stays was the most completely available series, and preliminary tests indicated that arrivals did not yield substantively different findings.
+In addition, we also use per capita GDP as well as population size for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series.
 For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki. 
 The latter were included to capture tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
 Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region, while quarterly data on overnight stays was assembled from state and municipal statistical authorities. 
@@ -160,7 +160,13 @@ For these years, we interpolated quarterly data by using the post 2005 share for
 - covid
 
 = Results and discussion
-#lorem(150)
+
+== Tourism development in Hamburg
+
+- descriptives, comparison
+- overnight stays vs. other measures
+
+#lorem(300)
 
 #figure(
   image("figures/plot-difference.png"),
@@ -169,7 +175,9 @@ For these years, we interpolated quarterly data by using the post 2005 share for
   caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). The dashed line marks the opening of the Elbphilharmonie in January 2017.]
 )
 
-#lorem(500)
+== The Elbphilharmonie effect
+
+#lorem(400)
 
 #figure(
   image("figures/plot-placebos.png"),
@@ -178,26 +186,28 @@ For these years, we interpolated quarterly data by using the post 2005 share for
   caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). The dashed line marks the opening of the Elbphilharmonie.]
 )
 
-#lorem(500)
-
-#figure(
-  image("figures/plot-mspe.png"),
-  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
-)
+== Robustness checks via placebo trials
+#lorem(300)
 
 = Conclusion
 
 This study has examined the causal effect of the inauguration of an exceptional architectural building on overnight stays in tourist accommodations, particularly in the context of post-pandemic recovery.
 Our contributions to the literature are threefold.
 First, we expand the scientific knowledge on the effects of the (post)-pandemic period in tourism research by contextualizing the role of exceptional architecture in tourism recovery.
-
-
-
 Our findings illustrate that exceptional architecture can act as catalysts for revitalizing urban tourism and sustaining long-term visitor engagement.
 Second, by employing a synthetic control method, we introduce a robust econometric framework for evaluating large-scale interventions, addressing concerns about “poorly conceived methodologies” in tourism research @zopiatis2021, p. 279.
 This methodological approach not only strengthens causal inference but also establishes a replicable model for future studies in regional tourism analysis.
 Third, we contribute to the empirical literature on the impact of exceptional architecture on tourism, addressing previous studies with mixed findings or cases influenced by a synergy of multiple contextual factors affecting tourism development.
 By applying this rigorous methodology, we reconstructed the counterfactual trajectory that tourism in Hamburg would have followed in the absence of the Elbphilharmonie’s construction.
+
+
+#figure(
+  image("figures/plot-mspe.png"),
+  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
+)
+
+
+
 
 We constructed a control group from XXX ….
 
