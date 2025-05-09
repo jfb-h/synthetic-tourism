@@ -61,7 +61,7 @@
 // The COVID-19 pandemic triggered an unprecedented crisis in global tourism from 2020 to 2022, leading to a loss of USD 2.5 trillion in export revenues - nearly 1.5 times the earnings of 2019.
 // As a result, tourism’s economic impact, reflected in the tourism direct gross domestic product, was halved, followed by strong rebounds backed by easing of restrictions @worldtourismorganization2021.
 // It is this context in which we examine the impact of exceptional architecture on the recovery of tourism activities in the post-pandemic period.
-@binz2025 architecture is known for its transformative power to shape the economic and cultural landscape of their host cities @alaily-mattar2022a @alaily-mattar2018b @dreher2023 @heidenreich2015.
+Exceptional architecture is known for its transformative power to shape the economic and cultural landscape of their host cities @alaily-mattar2022a @alaily-mattar2018b @dreher2023 @heidenreich2015.
 Due to heightened urban competition @hausler2024 @sklair2017 @zenker2013, this specific type of architecture can unleash attractive forces, has the potential to “act as a synecdoche for a city or region” @alaily-mattar2022a, p. 1 and allure tourists and inward investment @balke2018 @scerri2019.
 Particularly the opening of the Guggenheim Museum in Bilbao in 1997 has brought the topic into the spotlight of scholarly attention.
 Its inauguration has been linked to amplified tourism, a revitalized local economy, and an elevated cultural reputation @alaily-mattar2018b @plaza2006 @plaza2009.
