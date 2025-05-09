@@ -52,7 +52,6 @@
     Methodologically, we employ a synthetic control method to quantify causal effects related to its inauguration.
     The outcomes of this analysis suggest that... 
     Consequently, this study contributes to a nuanced comprehension of the effects of exceptional architecture on attracting tourism and sheds light on its impact in the (post)-pandemic period.
-
   ],
   
 )
