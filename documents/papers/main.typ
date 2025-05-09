@@ -133,7 +133,7 @@ Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idio
   image("figures/images.png"),
   scope: "parent",
   placement: top,
-  caption: [(a) Elbphilharmonie Hamburg with its glassy construction ©T.Rätzke (2) View over the Speicherstadt ©T.Rätzke (3) Architecture and Construction Details ©Herzog&de Meuron (4) Brick corpus of the cocoa warehouse in 1967 ©Zoch (Source: Elbphilharmonie & Laeiszhalle, 2024).]
+  caption: [(a) Elbphilharmonie Hamburg with its glassy construction ©T.Rätzke (b) View over the Speicherstadt ©T.Rätzke (c) Architecture and Construction Details ©Herzog&de Meuron (d) Brick corpus of the cocoa warehouse in 1967 ©Zoch. Source: @elbphilharmonie2024.]
 )
 
 = Data and Method
