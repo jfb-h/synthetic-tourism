@@ -173,7 +173,7 @@ For these years, we interpolated quarterly data by using the post 2005 share for
 #lorem(150)
 
 #figure(
-  image("../figures/plot-difference.png"),
+  image("figures/plot-difference.png"),
   scope: "parent",
   placement: top,
   caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). The dashed line marks the opening of the Elbphilharmonie in January 2017.]
@@ -182,7 +182,7 @@ For these years, we interpolated quarterly data by using the post 2005 share for
 #lorem(500)
 
 #figure(
-  image("../figures/plot-placebos.png"),
+  image("figures/plot-placebos.png"),
   scope: "parent",
   placement: top,
   caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). The dashed line marks the opening of the Elbphilharmonie.]
@@ -191,7 +191,7 @@ For these years, we interpolated quarterly data by using the post 2005 share for
 #lorem(500)
 
 #figure(
-  image("../figures/plot-mspe.png"),
+  image("figures/plot-mspe.png"),
   caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
 )
 
