@@ -247,6 +247,6 @@ p4 <- synth_out |>
 
 ggsave("documents/figures/plot-mspe.png", p4, height = 7, width = 5)
 
-synth_out |> plot_mspe_ratio()
-synth_out |> grab_significance()
-synth_out |> grab_balance_table()
+# synth_out |> plot_mspe_ratio()
+# synth_out |> grab_significance()
+# synth_out |> grab_balance_table()
