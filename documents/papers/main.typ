@@ -3,7 +3,7 @@
   title: [
     // Tourism magnet or money sink? Measuring the impact of the \ Elbphilharmonie in Hamburg
 
-    The regional impact of ecxeptional architecture on tourism: A synthetic control study of the Elbphilharmonie in Hamburg
+    The regional impact of exceptional architecture on tourism: \ A synthetic control study of the Elbphilharmonie in Hamburg
     
     // Hitting All the Right Notes? The Regional Impact of the Elbphilharmonie’s Exceptional Architecture on Tourism in Hamburg
     
