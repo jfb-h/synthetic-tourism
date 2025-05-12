@@ -163,6 +163,16 @@ For these years, we interpolated quarterly data by using the post 2005 share for
 
 == Tourism development in Hamburg
 
+#figure(
+  image("figures/plot-descriptive.png"),
+  scope: "parent",
+  placement: top,
+  caption: [Quarterly number of overnight stays for the Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted.]
+) <figure-descriptive>
+
+Hamburg has witnessed a steady increase in visitor numbers over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory for Hamburg comparable to Munich or Amsterdam. 
+
+
 - descriptives, comparison
 - overnight stays vs. other measures
 
@@ -176,6 +186,10 @@ For these years, we interpolated quarterly data by using the post 2005 share for
 )
 
 == The Elbphilharmonie effect
+
+- sum of extra visitors
+- covid variability
+- 
 
 #lorem(400)
 
