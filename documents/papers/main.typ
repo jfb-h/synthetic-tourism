@@ -185,7 +185,7 @@ For these cases, we interpolated quarterly data by using the post 2005 share for
   image("figures/plot-descriptive.png"),
   scope: "parent",
   placement: top,
-  caption: [Quarterly number of overnight stays for Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted. The shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
+  caption: [Quarterly number of overnight stays for Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted. The grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-descriptive>
 
 Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million.
@@ -204,16 +204,15 @@ However, based on juxtaposition of trends alone, it is difficult to assess the i
   image("figures/plot-difference.png"),
   scope: "parent",
   placement: top,
-  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). The dashed line marks the opening of the Elbphilharmonie in January 2017, the shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
+  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). Blue shaded areas highlight the post-treatment different between the synthetic and observed series. The dashed line marks the opening of the Elbphilharmonie in January 2017, the grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-difference>
 
 Compared to the counterfactual Hamburg (i.e., without Elbphilharmonie), the synthetic control method estimates a surplus of 13 million overnight stays between the opening of the Elbhilharmonie in January 2017 and the end of the observation period in Q2 2024. 
 @figure-difference shows the quarterly series of overnight stays for Hamburg and its 'synthetic twin' (a) and the difference between the two (b).
 Despite the volatility due to the COVID-19 pandemic, there is a clearly visible divergence in the period following the intervention, with larger than expected numbers of overnight stays especially in the period after the end of the pandemic.
 The difference peaks in Q2 2022, where an extra 1,039,103 overnight stays are recorded.
-Vice-versa, troughs of the difference plot, followed by peaks, align with pandemic-induced lockdowns in Germany (as indicated by the shaded areas in @figure-difference).
+Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns in Germany (as indicated by the shaded areas in @figure-difference) and are followed by peaks.
 
-#lorem(200)
 
 
 == Robustness checks via placebo trials

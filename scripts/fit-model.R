@@ -136,15 +136,35 @@ dates <- lubridate::ymd(paste(years, c(1,4,7,10)[quarters], "01", sep = "-"))
 
 # Difference plot
 
-p1 <- synth_out |>
+d_diff <- synth_out |>
  grab_synthetic_control(placebo = FALSE) |>
   rename(synthetic = synth_y, observed = real_y) |>
-  mutate(dates = dates) |>
+  mutate(dates = dates)
+
+p1 <- d_diff |>
   pivot_longer(cols = c(observed, synthetic)) |>
   ggplot(aes(dates, value, color = name)) + 
+    geom_rect(
+      aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
+      color = "grey90", fill = "grey90", alpha = 0.5
+    ) +
+    geom_rect(
+      aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
+      color = "grey90", fill = "grey90", alpha = 0.5
+    ) +
+    geom_rect(
+      aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
+      color = "grey90", fill = "grey90", alpha = 0.5
+    ) +
+    geom_ribbon(
+      data = filter(d_diff, dates >= ymd("2017-01-01")),
+      mapping = aes(x = dates, ymin = pmin(observed, synthetic), ymax = pmax(observed, synthetic)),
+      inherit.aes = FALSE,
+      fill = "#00aeff", alpha = 0.3
+    ) +
     geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
     geom_line(linewidth = 0.8, alpha = 0.7) + 
-    scale_color_manual(values = c("grey70", "black")) + 
+    scale_color_manual(values = c("grey60", "black")) + 
     scale_linetype_manual(values = c(1, 4)) + 
     scale_y_continuous(labels = scales::comma) +
     scale_x_date(
@@ -154,14 +174,12 @@ p1 <- synth_out |>
     labs(y = "Observed and synthetic\novernight stays", x = NULL, color = NULL) +
     theme_minimal() +
     guides(linetype = FALSE) +
-    theme(legend.position = "bottom")
+    theme(legend.position = "top", legend.justification = "left")
 
 p2 <- synth_out |>
  grab_synthetic_control(placebo = FALSE) |>
  mutate(diff = real_y - synth_y, dates = dates) |>    
     ggplot(aes(dates, diff)) + 
-    geom_hline(yintercept = 0, color = "black", linetype = 2) + 
-    geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
     geom_rect(
       aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
       fill = "grey90", alpha = 0.5
@@ -174,6 +192,13 @@ p2 <- synth_out |>
       aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
       fill = "grey90", alpha = 0.5
     ) +
+    geom_area(
+      data = (\(df) filter(df, dates >= ymd("2017-01-01"))), 
+      aes(x = dates, y = diff), 
+      fill = "#00aeff", alpha = 0.3
+    ) +
+    geom_hline(yintercept = 0, color = "black", linetype = 2) + 
+    geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
     geom_line(linewidth = 1, alpha = 0.75, color = "black") + 
     scale_y_continuous(labels = scales::comma) +
     scale_x_date(
@@ -189,9 +214,12 @@ ggsave("documents/papers/figures/plot-difference.png", p_diff, height = 6, width
 
 # difference sum
 
-d <- synth_out |>
+synth_out |>
  grab_synthetic_control(placebo = FALSE) |>
- mutate(diff = real_y - synth_y, dates = dates)
+ mutate(diff = real_y - synth_y, dates = dates) |>
+ filter(dates > ymd("2017-01-01")) |>
+ pull(diff) |>
+ sum()
 
 # Placebo test
 
