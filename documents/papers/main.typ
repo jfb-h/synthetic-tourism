@@ -1,4 +1,5 @@
 #import "template.typ": template
+
 #show: template.with(
   title: [
     // Tourism magnet or money sink? Measuring the impact of the \ Elbphilharmonie in Hamburg
@@ -55,6 +56,8 @@
   ],
   
 )
+
+#let todo(s) = text(red, weight: "bold")[TODO: #s]
 
 = Introduction <introduction>
 
@@ -139,31 +142,37 @@ Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idio
 In this paper, we use the synthetic control method @abadie2021 to assess the touristic impact of the Elbphilharmonie. 
 The synthetic control method aims to answer the question of whether a discrete intervention (here, the building of the Elbphilharmonie) had a causal effect on some quantity of interest (here, overnight stays), i.e., whether there was an increase (or decrease) in the quantity of interest which would not have occurred without the intervention.
 In pursuit of this goal, the method follows a comparative case study design which contrasts the unit for which the intervention occurred (Hamburg) with a set of comparable units where the intervention didn't occur (other cities).
-More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit.
-Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest. 
+More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit, which can be used to assess counterfactual scenarios.
+Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest, based on a set of predictors.
 Given sufficient pre-intervention similarity (taken to indicate that the behaviour of the quantity of interest is well-approximated by the weighted average of the control units), post-intervention deviations between the synthetic and the real case are then interpreted as a consequence of the intervention.
-Robustness of this interpretation can be assessed by conducting different kinds of placebo tests:
+
+An important assumption is the absence of other idiosyncratic shocks that could lead to a deviation of the treated unit in terms of the outcome of interest. While there was a considerable shock to tourism throughout the observation period in the form of the COVID-19 pandemic, this was not idiosyncratic: The pandemic lead to almost universal travel restrictions which in turn led to an almost universal and dramatic decline in visitor numbers (as can be seen in @figure-descriptive). Nevertheless, the pandemic led to considerable variability, which can make the identification of a clear signal more difficult. Accordingly, it is important to check the robustness of the causal interpretation of a treated-control divergence, which can be achieved thorugh two different kinds of placebo tests:
 First, the analysis can be rerun with intervention shifted to different points in time. If these analyses yield similarly large post-intervention differences, results are likely to represent noise and should be interpreted with care.
 Second, instead of shifting the timepoint of the intervention, placebos can be constructed by assigning the intervention to other units than the one for which it occurred.
-If these simulations yield similarly large effects as the actually treated unit, results are again deemed not robust.
+If these simulations yield similarly large effects as the actually treated unit, results are again deemed not robust. All analyses were conducted with the `tidysynth` package for the `R` programming language @dunford2025.
 
-- R package zitieren
 
-== Selection of variables and control cases
+== Variables and control cases
 
-Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most completely available series, and preliminary tests indicated that arrivals did not yield substantively different findings.
-In addition, we also use per capita GDP as well as population size for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series.
-For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki. 
+Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most complete series, and preliminary tests indicated that arrivals did not yield substantively different findings.
+As primary predictors for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series, we then use averages for all 5-year pre-intervention periods, separated by quarter (i.e., different averages for each quarter for each period). This specification allows for different periodicity patterns (e.g., coastal vs. alpine tourism) to influence the selection of optimal weights.
+In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the year before the intervention as predictors.
+For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki.
+The former represent national touristic trends, as well as Germany-specific covid policy responses. 
 The latter were included to capture tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
-The data for German cities were sourced from two primary origins. Initially, datasets were obtained from the online portals of the respective federal state statistical offices, where certain information is available in digital formats. This initial data collection was supplemented with archival data through a coordinated cross-regional request managed by the Bavarian State Office for Statistics. As part of this coordinated effort, the Bavarian State Office for Statistics directly contacted the statistical offices of the federal states (Bundesländer) where the targeted cities are located. These state offices provided the requested data, which was then consolidated by the Bavarian State Office for Statistics and made available as a comprehensive dataset for this study. Data for cities outside Germany were collected directly from the online platforms of the respective national statistical offices (Statistics Netherlands, Statistics Denmark, and Statistics Finland).
-Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region. 
-For some cities, such as Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
-For these years, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
+Inclusion of further cities or removal of the included smaller German cities did not lead to significant differences in the findings, supporting the selection reported here.
 
-- quarterly specification of control variables
-- covid
-- "some cities" --> for how many exactly did we interpolate?
-- do we only have only 4 non-german cities in the pool?
+== Data sources
+
+The data for German cities were obtained from two primary sources. Initial data were drawn from the online portals of the respective federal state statistical offices, where certain information is available in digital formats. 
+Because the data available from the public interfaces were incomplete, we supplemented this initial effort with archival data obtained through a cross-regional request to the federal statistical offices. This request was managed by the Bavarian State Office for Statistics, which coordinated with the other statistics offices to consolidate a comprehensive dataset.
+Data for cities outside Germany were collected directly from the online platforms of the respective national statistical offices (Statistics Netherlands, Statistics Denmark, and Statistics Finland).
+Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region. 
+For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
+For these cases, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
+
+#todo[references for statistics offices]
+
 
 = Results and discussion
 
@@ -178,9 +187,11 @@ For these years, we interpolated quarterly data by using the post 2005 share for
 
 Hamburg has witnessed a steady increase in visitor numbers over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory for Hamburg comparable to Munich or Amsterdam. 
 
+Increase from 4,541,687 in 1998 to 15,942,580 in 2023
 
 - descriptives, comparison
 - overnight stays vs. other measures
+- non-obviousness of trends
 
 #lorem(300)
 
