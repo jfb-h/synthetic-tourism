@@ -37,5 +37,5 @@ dat |>
     theme_minimal() +
     theme(legend.position = "bottom")
 
-ggsave("documents/papers/figures/plot-descriptive.png", height = 8, width = 12)
+ggsave("documents/papers/figures/plot-descriptive.png", height = 6, width = 10)
 

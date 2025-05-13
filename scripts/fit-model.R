@@ -151,7 +151,7 @@ p1 <- synth_out |>
       breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
       date_labels = "%Y"
     ) +
-    labs(y = "Observed and synthetic overnight stays", x = NULL, color = NULL) +
+    labs(y = "Observed and synthetic\novernight stays", x = NULL, color = NULL) +
     theme_minimal() +
     guides(linetype = FALSE) +
     theme(legend.position = "bottom")
@@ -181,11 +181,11 @@ p2 <- synth_out |>
       date_labels = "%Y"
     ) +
     theme_minimal() +
-    labs(y = "Observed - synthetic overnight stays", x = NULL)
+    labs(y = "Observed - synthetic \novernight stays", x = NULL)
 
 p_diff <- p1 / p2 + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
 
-ggsave("documents/papers/figures/plot-difference.png", p_diff, height = 8, width = 12)
+ggsave("documents/papers/figures/plot-difference.png", p_diff, height = 6, width = 10)
 
 # difference sum
 

@@ -188,7 +188,7 @@ For these cases, we interpolated quarterly data by using the post 2005 share for
   caption: [Quarterly number of overnight stays for Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted. The shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-descriptive>
 
-Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory for Hamburg comparable to Munich or Amsterdam. Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million.
+Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million.
 
 #todo[
 - table with pre-/post-intervention aggregate statistics for Hamburg, synthetic Hamburg, city average, nearest Neighbor
