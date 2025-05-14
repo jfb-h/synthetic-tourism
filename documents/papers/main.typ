@@ -1,4 +1,6 @@
 #import "template.typ": template
+#import "tables.typ": *
+
 #show: template.with(
   title: [
     // Tourism magnet or money sink? Measuring the impact of the \ Elbphilharmonie in Hamburg
@@ -56,11 +58,14 @@
   
 )
 
+#let todo(s) = text(red, weight: "bold")[TODO: #s]
+
 = Introduction <introduction>
 
 // The COVID-19 pandemic triggered an unprecedented crisis in global tourism from 2020 to 2022, leading to a loss of USD 2.5 trillion in export revenues - nearly 1.5 times the earnings of 2019.
 // As a result, tourism’s economic impact, reflected in the tourism direct gross domestic product, was halved, followed by strong rebounds backed by easing of restrictions @worldtourismorganization2021.
 // It is this context in which we examine the impact of exceptional architecture on the recovery of tourism activities in the post-pandemic period.
+
 Exceptional architecture is known for its transformative power to shape the economic and cultural landscape of their host cities @alaily-mattar2022a @alaily-mattar2018b @dreher2023 @heidenreich2015.
 Due to heightened urban competition @hausler2024 @sklair2017 @zenker2013, this specific type of architecture can unleash attractive forces, has the potential to “act as a synecdoche for a city or region” @alaily-mattar2022a[p. 1], and allure tourists and inward investment @balke2018 @scerri2019.
 Particularly the opening of the Guggenheim Museum in Bilbao in 1997 has brought the topic into the spotlight of scholarly attention.
@@ -139,51 +144,87 @@ Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idio
 In this paper, we use the synthetic control method @abadie2021 to assess the touristic impact of the Elbphilharmonie. 
 The synthetic control method aims to answer the question of whether a discrete intervention (here, the building of the Elbphilharmonie) had a causal effect on some quantity of interest (here, overnight stays), i.e., whether there was an increase (or decrease) in the quantity of interest which would not have occurred without the intervention.
 In pursuit of this goal, the method follows a comparative case study design which contrasts the unit for which the intervention occurred (Hamburg) with a set of comparable units where the intervention didn't occur (other cities).
-More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit.
-Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest. 
+More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit, which can be used to assess counterfactual scenarios.
+Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest. Similarity is determined based on a set of predictors, which themselves have associated importance weights also subject to optimization.
 Given sufficient pre-intervention similarity (taken to indicate that the behaviour of the quantity of interest is well-approximated by the weighted average of the control units), post-intervention deviations between the synthetic and the real case are then interpreted as a consequence of the intervention.
-Robustness of this interpretation can be assessed by conducting different kinds of placebo tests:
+
+An important assumption is the absence of other idiosyncratic shocks that could lead to a deviation of the treated unit in terms of the outcome of interest. While there was a considerable shock to tourism throughout the observation period in the form of the COVID-19 pandemic, this was not idiosyncratic: The pandemic lead to almost universal travel restrictions which in turn led to an almost universal and dramatic decline in visitor numbers (as can be seen in @figure-descriptive). Nevertheless, the pandemic led to considerable variability, which can make the identification of a clear signal more difficult. Accordingly, it is important to check the robustness of the causal interpretation of a treated-control divergence, which can be achieved thorugh two different kinds of placebo tests:
 First, the analysis can be rerun with intervention shifted to different points in time. If these analyses yield similarly large post-intervention differences, results are likely to represent noise and should be interpreted with care.
 Second, instead of shifting the timepoint of the intervention, placebos can be constructed by assigning the intervention to other units than the one for which it occurred.
-If these simulations yield similarly large effects as the actually treated unit, results are again deemed not robust.
+If these simulations yield similarly large effects as the actually treated unit, results are again deemed not robust. All analyses were conducted with the `tidysynth` package for the `R` programming language @dunford2025.
 
-- R package zitieren
 
-== Selection of variables and control cases
+== Predictors and control cases
 
-Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most completely available series, and preliminary tests indicated that arrivals did not yield substantively different findings.
-In addition, we also use per capita GDP as well as population size for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series.
-For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki. 
-The latter were included to capture tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
-The data for German cities were sourced from two primary origins. Initially, datasets were obtained from the online portals of the respective federal state statistical offices, where certain information is available in digital formats. This initial data collection was supplemented with archival data through a coordinated cross-regional request managed by the Bavarian State Office for Statistics. As part of this coordinated effort, the Bavarian State Office for Statistics directly contacted the statistical offices of the federal states (Bundesländer) where the targeted cities are located. These state offices provided the requested data, which was then consolidated by the Bavarian State Office for Statistics and made available as a comprehensive dataset for this study. Data for cities outside Germany were collected directly from the online platforms of the respective national statistical offices (Statistics Netherlands, Statistics Denmark, and Statistics Finland).
+Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to Q2 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most complete series, and preliminary tests indicated that arrivals did not yield substantively different findings.
+As primary predictors for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series, we then use averages for all 5-year pre-intervention periods, separated by quarter (i.e., different averages for each quarter for each period). This specification allows for different periodicity patterns (e.g., coastal vs. alpine tourism) to influence the selection of optimal weights.
+In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the three years preceeding the intervention as predictors.
+For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki.
+The former capture national touristic trends, as well as Germany-specific policy responses to the pandemic. 
+The latter were included to allow for tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
+Inclusion of further cities or removal of the included smaller German cities did not lead to significant differences in the findings, supporting the selection reported here.
+
+== Data sources
+
+The data for German cities were obtained from two primary sources. Initial data were drawn from the online portals of the respective federal state statistical offices, where certain information is available in digital formats. 
+Because the data available from the public interfaces were incomplete, we supplemented this initial effort with archival data obtained through a cross-regional request to the federal statistical offices. This request was managed by the Bavarian State Office for Statistics, which coordinated with the other statistics offices to consolidate a comprehensive dataset.
+Data for cities outside Germany were collected directly from the online platforms of the respective national statistical offices (Statistics Netherlands, Statistics Denmark, and Statistics Finland).
 Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region. 
-For some cities, such as Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
-For these years, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
+For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
+For these cases, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
 
-- quarterly specification of control variables
-- covid
-- "some cities" --> for how many exactly did we interpolate?
-- do we only have only 4 non-german cities in the pool?
 
 = Results and discussion
 
 == Tourism development in Hamburg
 
-- descriptives, comparison
-- overnight stays vs. other measures
+// Increase from 4,541,687 in 1998 to 15,942,580 in 2023
 
-#lorem(300)
+#figure(
+  image("figures/plot-descriptive.png"),
+  scope: "parent",
+  placement: top,
+  caption: [Quarterly number of overnight stays for Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted. The grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
+) <figure-descriptive>
+
+Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million.
+
+#todo[
+- table nearest neighbor (Jakob)
+- more fine-grained description, comparison (Philipp)
+- divergence 1998 - 2003 (Philipp)
+]
+
+However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
+
+== The Elbphilharmonie effect
+
+#table1
 
 #figure(
   image("figures/plot-difference.png"),
   scope: "parent",
   placement: top,
-  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). The dashed line marks the opening of the Elbphilharmonie in January 2017.]
-)
+  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). Blue shaded areas highlight the post-treatment different between the synthetic and observed series. The dashed line marks the opening of the Elbphilharmonie in January 2017, the grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
+) <figure-difference>
 
-== The Elbphilharmonie effect
+Compared to the counterfactual Hamburg (i.e., without Elbphilharmonie), the synthetic control method estimates a surplus of 13 million overnight stays between the opening of the Elbhilharmonie in January 2017 and the end of the observation period in Q2 2024. 
+@figure-difference shows the quarterly series of overnight stays for Hamburg and its 'synthetic twin' (a) and the difference between the two (b).
+Despite the volatility due to the COVID-19 pandemic, there is a clearly visible divergence in the period following the intervention, with larger than expected numbers of overnight stays especially in the period after the end of the pandemic.
+The difference peaks in Q2 2022, where an extra 1,039,103 overnight stays are recorded.
+Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns in Germany (as indicated by the shaded areas in @figure-difference) and are followed by peaks.
+This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
+Whether recent landmarks and the visibility they create systematically interact with such rebound effects is however speculative at best and beyond the scope of this study.
 
-#lorem(400)
+#todo[
+  estimate
+  - seasonality of difference
+  - variable importance
+  - monetary estimate based on per-visitor per-day spending / overnight stay cost (Philipp)
+]
+
+
+== Robustness checks via placebo trials
 
 #figure(
   image("figures/plot-placebos.png"),
@@ -192,8 +233,13 @@ For these years, we interpolated quarterly data by using the post 2005 share for
   caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). The dashed line marks the opening of the Elbphilharmonie.]
 )
 
-== Robustness checks via placebo trials
 #lorem(300)
+
+#figure(
+  image("figures/plot-mspe.png"),
+  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
+)
+
 
 = Conclusion
 
@@ -205,12 +251,6 @@ Second, by employing a synthetic control method, we introduce a robust econometr
 This methodological approach not only strengthens causal inference but also establishes a replicable model for future studies in regional tourism analysis.
 Third, we contribute to the empirical literature on the impact of exceptional architecture on tourism, addressing previous studies with mixed findings or cases influenced by a synergy of multiple contextual factors affecting tourism development.
 By applying this rigorous methodology, we reconstructed the counterfactual trajectory that tourism in Hamburg would have followed in the absence of the Elbphilharmonie’s construction.
-
-
-#figure(
-  image("figures/plot-mspe.png"),
-  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
-)
 
 
 
