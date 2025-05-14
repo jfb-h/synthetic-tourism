@@ -270,7 +270,7 @@ p3 <- plot_data |>
   theme_minimal() +
   theme(legend.position = "bottom")
 
-ggsave("documents/papers/figures/plot-placebos.png", p3, height = 6, width = 12)
+ggsave("documents/papers/figures/plot-placebos.png", p3, height = 6, width = 10)
 
 # MSPE plot
 
@@ -288,7 +288,7 @@ p4 <- synth_out |>
     geom_col(alpha = 0.65) + 
     coord_flip() + 
     labs(
-      y = "Post-period MSPE / pre-period MSPE", 
+      y = "Post-treatment MSPE / pre-treatment MSPE", 
       x = "", 
       fill = "", 
       color = "", 
@@ -299,8 +299,11 @@ p4 <- synth_out |>
     theme_minimal() + 
     theme(legend.position = "bottom")
 
-ggsave("documents/figures/plot-mspe.png", p4, height = 7, width = 5)
+ggsave("documents/papers/figures/plot-mspe.png", p4, height = 7, width = 5)
 
+synth_out |> tidysynth::grab_unit_weights()
+
+synth_out |> grab_balance_table()
 # synth_out |> plot_mspe_ratio()
 # synth_out |> grab_significance()
 # synth_out |> grab_balance_table()

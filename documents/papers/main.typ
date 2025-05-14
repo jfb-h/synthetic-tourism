@@ -1,4 +1,5 @@
 #import "template.typ": template
+#import "tables.typ": *
 
 #show: template.with(
   title: [
@@ -157,10 +158,10 @@ If these simulations yield similarly large effects as the actually treated unit,
 
 Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most complete series, and preliminary tests indicated that arrivals did not yield substantively different findings.
 As primary predictors for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series, we then use averages for all 5-year pre-intervention periods, separated by quarter (i.e., different averages for each quarter for each period). This specification allows for different periodicity patterns (e.g., coastal vs. alpine tourism) to influence the selection of optimal weights.
-In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the year before the intervention as predictors.
+In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the three years preceeding the intervention as predictors.
 For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki.
-The former represent national touristic trends, as well as Germany-specific covid policy responses. 
-The latter were included to capture tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
+The former capture national touristic trends, as well as Germany-specific policy responses to the pandemic. 
+The latter were included to allow for tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
 Inclusion of further cities or removal of the included smaller German cities did not lead to significant differences in the findings, supporting the selection reported here.
 
 == Data sources
@@ -193,12 +194,14 @@ Hamburg has witnessed a steady increase in tourism over the past 30 years, simil
 #todo[
 - table with pre-/post-intervention aggregate statistics for Hamburg, synthetic Hamburg, city average, nearest Neighbor
 - more fine-grained description, comparison
-- non-obviousness of trends
+- divergence 1998 - 2003
 ]
 
 However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
 
 == The Elbphilharmonie effect
+
+#table1
 
 #figure(
   image("figures/plot-difference.png"),
@@ -212,7 +215,16 @@ Compared to the counterfactual Hamburg (i.e., without Elbphilharmonie), the synt
 Despite the volatility due to the COVID-19 pandemic, there is a clearly visible divergence in the period following the intervention, with larger than expected numbers of overnight stays especially in the period after the end of the pandemic.
 The difference peaks in Q2 2022, where an extra 1,039,103 overnight stays are recorded.
 Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns in Germany (as indicated by the shaded areas in @figure-difference) and are followed by peaks.
+This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
+Whether recent landmarks and the visibility they create systematically interact with such rebound effects is however speculative at best and beyond the scope of this study.
 
+
+
+#todo[
+  estimate
+  - variable importance
+  - monetary estimate based on per-visitor per-day spending / overnight stay cost
+]
 
 
 == Robustness checks via placebo trials

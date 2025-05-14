@@ -24,7 +24,7 @@
   show heading.where(body: [References]): set heading(numbering: none)
   
   show figure.caption: set text(size: 10pt)
-  show figure.caption: set align(left)
+  // show figure.caption: set align(left)
 
   let count = authors.len()
   let ncols = calc.min(count, 3)
