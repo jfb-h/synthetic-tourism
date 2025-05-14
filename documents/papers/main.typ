@@ -167,12 +167,32 @@ Inclusion of further cities or removal of the included smaller German cities did
 == Data sources
 
 The data for German cities were obtained from two primary sources. Initial data were drawn from the online portals of the respective federal state statistical offices, where certain information is available in digital formats. 
-Because the data available from the public interfaces were incomplete, we supplemented this initial effort with archival data obtained through a cross-regional request to the federal statistical offices. This request was managed by the Bavarian State Office for Statistics, which coordinated with the other statistics offices to consolidate a comprehensive dataset.
+Because the data available from the public interfaces were incomplete, we supplemented this initial effort with archival data obtained through a cross-regional request to the federal statistical offices. This request was managed by the Bavarian State Office for Statistics, which coordinated with the other statistics offices to consolidate a comprehensive dataset. For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
+For these cases, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
 Data for cities outside Germany were collected directly from the online platforms of the respective national statistical offices (Statistics Netherlands, Statistics Denmark, and Statistics Finland).
 Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region. 
-For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
-For these cases, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
 
+
+
+// Data sources: 
+// Hamburg & Berlin, 1998-2024: Ankünfte, Übernachtungen in Beherbergungsbetrieben: Bundesländer, Monate. Code: 45412-0025. Statistisches Bundesamt (Destatis), online.
+
+// North Rhine-Westphalia, 2005-2024 (Düsseldorf, Duisburg, Essen, Wuppertal, Bonn, Köln, Münster, Bielefeld, Bochum, Dortmund): Betriebe, geöffnete Beherbergungsbetriebe, Betten, angebotene Betten, Ankünfte und Übernachtungen- Gemeinden – Monat. Code: 45412-11i. Statistisches Landesamt NRW, online.
+// North Rhine-Westphalia, 1998-2004 (Düsseldorf, Duisburg, Essen, Wuppertal, Bonn, Köln, Münster, Bielefeld, Bochum, Dortmund): Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Bavaria, 2006-2024 (München, Nürnberg): Tourismus: Gemeinden, Betriebe, Betten, Auslastung, Übernachtungen, Ankünfte, Monat, Jahr. Code: 45511-001. Bayerisches Landesamt für Statistik, online. 
+// Bavaria, 1998-2005 (München, Nürnberg): Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Bremen, 1998-2024 (Bremen, Bremerhaven): Monatszahlen im Tourismus. Code: 45412-55. Statistisches Landesamt Bremen, online. 
+
+// Hannover, 1998-2024: Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Stuttgart, 2012-2024: Beherbergung im Reiseverkehr seit 2012 – monatlich. Statistisches Landesamt Baden-Württemberg, online.
+// Stuttgart, 1998-2011: Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Amsterdam & Rotterdam, 1998-2024: Hotels; guests, overnight stays, country of residence, region. Code: 82061. Statistics Netherlands (CBS), online. 
+//Copenhagen, 1998-2024: Overnight stay by type of overnight accommodations, region, nationality of the guest and period. Code: TURIST. Statistics Denmark, online. 
+// Helsinki, 1998-2024: Monthly hotel capacity and nights spent by municipality, 1995M01-2025M03. Code: 11lm. Statistics Finland, online. 
 
 = Results and discussion
 
@@ -220,7 +240,7 @@ Whether recent landmarks and the visibility they create systematically interact 
   estimate
   - seasonality of difference
   - variable importance
-  - monetary estimate based on per-visitor per-day spending / overnight stay cost (Philipp)
+  - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
 ]
 
 
@@ -269,4 +289,4 @@ Critique exceptional architecture?:
 
 However, the creation of exceptional architecture is not without its critiques, as such buildings often embody and project power to maximize commercial gains for the capitalist elite @sklair2006.
 
-These architectural works can be co-opted to publicly legitimize and politically enforce the underlying projects, making them essential components of a post-political regime characterized by neoliberal governmentality @balke2018, p. 997, reflecting a broader societal trend toward the commercialization of increasingly diverse aspects of our life @hausler2024, p. 225.
+These architectural works can be co-opted to publicly legitimize and politically enforce the underlying projects, making them essential components of a post-political regime characterized by neoliberal governmentality @balke2018[p. 997], reflecting a broader societal trend toward the commercialization of increasingly diverse aspects of our life @hausler2024[p. 225].
