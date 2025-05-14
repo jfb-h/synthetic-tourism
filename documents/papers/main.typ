@@ -156,7 +156,7 @@ If these simulations yield similarly large effects as the actually treated unit,
 
 == Predictors and control cases
 
-Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most complete series, and preliminary tests indicated that arrivals did not yield substantively different findings.
+Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to Q2 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most complete series, and preliminary tests indicated that arrivals did not yield substantively different findings.
 As primary predictors for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series, we then use averages for all 5-year pre-intervention periods, separated by quarter (i.e., different averages for each quarter for each period). This specification allows for different periodicity patterns (e.g., coastal vs. alpine tourism) to influence the selection of optimal weights.
 In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the three years preceeding the intervention as predictors.
 For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki.
@@ -172,8 +172,6 @@ Data for cities outside Germany were collected directly from the online platform
 Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region. 
 For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
 For these cases, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
-
-#todo[references for statistics offices]
 
 
 = Results and discussion
@@ -192,9 +190,9 @@ For these cases, we interpolated quarterly data by using the post 2005 share for
 Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million.
 
 #todo[
-- table with pre-/post-intervention aggregate statistics for Hamburg, synthetic Hamburg, city average, nearest Neighbor
-- more fine-grained description, comparison
-- divergence 1998 - 2003
+- table nearest neighbor (Jakob)
+- more fine-grained description, comparison (Philipp)
+- divergence 1998 - 2003 (Philipp)
 ]
 
 However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
@@ -218,12 +216,11 @@ Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns
 This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
 Whether recent landmarks and the visibility they create systematically interact with such rebound effects is however speculative at best and beyond the scope of this study.
 
-
-
 #todo[
   estimate
+  - seasonality of difference
   - variable importance
-  - monetary estimate based on per-visitor per-day spending / overnight stay cost
+  - monetary estimate based on per-visitor per-day spending / overnight stay cost (Philipp)
 ]
 
 
