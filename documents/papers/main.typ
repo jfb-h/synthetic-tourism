@@ -75,9 +75,7 @@ In doing so, our procedure also confronts methodological challenges in understan
 However, these methods have limitations in causally linking them back to specific events @doerr2020 @tkalec2017, also when it comes to making statements about temporal effects @dreher2020. In this context, the synthetic control method serves as an innovative tool in economic geography and tourism research, providing more accurate and detailed insights. Prior studies have successfully applied this method to evaluate the impact of European Union cohesion policies on tourism and culture @brandano2023, the influence of popular television series on tourist arrivals @tkalec2017, the effects of transport infrastructure on regional tourism @albalate2023 @doerr2020, or the consequences of natural disasters on tourism and migration @antonaglia2024 @kim2023.
 
 Our empirical findings suggest that, ….
-In the following sections, we first outline the impact exceptional architecture can have on tourist attractiveness and highlight the challenges of measuring these effects.
-We then present the case of the Elbphilharmonie in detail in Section 3, followed by an overview of the empirical analysis in Section 4.
-We summarize the results in Section 4 and conclude with implications for future research on the relationship between exceptional architecture and tourism.
+In the following sections, we first outline the impact of exceptional architecture on tourist attractiveness and highlight the challenges of measuring the resulting causal effects. In Section 3, we then present the case of the Elbphilharmonie in detail, followed by an overview of the data and methods in Section 4. We then present and discuss the results of applying the synthetic control method to the Elbphilharmonie case, focusing on its regional impact on tourism, before concluding with final remarks.
 
 = Tourism and architecture
 
@@ -125,8 +123,10 @@ Unlike the Guggenheim Museum in Bilbao, which was constructed as a catalyst for 
 The focus to serve the local and national population gets evident in the origin of the audience attending performances in the concert hall, where the proportion of foreign attendees has not surpassed 6%.
 In contrast, approximately 60 to 70% of visitors to the Guggenheim Museum in Bilbao come from foreign countries @heuer2022[p. 97].
 To study of the impact of exceptional architecture on regional tourism, using the Elbphilharmonie in Hamburg as an example, is beneficial in two ways.
-First, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of @dreher2020.
-Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idiosyncratic contextual influencing factors such as the rapid transformation of a rundown industrial city, end of terrorism, etc., making it more feasible to accurately estimate the causal effects of exceptional architecture on tourism.
+Firstly, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of @dreher2020.
+Secondly, when measuring the touristic development in Bilbao in the 1990s, multiple factors beyond the opening of the Guggenheim Museum contributed to the city's attractive for tourists, including extensive urban redevelopment of former industrial areas, economic diversification, and a decline in ETA-related violence @keating2003@gomez2001. In contrast, during the opening of the Elbphilharmonie, Hamburg did not experience similar idiosyncratic contextual factors, making it more feasible to accurately estimate the isolated causal effects of exceptional architecture on tourism.
+
+
 
 // TODO: Describe data
 
@@ -167,12 +167,32 @@ Inclusion of further cities or removal of the included smaller German cities did
 == Data sources
 
 The data for German cities were obtained from two primary sources. Initial data were drawn from the online portals of the respective federal state statistical offices, where certain information is available in digital formats. 
-Because the data available from the public interfaces were incomplete, we supplemented this initial effort with archival data obtained through a cross-regional request to the federal statistical offices. This request was managed by the Bavarian State Office for Statistics, which coordinated with the other statistics offices to consolidate a comprehensive dataset.
+Because the data available from the public interfaces were incomplete, we supplemented this initial effort with archival data obtained through a cross-regional request to the federal statistical offices. This request was managed by the Bavarian State Office for Statistics, which coordinated with the other statistics offices to consolidate a comprehensive dataset. For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
+For these cases, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
 Data for cities outside Germany were collected directly from the online platforms of the respective national statistical offices (Statistics Netherlands, Statistics Denmark, and Statistics Finland).
 Data on GDP and population were obtained from Eurostat for the corresponding NUTS3 region. 
-For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. 
-For these cases, we interpolated quarterly data by using the post 2005 share for each quarter (which was checked to be sufficiently stable over time) and then distributing the available yearly data accordingly. 
 
+
+
+// Data sources: 
+// Hamburg & Berlin, 1998-2024: Ankünfte, Übernachtungen in Beherbergungsbetrieben: Bundesländer, Monate. Code: 45412-0025. Statistisches Bundesamt (Destatis), online.
+
+// North Rhine-Westphalia, 2005-2024 (Düsseldorf, Duisburg, Essen, Wuppertal, Bonn, Köln, Münster, Bielefeld, Bochum, Dortmund): Betriebe, geöffnete Beherbergungsbetriebe, Betten, angebotene Betten, Ankünfte und Übernachtungen- Gemeinden – Monat. Code: 45412-11i. Statistisches Landesamt NRW, online.
+// North Rhine-Westphalia, 1998-2004 (Düsseldorf, Duisburg, Essen, Wuppertal, Bonn, Köln, Münster, Bielefeld, Bochum, Dortmund): Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Bavaria, 2006-2024 (München, Nürnberg): Tourismus: Gemeinden, Betriebe, Betten, Auslastung, Übernachtungen, Ankünfte, Monat, Jahr. Code: 45511-001. Bayerisches Landesamt für Statistik, online. 
+// Bavaria, 1998-2005 (München, Nürnberg): Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Bremen, 1998-2024 (Bremen, Bremerhaven): Monatszahlen im Tourismus. Code: 45412-55. Statistisches Landesamt Bremen, online. 
+
+// Hannover, 1998-2024: Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Stuttgart, 2012-2024: Beherbergung im Reiseverkehr seit 2012 – monatlich. Statistisches Landesamt Baden-Württemberg, online.
+// Stuttgart, 1998-2011: Archival, cross-state data collection coordinated by the Bavarian State Office for Statistics.
+
+// Amsterdam & Rotterdam, 1998-2024: Hotels; guests, overnight stays, country of residence, region. Code: 82061. Statistics Netherlands (CBS), online. 
+//Copenhagen, 1998-2024: Overnight stay by type of overnight accommodations, region, nationality of the guest and period. Code: TURIST. Statistics Denmark, online. 
+// Helsinki, 1998-2024: Monthly hotel capacity and nights spent by municipality, 1995M01-2025M03. Code: 11lm. Statistics Finland, online. 
 
 = Results and discussion
 
@@ -221,7 +241,7 @@ Whether recent landmarks and the visibility they create systematically interact 
   estimate
   - seasonality of difference
   - variable importance
-  - monetary estimate based on per-visitor per-day spending / overnight stay cost (Philipp)
+  - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
 ]
 
 
@@ -276,4 +296,4 @@ Critique exceptional architecture?:
 
 However, the creation of exceptional architecture is not without its critiques, as such buildings often embody and project power to maximize commercial gains for the capitalist elite @sklair2006.
 
-These architectural works can be co-opted to publicly legitimize and politically enforce the underlying projects, making them essential components of a post-political regime characterized by neoliberal governmentality @balke2018, p. 997, reflecting a broader societal trend toward the commercialization of increasingly diverse aspects of our life @hausler2024, p. 225.
+These architectural works can be co-opted to publicly legitimize and politically enforce the underlying projects, making them essential components of a post-political regime characterized by neoliberal governmentality @balke2018[p. 997], reflecting a broader societal trend toward the commercialization of increasingly diverse aspects of our life @hausler2024[p. 225].
