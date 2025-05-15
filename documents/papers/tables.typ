@@ -68,7 +68,7 @@
     [GDP 2005-2009], [53,460], [53,403], [44,821],
     // [GDP 2010-2014], [56,700], [56,349], [48,141],
     // [GDP 2015-2016], [61,150], [59,166], [51,905],
-    [EW 2014-2016], [1,765,514], [1,539,810], [849,368],
+    [POP 2014-2016], [1,765,514], [1,539,810], [849,368],
     table.hline(), 
     table.footer(table.cell(text(style: "italic", size: 10pt)[
         Note: All values are avereages over the indicated period. Synthetic Hamburg is the weighted avereage of control cases using the optimized weights, while the control cases column reports the simple average.

@@ -197,6 +197,7 @@ Hamburg has witnessed a steady increase in tourism over the past 30 years, simil
 
 However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
 
+
 == The Elbphilharmonie effect
 
 #table1
@@ -226,6 +227,13 @@ Whether recent landmarks and the visibility they create systematically interact 
 
 == Robustness checks via placebo trials
 
+#todo[
+  - Temporal placebo
+  -
+]
+
+While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'. This is arguably especially important in a case like the one discussed here, where a global shock introduces uncertainty into the studied system. We accordingly conduct two placebo trials: First, 
+
 #figure(
   image("figures/plot-placebos.png"),
   scope: "parent",
@@ -233,7 +241,6 @@ Whether recent landmarks and the visibility they create systematically interact 
   caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). The dashed line marks the opening of the Elbphilharmonie.]
 )
 
-#lorem(300)
 
 #figure(
   image("figures/plot-mspe.png"),
