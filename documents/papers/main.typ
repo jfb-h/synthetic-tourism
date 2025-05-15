@@ -75,9 +75,7 @@ In doing so, our procedure also confronts methodological challenges in understan
 However, these methods have limitations in causally linking them back to specific events @doerr2020 @tkalec2017, also when it comes to making statements about temporal effects @dreher2020. In this context, the synthetic control method serves as an innovative tool in economic geography and tourism research, providing more accurate and detailed insights. Prior studies have successfully applied this method to evaluate the impact of European Union cohesion policies on tourism and culture @brandano2023, the influence of popular television series on tourist arrivals @tkalec2017, the effects of transport infrastructure on regional tourism @albalate2023 @doerr2020, or the consequences of natural disasters on tourism and migration @antonaglia2024 @kim2023.
 
 Our empirical findings suggest that, ….
-In the following sections, we first outline the impact exceptional architecture can have on tourist attractiveness and highlight the challenges of measuring these effects.
-We then present the case of the Elbphilharmonie in detail in Section 3, followed by an overview of the empirical analysis in Section 4.
-We summarize the results in Section 4 and conclude with implications for future research on the relationship between exceptional architecture and tourism.
+In the following sections, we first outline the impact of exceptional architecture on tourist attractiveness and highlight the challenges of measuring the resulting causal effects. In Section 3, we then present the case of the Elbphilharmonie in detail, followed by an overview of the data and methods in Section 4. We then present and discuss the results of applying the synthetic control method to the Elbphilharmonie case, focusing on its regional impact on tourism, before concluding with final remarks.
 
 = Tourism and architecture
 
