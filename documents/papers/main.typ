@@ -123,8 +123,10 @@ Unlike the Guggenheim Museum in Bilbao, which was constructed as a catalyst for 
 The focus to serve the local and national population gets evident in the origin of the audience attending performances in the concert hall, where the proportion of foreign attendees has not surpassed 6%.
 In contrast, approximately 60 to 70% of visitors to the Guggenheim Museum in Bilbao come from foreign countries @heuer2022[p. 97].
 To study of the impact of exceptional architecture on regional tourism, using the Elbphilharmonie in Hamburg as an example, is beneficial in two ways.
-First, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of @dreher2020.
-Second, unlike Bilbao in the late 1990s, Hamburg did not experience similar idiosyncratic contextual influencing factors such as the rapid transformation of a rundown industrial city, end of terrorism, etc., making it more feasible to accurately estimate the causal effects of exceptional architecture on tourism.
+Firstly, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of @dreher2020.
+Secondly, when measuring the touristic development in Bilbao in the 1990s, multiple factors beyond the opening of the Guggenheim Museum contributed to the city's attractive for tourists, including extensive urban redevelopment of former industrial areas, economic diversification, and a decline in ETA-related violence @keating2003@gomez2001. In contrast, during the opening of the Elbphilharmonie, Hamburg did not experience similar idiosyncratic contextual factors, making it more feasible to accurately estimate the isolated causal effects of exceptional architecture on tourism.
+
+
 
 // TODO: Describe data
 
