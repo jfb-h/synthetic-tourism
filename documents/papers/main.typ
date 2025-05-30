@@ -124,7 +124,7 @@ The focus to serve the local and national population gets evident in the origin 
 In contrast, approximately 60 to 70% of visitors to the Guggenheim Museum in Bilbao come from foreign countries @heuer2022[p. 97].
 To study of the impact of exceptional architecture on regional tourism, using the Elbphilharmonie in Hamburg as an example, is beneficial in two ways.
 Firstly, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of @dreher2020.
-Secondly, when measuring the touristic development in Bilbao in the 1990s, multiple factors beyond the opening of the Guggenheim Museum contributed to the city's attractive for tourists, including extensive urban redevelopment of former industrial areas, economic diversification, and a decline in ETA-related violence @keating2003@gomez2001. In contrast, during the opening of the Elbphilharmonie, Hamburg did not experience similar idiosyncratic contextual factors, making it more feasible to accurately estimate the isolated causal effects of exceptional architecture on tourism.
+Secondly, when measuring the touristic development in Bilbao in the 1990s, multiple factors beyond the opening of the Guggenheim Museum contributed to the city's attractive for tourists, including extensive urban redevelopment of former industrial areas, economic diversification, and a decline in ETA-related violence @keating2003@gomez2001. Or, as @hassink2025a[p. 3] frame it, "the megaproject of the museum and its surrounding area [...] became the symbol of urban change but, arguably, it was not its cause". In contrast, during the opening of the Elbphilharmonie, Hamburg did not experience similar idiosyncratic contextual factors, making it more feasible to accurately estimate the isolated causal effects of exceptional architecture on tourism.
 
 
 
@@ -285,6 +285,8 @@ By applying this rigorous methodology, we reconstructed the counterfactual traje
 We constructed a control group from XXX ….
 
 This approach enables a more precise assessment of its true impact, providing valuable insights for urban planners, policymakers, and scholars interested in the intersection of architecture and regional economic development.
+
+embedd our results in the wider field and recent discussion around megaprojects (@hassink2025a): "Across both industrialised and emerging economies worldwide, megaprojects have become important drivers of economic development" (p.1) | 
 
 “despite possible increase in the inauguration year, star architecture can have quite short-lived quantitative media effects.” @alaily-mattar2020, p. 97
 
