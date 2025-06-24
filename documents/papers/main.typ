@@ -52,7 +52,8 @@
     While exceptional architecture, renowned for its transformative influence on the economic and cultural dynamics of cities, has attracted considerable scholarly attention, pinpointing its specific impacts on tourist attraction has proven to be a challenging task with ambiguous scientific findings.
     To address the existing knowledge gaps, our research examines the influence of exceptional architecture on regional tourism, focusing on the emblematic case of the ‘Elbphilharmonie’ concert hall in Hamburg.
     Methodologically, we employ a synthetic control method to quantify causal effects related to its inauguration.
-    The outcomes of this analysis suggest that... 
+    The outcomes of this analysis estimates a surplus of 13 million overnight stays between the opening of the Elbhilharmonie in January 2017 and the end of the observation period in Q2 2024. 
+ 
     Consequently, this study contributes to a nuanced comprehension of the effects of exceptional architecture on attracting tourism and sheds light on its impact in the (post)-pandemic period.
   ],
   
@@ -86,7 +87,7 @@ Nevertheless, and despite initial pessimistic forecasts, the tourism industry is
 Motivated by a strong urge to travel once borders reopened, some travelers created ‘bucket lists’ to satisfy their craving for heightened excitement @meenakshi2024 making destinations renowned for their exceptional architecture an appealing choice.
 In response to the economic relevance to attract tourists and the increasing competition among urban centers for economic development @hausler2024 @sklair2017 @zenker2013, many European cities have invested in prestigious architectural projects @andersson2014 @ponzini2020.
 The underlying idea is that exceptional architecture can stimulate new tourism, employment opportunities, and additional tax revenues, which can be economically beneficial for urban growth @alaily-mattar2018a @plaza2006.
-This phenomenon occurs because exceptional architecture may act as a unique selling point that contributes to the attractive image of a city and adds a layer of urban prestige @andersson2014.
+This phenomenon occurs because exceptional architecture may act as a unique selling point that contributes to the attractive image of a city and adds a layer of urban prestige @andersson2014 .
 As a result, these buildings often become representative symbols of urban progress, motivating tourists to choose their host cities as destinations @balke2018 @boniface2021 @scerri2019 @specht2014.
 This aligns with the findings from @plaza2024, who link the effects of exceptional architecture with findings from cognitive psychology and social cognition @dimaggio1997.
 They emphasize that such architecture holds major cultural and symbolic meanings, as they can create strong symbolic associations and are easily remembered due to their distinctiveness, elevating the global visibility of their locations and making them memorable to potential visitors and media consumers.
@@ -239,16 +240,15 @@ Whether recent landmarks and the visibility they create systematically interact 
 
 #todo[
   estimate
-  - seasonality of difference
+  - seasonality of difference (Philipp?)
   - variable importance
   - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
 ]
 
-
 == Robustness checks via placebo trials
 
 #todo[
-  - Temporal placebo
+  - Temporal placebo (Jakob)
   -
 ]
 
