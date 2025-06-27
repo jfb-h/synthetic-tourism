@@ -5,7 +5,7 @@
   title: [
     // Tourism magnet or money sink? Measuring the impact of the \ Elbphilharmonie in Hamburg
 
-    The regional impact of exceptional architecture on tourism: \ A synthetic control study of the Elbphilharmonie in Hamburg
+    The local impact of exceptional architecture on tourism: \ A synthetic control study of the Elbphilharmonie in Hamburg
     
     // Hitting All the Right Notes? The Regional Impact of the Elbphilharmonie’s Exceptional Architecture on Tourism in Hamburg
     
@@ -44,13 +44,13 @@
     ),
   ),
   
-  keywords: ("exceptional architecture", "tourism", "synthetic control", "elbphilharmonie"),
+  keywords: ("exceptional architecture", "tourism", "synthetic control", "Elbphilharmonie"),
 
   references: "references.bib",
 
   abstract: [
     While exceptional architecture, renowned for its transformative influence on the economic and cultural dynamics of cities, has attracted considerable scholarly attention, pinpointing its specific impacts on tourist attraction has proven to be a challenging task with ambiguous scientific findings.
-    To address the existing knowledge gaps, our research examines the influence of exceptional architecture on regional tourism, focusing on the emblematic case of the ‘Elbphilharmonie’ concert hall in Hamburg.
+    To address the existing knowledge gaps, our research examines the influence of exceptional architecture on local tourism, focusing on the emblematic case of the ‘Elbphilharmonie’ concert hall in Hamburg.
     Methodologically, we employ a synthetic control method to quantify causal effects related to its inauguration.
     The outcomes of this analysis estimates a surplus of 13 million overnight stays between the opening of the Elbhilharmonie in January 2017 and the end of the observation period in Q2 2024. 
  
@@ -68,15 +68,15 @@
 // It is this context in which we examine the impact of exceptional architecture on the recovery of tourism activities in the post-pandemic period.
 
 Exceptional architecture is known for its transformative power to shape the economic and cultural landscape of their host cities @alaily-mattar2022a @alaily-mattar2018b @dreher2023 @heidenreich2015.
-Due to heightened urban competition @hausler2024 @sklair2017 @zenker2013, this specific type of architecture can unleash attractive forces, has the potential to “act as a synecdoche for a city or region” @alaily-mattar2022a[p. 1], and allure tourists and inward investment @balke2018 @scerri2019.
+Due to heightened urban competition @hausler2024 @sklair2017 @zenker2013, especially among urban destinations @defrantz2018 this specific type of architecture can unleash attractive forces, has the potential to “act as a synecdoche for a city or region” @alaily-mattar2022a[p. 1], and allure tourists and inward investment @balke2018 @scerri2019.
 Particularly the opening of the Guggenheim Museum in Bilbao in 1997 has brought the topic into the spotlight of scholarly attention.
 Its inauguration has been linked to amplified tourism, a revitalized local economy, and an elevated cultural reputation @alaily-mattar2018b @plaza2006 @plaza2009. However, the effectiveness of exceptional architecture in attracting tourists remains a subject of disagreement. While some scholars highlight the positive and lasting economic and tourism impacts, others argue that these effects are merely short-lived, failing to achieve the anticipated outcomes @dreher2020[p. 442]. Our study sheds light on this topic by providing empirical evidence on the influence of exceptional architecture on tourism, focusing on the case of the 'Elbphilharmonie' in Hamburg. The Elbphilharmonie (Elbe Philharmonic Hall), inaugurated in January 2017, is a multifunctional building in Hamburg that includes concert halls, a hotel, apartments, and a publicly accessible plaza. Designed by the renowned architects Herzog & de Meuron, the building stands out by its striking wave-shaped glass façade atop a historic warehouse at Hamburg’s harbor @dreher2020 @hofmeister2021. It is recognized as one of Germany’s most notable recent architectural achievements @dreher2022[p. 108]. Described as a “signature building in a key location” @heuer2022[p. 90], and “tourist lighthouse” @just2022[p. 55]  that was “build to compete with New York, London or Sydney” @zenker2013[p. 647], it ranks as one of the costliest concert halls ever constructed worldwide @heuer2022. 
 To assess the causal effect of the Elbphilharmonie’s inauguration on tourism overnight stays in the city of Hamburg, we employ the synthetic control method @abadie2021 @abadie2003, a robust statistical approach that enables to estimate the counterfactual scenario of Hamburg’s tourism in the absence of the Elbphilharmonie. Our analysis contributes to the empirical literature on the impact of exceptional architecture on tourism, addressing previous studies that reported “rather sobering findings” @dreher2020[p. 449]. 
 In doing so, our procedure also confronts methodological challenges in understanding the genuine impact of architecture projects on additional tourism. Traditional approaches like input-output methods or correlation analysis, as exemplified in the analysis of the economic and tourist impact of the Guggenheim Museum in Bilbao @plaza2000 @plaza2006, are recognized as valuable for evaluating infrastructure benefits @scerri2019.
-However, these methods have limitations in causally linking them back to specific events @doerr2020 @tkalec2017, also when it comes to making statements about temporal effects @dreher2020. In this context, the synthetic control method serves as an innovative tool in economic geography and tourism research, providing more accurate and detailed insights. Prior studies have successfully applied this method to evaluate the impact of European Union cohesion policies on tourism and culture @brandano2023, the influence of popular television series on tourist arrivals @tkalec2017, the effects of transport infrastructure on regional tourism @albalate2023 @doerr2020, or the consequences of natural disasters on tourism and migration @antonaglia2024 @kim2023.
+However, these methods have limitations in causally linking them back to specific events @doerr2020 @tkalec2017, also when it comes to making statements about temporal effects @dreher2020. In this context, the synthetic control method serves as an innovative tool in economic geography and tourism research, providing more accurate and detailed insights. Prior studies have successfully applied this method to evaluate the impact of European Union cohesion policies on tourism and culture @brandano2023, the influence of popular television series on (film) tourist arrivals @tkalec2017, the effects of transport infrastructure on regional tourism @albalate2023 @doerr2020, or the consequences of natural disasters on tourism and migration @antonaglia2024 @kim2023.
 
 Our empirical findings suggest that, ….
-In the following sections, we first outline the impact of exceptional architecture on tourist attractiveness and highlight the challenges of measuring the resulting causal effects. In Section 3, we then present the case of the Elbphilharmonie in detail, followed by an overview of the data and methods in Section 4. We then present and discuss the results of applying the synthetic control method to the Elbphilharmonie case, focusing on its regional impact on tourism, before concluding with final remarks.
+In the following sections, we first outline the impact of exceptional architecture on tourist attractiveness and highlight the challenges of measuring the resulting causal effects. In section 3, we then present the case of the Elbphilharmonie in detail, followed by an overview of the data and methods in section 4. We then present and discuss the results of applying the synthetic control method to the Elbphilharmonie case, focusing on its regional impact on tourism, before concluding with final remarks.
 
 = Tourism and architecture
 
@@ -87,7 +87,7 @@ Nevertheless, and despite initial pessimistic forecasts, the tourism industry is
 Motivated by a strong urge to travel once borders reopened, some travelers created ‘bucket lists’ to satisfy their craving for heightened excitement @meenakshi2024 making destinations renowned for their exceptional architecture an appealing choice.
 In response to the economic relevance to attract tourists and the increasing competition among urban centers for economic development @hausler2024 @sklair2017 @zenker2013, many European cities have invested in prestigious architectural projects @andersson2014 @ponzini2020.
 The underlying idea is that exceptional architecture can stimulate new tourism, employment opportunities, and additional tax revenues, which can be economically beneficial for urban growth @alaily-mattar2018a @plaza2006.
-This phenomenon occurs because exceptional architecture may act as a unique selling point that contributes to the attractive image of a city and adds a layer of urban prestige @andersson2014 .
+This phenomenon occurs because exceptional architecture may act as a unique selling point that contributes to the attractive image of a city and adds a layer of urban prestige @andersson2014 @romao2025.
 As a result, these buildings often become representative symbols of urban progress, motivating tourists to choose their host cities as destinations @balke2018 @boniface2021 @scerri2019 @specht2014.
 This aligns with the findings from @plaza2024, who link the effects of exceptional architecture with findings from cognitive psychology and social cognition @dimaggio1997.
 They emphasize that such architecture holds major cultural and symbolic meanings, as they can create strong symbolic associations and are easily remembered due to their distinctiveness, elevating the global visibility of their locations and making them memorable to potential visitors and media consumers.
@@ -102,7 +102,7 @@ The study by Dreher et al. @dreher2020 examines the tourist effect of the Kunsth
 The results show that, despite a decline in visitor numbers to the museum, overnight stays in the city increased.
 The authors characterize the study’s outcome as a “rather sobering finding” (p. 449), since they discovered no statistical proof indicating that Kunsthaus Graz played a direct role in the upswing of overnight tourism.
 However, they posit that the impact on tourism is more attributed to the architecture itself rather than the exhibitions because the museum operates as an icon representing the city, drawing in tourists without necessarily motivating them to explore the art exhibitions.
-Our study builds on this assumption by using the Elbphilharmonie in Hamburg as a case study to explore the forward linkage effects @gelman2013a @hiller1998 of its inauguration to explore how exceptional architecture can influence overnight stays in the regional tourism sector.
+Our study builds on this assumption by using the Elbphilharmonie in Hamburg as a case study to explore the forward linkage effects @gelman2013a @hiller1998 of its inauguration to explore how exceptional architecture can influence overnight stays in the local tourism sector.
 
 
 = The Elbphilharmonie 
@@ -123,7 +123,7 @@ Nevertheless, the Elbphilharmonie project is linked to a ‘Hamburg Effect’ in
 Unlike the Guggenheim Museum in Bilbao, which was constructed as a catalyst for the regeneration of a “rundown” @heidenreich2015[p. 1441] industrial city and subsequently evolved into a major tourist attraction with tangible economic benefits and a thriving art and creative scene @plaza2009, the Elbphilharmonie was designed with the primary goal of reinforcing Hamburg’s identity as a cultural and musical hub @heuer2022.
 The focus to serve the local and national population gets evident in the origin of the audience attending performances in the concert hall, where the proportion of foreign attendees has not surpassed 6%.
 In contrast, approximately 60 to 70% of visitors to the Guggenheim Museum in Bilbao come from foreign countries @heuer2022[p. 97].
-To study of the impact of exceptional architecture on regional tourism, using the Elbphilharmonie in Hamburg as an example, is beneficial in two ways.
+To study of the impact of exceptional architecture on local tourism, using the Elbphilharmonie in Hamburg as an example, is beneficial in two ways.
 Firstly, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of @dreher2020.
 Secondly, when measuring the touristic development in Bilbao in the 1990s, multiple factors beyond the opening of the Guggenheim Museum contributed to the city's attractive for tourists, including extensive urban redevelopment of former industrial areas, economic diversification, and a decline in ETA-related violence @keating2003@gomez2001. Or, as @hassink2025a[p. 3] frame it, "the megaproject of the museum and its surrounding area [...] became the symbol of urban change but, arguably, it was not its cause". In contrast, during the opening of the Elbphilharmonie, Hamburg did not experience similar idiosyncratic contextual factors, making it more feasible to accurately estimate the isolated causal effects of exceptional architecture on tourism.
 
@@ -144,7 +144,7 @@ Secondly, when measuring the touristic development in Bilbao in the 1990s, multi
 
 In this paper, we use the synthetic control method @abadie2021 to assess the touristic impact of the Elbphilharmonie. 
 The synthetic control method aims to answer the question of whether a discrete intervention (here, the building of the Elbphilharmonie) had a causal effect on some quantity of interest (here, overnight stays), i.e., whether there was an increase (or decrease) in the quantity of interest which would not have occurred without the intervention.
-In pursuit of this goal, the method follows a comparative case study design which contrasts the unit for which the intervention occurred (Hamburg) with a set of comparable units where the intervention didn't occur (other cities).
+In pursuit of this goal, the method follows a comparative case study design which contrasts the unit for which the intervention occurred (Hamburg) with a set of comparable units where the intervention did not occur (other cities).
 More specifically, the synthetic control method proceeds by constructing a weighted average of contrast cases representing a 'synthetic' version of the intervention unit, which can be used to assess counterfactual scenarios.
 Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest. Similarity is determined based on a set of predictors, which themselves have associated importance weights also subject to optimization.
 Given sufficient pre-intervention similarity (taken to indicate that the behaviour of the quantity of interest is well-approximated by the weighted average of the control units), post-intervention deviations between the synthetic and the real case are then interpreted as a consequence of the intervention.
@@ -157,9 +157,9 @@ If these simulations yield similarly large effects as the actually treated unit,
 
 == Predictors and control cases
 
-Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to Q2 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most complete series, and preliminary tests indicated that arrivals did not yield substantively different findings.
-As primary predictors for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series, we then use averages for all 5-year pre-intervention periods, separated by quarter (i.e., different averages for each quarter for each period). This specification allows for different periodicity patterns (e.g., coastal vs. alpine tourism) to influence the selection of optimal weights.
-In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the three years preceeding the intervention as predictors.
+Our primary variable of interest is the number of overnight stays, observed at quarterly level from 1998 to Q2 2024. Compared to other measures of touristic activity, such as arrivals, the number of overnight stays was the most complete series, and preliminary tests indicated that arrivals did not yield substantively different findings. The latter is not surprising, as the average length of stay (overnight stays divided by arrivals) for city breaks has remained comparatively constant over time (source). 
+As primary predictors for the identification of weights that minimize pre-intervention differences between the observed series of overnight stays and the weighted average of the control units constituting the synthetic series, we then use averages for all 5-year pre-intervention periods, separated by quarter (i.e., different averages for each quarter for each period). This specification allows for different periodicity patterns (e.g., coastal vs. alpine tourism) to influence the selection of optimal weights. 
+In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the three years preceeding the intervention as predictors. GDP per capita and population size are valuable additional predictors for constructing the synthetic Hamburg as they capture the key economic and demographic fundamentals that influence tourism demand and ensure the control units reflect similar structural conditions prior to the intervention.
 For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Kopenhagen, and Helsinki.
 The former capture national touristic trends, as well as Germany-specific policy responses to the pandemic. 
 The latter were included to allow for tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
@@ -208,16 +208,15 @@ Data on GDP and population were obtained from Eurostat for the corresponding NUT
   caption: [Quarterly number of overnight stays for Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted. The grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-descriptive>
 
-Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million.
+Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million. 
+Of the cities highlighted in @figure-descriptive, Berlin visually leads the comparison, having experienced strong growth since the early to mid-2000s, driven by its status as the capital, the hosting of international events, and its high-capacity infrastructure. The city benefits from major trade fairs such as IFA (Internationale Funkausstellung) and ITB (Internationale Tourismus-Börse), large-scale congresses and events such as GITEX Europe, and international sporting events including the 2024 European Football Championship. Munich also shows strong growth, supported by major cultural and sporting events such as the 2022 European Athletics Championships, the 2024 Football Championship, large concerts (e.g. Adele and Taylor Swift in 2024), and the annual Oktoberfest. Amsterdam likewise sees increasing demand, though growth is tempered by regulatory limits introduced under the ‘Tourism in Balance’ policy, adopted in 2021 following a public initiative, which caps tourist hotel overnight stays at 20 million per year @cityofamsterdam2025. In contrast, Hamburg lacks a similarly consistent event engineand and has initially not shown the same dynamic growth. The dip in overnight stays around 2001 in Berlin, Amsterdam, and Munich can be attributed to the global travel uncertainty following the 9/11 attacks, which more strongly impacted internationally oriented hubs (source), whereas Hamburg, with its more domestically focused tourism, was less affected.
+However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
 
 #todo[
 - table nearest neighbor (Jakob)
 - more fine-grained description, comparison (Philipp)
 - divergence 1998 - 2003 (Philipp)
 ]
-
-However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
-
 
 == The Elbphilharmonie effect
 
@@ -272,10 +271,10 @@ While the synthetic control research design is not amenable to classical statist
 
 This study has examined the causal effect of the inauguration of an exceptional architectural building on overnight stays in tourist accommodations.
 Our contributions to the literature are threefold.
-First, we expand the scientific knowledge on the effects of the (post)-pandemic period in tourism research by contextualizing the role of exceptional architecture in tourism recovery.
+First, we expand the scientific knowledge on the effects of the (post)-pandemic period in tourism research by contextualizing the role of exceptional architecture in local recovery.
 Our findings illustrate that exceptional architecture can act as catalysts for revitalizing urban tourism and sustaining long-term visitor engagement.
 Second, by employing a synthetic control method, we introduce a robust econometric framework for evaluating large-scale interventions, addressing concerns about “poorly conceived methodologies” in tourism research @zopiatis2021, p. 279.
-This methodological approach not only strengthens causal inference but also establishes a replicable model for future studies in regional tourism analysis.
+This methodological approach not only strengthens causal inference but also establishes a replicable model for future studies in local and regional tourism analysis.
 Third, we contribute to the empirical literature on the impact of exceptional architecture on tourism, addressing previous studies with mixed findings or cases influenced by a synergy of multiple contextual factors affecting tourism development.
 By applying this rigorous methodology, we reconstructed the counterfactual trajectory that tourism in Hamburg would have followed in the absence of the Elbphilharmonie’s construction.
 
@@ -284,7 +283,7 @@ By applying this rigorous methodology, we reconstructed the counterfactual traje
 
 We constructed a control group from XXX ….
 
-This approach enables a more precise assessment of its true impact, providing valuable insights for urban planners, policymakers, and scholars interested in the intersection of architecture and regional economic development.
+This approach enables a more precise assessment of its true impact, providing valuable insights for urban planners, policymakers, and scholars interested in the intersection of architecture and local economic development.
 
 embedd our results in the wider field and recent discussion around megaprojects (@hassink2025a): "Across both industrialised and emerging economies worldwide, megaprojects have become important drivers of economic development" (p.1) | 
 
