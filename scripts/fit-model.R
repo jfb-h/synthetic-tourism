@@ -307,3 +307,10 @@ synth_out |> grab_balance_table()
 # synth_out |> plot_mspe_ratio()
 # synth_out |> grab_significance()
 # synth_out |> grab_balance_table()
+
+plot_data |> 
+  filter(year(dates) >= 2017 & type_text == "Hamburg") |>
+  select(dates, real_y, synth_y) |>
+  mutate(diff = real_y - synth_y) |>
+  write_csv("data/intermediate/post-intervention-differences.csv")
+
