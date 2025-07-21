@@ -231,7 +231,7 @@ However, based on juxtaposition of trends alone, it is difficult to assess the i
   caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). Blue shaded areas highlight the post-treatment different between the synthetic and observed series. The dashed line marks the opening of the Elbphilharmonie in January 2017, the grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-difference>
 
-The synthetic control method estimates a surplus of 13 million overnight stays between the opening of the Elbhilharmonie in January 2017 and the end of the observation period in Q2 2024, compared to the counterfactual Hamburg without Elbphilharmonie. 
+The synthetic control method estimates a surplus of 13 million overnight stays in the 7.5 years between the opening of the Elbphilharmonie in January 2017 and the end of the observation period in Q2 2024, compared to the counterfactual Hamburg without Elbphilharmonie. 
 @figure-difference shows the quarterly series of overnight stays for Hamburg and its 'synthetic twin' (a) and the difference between the two (b).
 Despite the volatility due to the COVID-19 pandemic, there is a clearly visible divergence in the period following the intervention, with larger than expected numbers of overnight stays especially in the period after the end of the pandemic.
 The difference peaks in Q2 2022, where an extra 1,039,103 overnight stays are recorded.
@@ -239,10 +239,15 @@ Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns
 This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
 Whether recent landmarks and the visibility they create systematically interact with such rebound effects is however speculative at best and beyond the scope of this study.
 
+<<<<<<< HEAD
 The synthetic control method is only meaningful if a sufficiently good pre-intervention match between the synthetic and the observed outcome series can be achieved.
 In addition to visual guidance to this effect provided in @figure-difference, @table-comparison provides numerical comparisons between the observed and synthetic units and the donor pool average for overnight stays (2007 to 2011 period), as well as GDP and population statistics.
 While the donor pool average is far below Hamburg in both the outcome variable (overnight stays) as well as the additional predictors (per-capita GDP and population), the weighted average of the synthetic unit comes quite close, with an error of less than 1% for most predictors, except for overnight stays in 1998-2001 (\<5%) and population (12.8%). Regarding the composition of the estimate, the optimization procedure allocates most of the weight to five cities: Berlin (0.35), Bonn (0.35), Düsseldorf (0.22), Cologne (0.06), and Amsterdam (0.03). While the large weight for Berlin seems plausible given the surface-level similarities in size, economy, and geography, the equally large weight for Bonn is more difficult to explain.
 This is a known limitation of the synthetic control method - the optimal weights are not always easily interpreted @abadie2021.
+=======
+Regarding the estimate, the optimization procedure allocates most of the weight to five cities: Berlin (0.35), Bonn (0.35), Düsseldorf (0.22), Cologne (0.06), and Amsterdam (0.03). While the large weight for Berlin seems plausible given the surface-level similarities in size, economy, and geography, the equally large weight for Bonn is more difficult to explain.
+This is a known limitation of the synthetic control method, where the optimal weights are not always easily interpretable @abadie2021.
+>>>>>>> b677776ccc6d531051c4cc8182cbc50ff25848ee
 Similarly, variable importance weights are available for inspection but somewhat difficult to assess:
 The most important predictor (0.20) is the number of overnight stays in Q4 over the period 2002 to 2006.
 Overall, it seems that Q4 is more relevant than the other quarters for identifying a good match for Hamburg's pre-intervention tourism dynamics.
@@ -282,7 +287,7 @@ However, the difference series for Rotterdam shows considerable fluctuation even
 The second robustness check also gives no indication that a similar effect to the one obtained for the actual intervention can be recovered from a temporal placebo.
 @figure-robustness (b) shows the result of running the synthetic control procedure with the intervention advanced from 2017 to 2010: The synthetic series does not significantly diverge from the observed series after the placebo intervention, but only after the opening of the Elbphilharmonie in 2017.
 Together, these results make us confident that the observed divergence is not purely a result of noise.
-However, this does not mean that the result is not noisy -- there is still a significant amount of variation which likely renders the estimate of the actual effect rather imprecise and accordingly care should be taken in its interpretation.
+However, this does not mean that the result is not noisy; there is still a significant amount of variation which likely renders the estimate of the actual effect rather imprecise and accordingly care should be taken in its interpretation.
 
 
 #figure(
