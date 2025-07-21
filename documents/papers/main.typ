@@ -209,14 +209,16 @@ Data on GDP and population were obtained from Eurostat for the corresponding NUT
 ) <figure-descriptive>
 
 Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million. 
-Of the cities highlighted in @figure-descriptive, Berlin visually leads the comparison, having experienced strong growth since the early to mid-2000s, driven by its status as the capital, the hosting of international events, and its high-capacity infrastructure. The city benefits from major trade fairs such as IFA (Internationale Funkausstellung) and ITB (Internationale Tourismus-Börse), large-scale congresses and events such as GITEX Europe, and international sporting events including the 2024 European Football Championship. Munich also shows strong growth, supported by major cultural and sporting events such as the 2022 European Athletics Championships, the 2024 Football Championship, large concerts (e.g. Adele and Taylor Swift in 2024), and the annual Oktoberfest. Amsterdam likewise sees increasing demand, though growth is tempered by regulatory limits introduced under the ‘Tourism in Balance’ policy, adopted in 2021 following a public initiative, which caps tourist hotel overnight stays at 20 million per year @cityofamsterdam2025. In contrast, Hamburg lacks a similarly consistent event engineand and has initially not shown the same dynamic growth. The dip in overnight stays around 2001 in Berlin, Amsterdam, and Munich can be attributed to the global travel uncertainty following the 9/11 attacks, which more strongly impacted internationally oriented hubs (source), whereas Hamburg, with its more domestically focused tourism, was less affected.
+Of the cities highlighted in @figure-descriptive, Berlin visually leads the comparison, having experienced strong growth since the early to mid-2000s, driven by its status as the capital, the hosting of international events, and its high-capacity infrastructure. The city benefits from major trade fairs such as IFA (Internationale Funkausstellung) and ITB (Internationale Tourismus-Börse), large-scale congresses and events such as GITEX Europe, and international sporting events including the 2024 European Football Championship. Munich also shows strong growth, supported by major cultural and sporting events such as the 2022 European Athletics Championships, the 2024 Football Championship, large concerts (e.g. Adele and Taylor Swift in 2024), and the annual Oktoberfest. Amsterdam likewise sees increasing demand, though growth is tempered by regulatory limits introduced under the ‘Tourism in Balance’ policy, adopted in 2021 following a public initiative, which caps tourist hotel overnight stays at 20 million per year @cityofamsterdam2025. In contrast, Hamburg lacks a similarly consistent event engine and and has initially not shown the same dynamic growth. The dip in overnight stays around 2001 in Berlin, Amsterdam, and Munich is likely related to the global travel uncertainty following the 9/11 attacks, which more strongly impacted internationally oriented hubs (source), whereas Hamburg, with its more domestically focused tourism, was less affected.
 However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
 
-#todo[
+/* #todo[
 - table nearest neighbor (Jakob)
 - more fine-grained description, comparison (Philipp)
 - divergence 1998 - 2003 (Philipp)
-]
+- we say more about other cities than Hamburg right now
+- Do we really take IFA & ITB as example drivers behind Berlins trajectory?
+] */
 
 == The Elbphilharmonie effect
 
@@ -229,7 +231,7 @@ However, based on juxtaposition of trends alone, it is difficult to assess the i
   caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). Blue shaded areas highlight the post-treatment different between the synthetic and observed series. The dashed line marks the opening of the Elbphilharmonie in January 2017, the grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-difference>
 
-Compared to the counterfactual Hamburg (i.e., without Elbphilharmonie), the synthetic control method estimates a surplus of 13 million overnight stays between the opening of the Elbhilharmonie in January 2017 and the end of the observation period in Q2 2024. 
+The synthetic control method estimates a surplus of 13 million overnight stays between the opening of the Elbhilharmonie in January 2017 and the end of the observation period in Q2 2024, compared to the counterfactual Hamburg without Elbphilharmonie. 
 @figure-difference shows the quarterly series of overnight stays for Hamburg and its 'synthetic twin' (a) and the difference between the two (b).
 Despite the volatility due to the COVID-19 pandemic, there is a clearly visible divergence in the period following the intervention, with larger than expected numbers of overnight stays especially in the period after the end of the pandemic.
 The difference peaks in Q2 2022, where an extra 1,039,103 overnight stays are recorded.
@@ -237,34 +239,63 @@ Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns
 This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
 Whether recent landmarks and the visibility they create systematically interact with such rebound effects is however speculative at best and beyond the scope of this study.
 
-#todo[
-  estimate
-  - seasonality of difference (Philipp?)
-  - variable importance
-  - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
-]
+Regarding the estimate, the optimization procedure allocates most of the weight to five cities: Berlin (0.35), Bonn (0.35), Düsseldorf (0.22), Cologne (0.06), and Amsterdam (0.03). While the large weight for Berlin seems plausible given the surface-level similarities in size, economy, and geography, the equally large weight for Bonn is more difficult to explain.
+This is a known limitation of the synthetic control method - the optimal weights are not always easily interpreted @abadie2021.
+Similarly, variable importance weights are available for inspection but somewhat difficult to assess:
+The most important predictor (0.20) is the number of overnight stays in Q4 over the period 2002 to 2006.
+Overall, it seems that Q4 is more relevant than the other quarters for identifying a good match for Hamburg's pre-intervention tourism dynamics.
+GDP and size are less important, with GDP in the 2005 to 2009 period as the highest-weight non-overnight-stays predictor in position six.
 
-== Robustness checks via placebo trials
-
-#todo[
-  - Temporal placebo (Jakob)
-  -
-]
-
-While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'. This is arguably especially important in a case like the one discussed here, where a global shock introduces uncertainty into the studied system. We accordingly conduct two placebo trials: First, 
-
-#figure(
-  image("figures/plot-placebos.png"),
-  scope: "parent",
-  placement: top,
-  caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). The dashed line marks the opening of the Elbphilharmonie.]
-)
-
+A more accessible metric is the ratio of post-intervention to pre intervention mean squared predictive error (MSPE, @figure-mspe), which indicates how much better the synthetic series matches the observed series before vs. after the intervention.
+Given a significant effect of the intervention, this should be large for the treated unit but not for the control units.
 
 #figure(
   image("figures/plot-mspe.png"),
   caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
-)
+)<figure-mspe>
+
+This is indeed the case for Hamburg, with a post-intervention error that is more than 60 times higher than before the construction of the Elbphilharmonie.
+
+
+
+
+// #todo[
+//   estimate
+//   - seasonality of difference (Philipp?)
+//   - variable importance
+//   - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
+// ]
+
+== Robustness checks via placebo trials
+
+#figure(
+  image("figures/plot-placebos-both.png"),
+  scope: "parent",
+  placement: top,
+  caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines; the dashed line marks the opening of the Elbphilharmonie) (a). Synthetic and observed series of overnight stays with the intervention advanced to 2010 (b).]
+)<figure-robustness>
+
+While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'.
+This is arguably especially important in a case like the one discussed here, where a global shock introduces uncertainty into the studied system. We accordingly conduct two kinds of placebo trials @abadie2021:
+First, a unit-switching placebo trial which implies running the synthetic control method for units that did not receive the intervention.
+And second, a temporal placebo trial, pretending that the intervention took place at a different time than the actual intervention.
+If effects similar in size to the one identified by running the synthetic control method for the correct unit at the correct time can be obtained by placebo trials, the result is deemed not robust.
+@figure-robustness (a) shows the results of the unit-switiching placebo trial with the analysis repeated for all control units in the donor pool.
+While there is a significant amount of variation for the control unit trials, none of them match the same effect magnitude as the one identified for Hamburg.
+The closest control is Rotterdam, which is the only control unit with a considerably elevated ratio of post-intervention to pre-intervention MSPE (@figure-mspe).
+This might be an indication of Rotterdam having received its own 'intervention' during the same period in the form of considerable efforts to increase its touristic appeal (SOURCE).
+However, the difference series for Rotterdam shows considerable fluctuation even after the end of the covid pandemic and its characteristics should probably not be overstated.
+
+The second robustness check also gives no indication that a similar effect to the one obtained for the actual intervention can be recovered from a temporal placebo.
+@figure-robustness (b) shows the result of running the synthetic control procedure with the intervention advanced from 2017 to 2010: The synthetic series does not significantly diverge from the observed series after the placebo intervention, but only after the opening of the Elbphilharmonie in 2017.
+Together, these results make us confident that the observed divergence is not purely a result of noise.
+However, this does not mean that the result is not noisy -- there is still a significant amount of variation which likely renders the estimate of the actual effect rather imprecise and accordingly care should be taken in its interpretation.
+
+
+
+
+
+
 
 
 = Conclusion

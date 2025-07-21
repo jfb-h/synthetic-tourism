@@ -20,6 +20,9 @@ yids <- function(years, start = 1998) {
   s:e
 }
 
+i_observed <- 77
+i_placebo <- 49
+
 synth_out <-
   dat |>
   synthetic_control(
@@ -27,7 +30,7 @@ synth_out <-
     unit = city,
     time = i,
     i_unit = "Hamburg",
-    i_time = 77,
+    i_time = 49,
     generate_placebos = TRUE
   ) |>
   # quarterly stays by 5 year periods
@@ -301,10 +304,141 @@ p4 <- synth_out |>
 
 ggsave("documents/papers/figures/plot-mspe.png", p4, height = 7, width = 5)
 
+# temporal placebo
+
+synth_out_placebo <-
+  dat |>
+  synthetic_control(
+    outcome = stays,
+    unit = city,
+    time = i,
+    i_unit = "Hamburg",
+    i_time = i_placebo,
+    generate_placebos = TRUE
+  ) |>
+  # quarterly stays by 5 year periods
+  generate_predictor(
+    time_window = qids(1998:2001, 1),
+    stays_1998_2001_1 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(1998:2001, 2),
+    stays_1998_2001_2 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(1998:2001, 3),
+    stays_1998_2001_3 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(1998:2001, 4),
+    stays_1998_2001_4 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2002:2006, 1),
+    stays_2002_2006_1 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2002:2006, 2),
+    stays_2002_2006_2 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2002:2006, 3),
+    stays_2002_2006_3 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2002:2006, 4),
+    stays_2002_2006_4 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2007:2010, 1),
+    stays_2007_2011_1 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2007:2010, 2),
+    stays_2007_2011_2 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2007:2010, 3),
+    stays_2007_2011_3 = mean(stays, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = qids(2007:2010, 4),
+    stays_2007_2011_4 = mean(stays, na.rm = TRUE)
+  ) |>
+  # gdp
+  generate_predictor(
+    time_window = yids(2000:2004),
+    gdp_2000_2004 = mean(gdp, na.rm = TRUE)
+  ) |>
+  generate_predictor(
+    time_window = yids(2005:2009),
+    gdp_2005_2009 = mean(gdp, na.rm = TRUE)
+  ) |>
+  generate_weights(
+    optimization_window = yids(1998:2010),
+    margin_ipop = .02, sigf_ipop = 7, bound_ipop = 6
+  ) |>
+  generate_control()
+
+
+d_diff_placebo <- synth_out_placebo |>
+ grab_synthetic_control(placebo = FALSE) |>
+  rename(synthetic = synth_y, observed = real_y) |>
+  mutate(dates = dates)
+
+p_placebo <- d_diff_placebo |>
+  pivot_longer(cols = c(observed, synthetic)) |>
+  ggplot(aes(dates, value, color = name)) + 
+    geom_rect(
+      aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
+      color = "grey90", fill = "grey90", alpha = 0.5
+    ) +
+    geom_rect(
+      aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
+      color = "grey90", fill = "grey90", alpha = 0.5
+    ) +
+    geom_rect(
+      aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
+      color = "grey90", fill = "grey90", alpha = 0.5
+    ) +
+    geom_ribbon(
+      data = filter(d_diff, dates >= ymd("2010-01-01")),
+      mapping = aes(x = dates, ymin = pmin(observed, synthetic), ymax = pmax(observed, synthetic)),
+      inherit.aes = FALSE,
+      fill = "#00aeff", alpha = 0.3
+    ) +
+    geom_vline(xintercept = ymd("2010-01-01"), color = "black", linetype = 2) + 
+    geom_vline(xintercept = ymd("2017-01-01"), color = "grey70", linetype = 2) + 
+    annotate("text", x = ymd("2008-01-01"), y = 4500000, label = "placebo\nintervention") +
+    annotate("text", x = ymd("2015-01-01"), y = 4500000, label = "real\nintervention", color = "grey70") +
+    geom_line(linewidth = 0.8, alpha = 0.7) + 
+    scale_color_manual(values = c("grey60", "black")) + 
+    scale_linetype_manual(values = c(1, 4)) + 
+    scale_y_continuous(labels = scales::comma) +
+    scale_x_date(
+      breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
+      date_labels = "%Y"
+    ) +
+    labs(y = "Observed and synthetic\novernight stays", x = NULL, color = NULL) +
+    theme_minimal() +
+    guides(linetype = FALSE) +
+    theme(legend.position = "top", legend.justification = "left")
+
+
+p_placebos_both <- p3 / p_placebo + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
+
+ggsave("documents/papers/figures/plot-placebos-both.png", p_placebos_both, height = 8, width = 10)
+
+# difference sum
+
+synth_out |>
+ grab_synthetic_control(placebo = FALSE) |>
+
+# tables etc.
+
 synth_out |> tidysynth::grab_unit_weights()
 
 synth_out |> grab_balance_table()
-# synth_out |> plot_mspe_ratio()
 # synth_out |> grab_significance()
 # synth_out |> grab_balance_table()
 
