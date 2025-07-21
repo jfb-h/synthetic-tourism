@@ -21,7 +21,6 @@ yids <- function(years, start = 1998) {
 }
 
 i_observed <- 77
-i_placebo <- 49
 
 synth_out <-
   dat |>
@@ -30,7 +29,7 @@ synth_out <-
     unit = city,
     time = i,
     i_unit = "Hamburg",
-    i_time = 49,
+    i_time = i_observed,
     generate_placebos = TRUE
   ) |>
   # quarterly stays by 5 year periods

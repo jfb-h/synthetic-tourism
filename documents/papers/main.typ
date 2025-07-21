@@ -222,7 +222,7 @@ However, based on juxtaposition of trends alone, it is difficult to assess the i
 
 == The Elbphilharmonie effect
 
-#table1
+#table1<table-comparison>
 
 #figure(
   image("figures/plot-difference.png"),
@@ -239,22 +239,17 @@ Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns
 This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
 Whether recent landmarks and the visibility they create systematically interact with such rebound effects is however speculative at best and beyond the scope of this study.
 
-Regarding the estimate, the optimization procedure allocates most of the weight to five cities: Berlin (0.35), Bonn (0.35), Düsseldorf (0.22), Cologne (0.06), and Amsterdam (0.03). While the large weight for Berlin seems plausible given the surface-level similarities in size, economy, and geography, the equally large weight for Bonn is more difficult to explain.
+The synthetic control method is only meaningful if a sufficiently good pre-intervention match between the synthetic and the observed outcome series can be achieved.
+In addition to visual guidance to this effect provided in @figure-difference, @table-comparison provides numerical comparisons between the observed and synthetic units and the donor pool average for overnight stays (2007 to 2011 period), as well as GDP and population statistics.
+While the donor pool average is far below Hamburg in both the outcome variable (overnight stays) as well as the additional predictors (per-capita GDP and population), the weighted average of the synthetic unit comes quite close, with an error of less than 1% for most predictors, except for overnight stays in 1998-2001 (\<5%) and population (12.8%). Regarding the composition of the estimate, the optimization procedure allocates most of the weight to five cities: Berlin (0.35), Bonn (0.35), Düsseldorf (0.22), Cologne (0.06), and Amsterdam (0.03). While the large weight for Berlin seems plausible given the surface-level similarities in size, economy, and geography, the equally large weight for Bonn is more difficult to explain.
 This is a known limitation of the synthetic control method - the optimal weights are not always easily interpreted @abadie2021.
 Similarly, variable importance weights are available for inspection but somewhat difficult to assess:
 The most important predictor (0.20) is the number of overnight stays in Q4 over the period 2002 to 2006.
 Overall, it seems that Q4 is more relevant than the other quarters for identifying a good match for Hamburg's pre-intervention tourism dynamics.
 GDP and size are less important, with GDP in the 2005 to 2009 period as the highest-weight non-overnight-stays predictor in position six.
-
 A more accessible metric is the ratio of post-intervention to pre intervention mean squared predictive error (MSPE, @figure-mspe), which indicates how much better the synthetic series matches the observed series before vs. after the intervention.
 Given a significant effect of the intervention, this should be large for the treated unit but not for the control units.
-
-#figure(
-  image("figures/plot-mspe.png"),
-  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for treated and control units.]
-)<figure-mspe>
-
-This is indeed the case for Hamburg, with a post-intervention error that is more than 60 times higher than before the construction of the Elbphilharmonie.
+This is indeed the case for Hamburg, with a post-intervention error that is more than 60 times higher than before the intervention, clearly indicating a change-point in the tourism dynamics around the opening of the Elbphilharmonie.
 
 
 
@@ -266,14 +261,12 @@ This is indeed the case for Hamburg, with a post-intervention error that is more
 //   - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
 // ]
 
-== Robustness checks via placebo trials
-
 #figure(
-  image("figures/plot-placebos-both.png"),
-  scope: "parent",
-  placement: top,
-  caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines; the dashed line marks the opening of the Elbphilharmonie) (a). Synthetic and observed series of overnight stays with the intervention advanced to 2010 (b).]
-)<figure-robustness>
+  image("figures/plot-mspe.png"),
+  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for the treated and the control units.]
+)<figure-mspe>
+
+== Robustness checks via placebo trials
 
 While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'.
 This is arguably especially important in a case like the one discussed here, where a global shock introduces uncertainty into the studied system. We accordingly conduct two kinds of placebo trials @abadie2021:
@@ -292,10 +285,18 @@ Together, these results make us confident that the observed divergence is not pu
 However, this does not mean that the result is not noisy -- there is still a significant amount of variation which likely renders the estimate of the actual effect rather imprecise and accordingly care should be taken in its interpretation.
 
 
-
-
-
-
+#figure(
+  image("figures/plot-placebos-both.png"),
+  scope: "parent",
+  placement: top,
+  caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines; the dashed line marks the opening of the Elbphilharmonie) (a). Synthetic and observed series of overnight stays with the intervention advanced to 2010 (b).]
+)<figure-robustness>
+#todo[
+  - #strike[Tabelle 1]
+  - beide checks begründen
+  - Annotationen dashed line
+  - Google trends
+]
 
 
 = Conclusion
