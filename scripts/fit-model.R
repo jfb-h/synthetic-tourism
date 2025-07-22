@@ -201,6 +201,7 @@ p2 <- synth_out |>
     ) +
     geom_hline(yintercept = 0, color = "black", linetype = 2) + 
     geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
+    annotate("text", x = ymd("2014-05-01"), y = 850000, label = "Opening of the\nElbphilharmonie") +
     geom_line(linewidth = 1, alpha = 0.75, color = "black") + 
     scale_y_continuous(labels = scales::comma) +
     scale_x_date(
@@ -244,7 +245,7 @@ plot_data <- synth_out |>
  ) |>
  filter(.id %in% retain)
 
-p3 <- plot_data |> 
+p_placebo_unit <- plot_data |> 
   ggplot(aes(
     dates, 
     diff, 
@@ -255,6 +256,7 @@ p3 <- plot_data |>
   )) + 
   geom_hline(yintercept = 0, color = "black", linetype = 2) + 
   geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
+  annotate("text", x = ymd("2014-05-01"), y = 850000, label = "Opening of the\nElbphilharmonie") +
   geom_line() + 
   scale_color_manual(values = c("black", "grey70")) + 
   scale_alpha_manual(values = c(1, 0.4)) + 
@@ -272,7 +274,7 @@ p3 <- plot_data |>
   theme_minimal() +
   theme(legend.position = "bottom")
 
-ggsave("documents/papers/figures/plot-placebos.png", p3, height = 6, width = 10)
+# ggsave("documents/papers/figures/plot-placebos.png", p_placebo_unit, height = 6, width = 10)
 
 # MSPE plot
 
@@ -304,6 +306,8 @@ p4 <- synth_out |>
 ggsave("documents/papers/figures/plot-mspe.png", p4, height = 7, width = 5)
 
 # temporal placebo
+
+i_placebo <- 49
 
 synth_out_placebo <-
   dat |>
@@ -385,7 +389,7 @@ d_diff_placebo <- synth_out_placebo |>
   rename(synthetic = synth_y, observed = real_y) |>
   mutate(dates = dates)
 
-p_placebo <- d_diff_placebo |>
+p_placebo_backdating <- d_diff_placebo |>
   pivot_longer(cols = c(observed, synthetic)) |>
   ggplot(aes(dates, value, color = name)) + 
     geom_rect(
@@ -423,8 +427,42 @@ p_placebo <- d_diff_placebo |>
     guides(linetype = FALSE) +
     theme(legend.position = "top", legend.justification = "left")
 
+# p_placebo_backdating_diff <- synth_out_placebo |>
+#  grab_synthetic_control(placebo = FALSE) |>
+#  mutate(diff = real_y - synth_y, dates = dates) |>    
+#     ggplot(aes(dates, diff)) + 
+#     geom_rect(
+#       aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
+#       fill = "grey90", alpha = 0.5
+#     ) +
+#     geom_rect(
+#       aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
+#       fill = "grey90", alpha = 0.5
+#     ) +
+#     geom_rect(
+#       aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
+#       fill = "grey90", alpha = 0.5
+#     ) +
+#     geom_area(
+#       data = (\(df) filter(df, dates >= ymd("2017-01-01"))), 
+#       aes(x = dates, y = diff), 
+#       fill = "#00aeff", alpha = 0.3
+#     ) +
+#     geom_hline(yintercept = 0, color = "black", linetype = 2) + 
+#     geom_vline(xintercept = ymd("2010-01-01"), color = "black", linetype = 2) + 
+#     geom_vline(xintercept = ymd("2017-01-01"), color = "grey70", linetype = 2) + 
+#     annotate("text", x = ymd("2008-01-01"), y = 850000, label = "placebo\nintervention") +
+#     annotate("text", x = ymd("2015-01-01"), y = 850000, label = "real\nintervention", color = "grey70") +
+#     geom_line(linewidth = 1, alpha = 0.75, color = "black") + 
+#     scale_y_continuous(labels = scales::comma) +
+#     scale_x_date(
+#       breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
+#       date_labels = "%Y"
+#     ) +
+#     theme_minimal() +
+#     labs(y = "Observed - synthetic \novernight stays", x = NULL)
 
-p_placebos_both <- p3 / p_placebo + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
+p_placebos_both <- p_placebo_unit / p_placebo_backdating + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
 
 ggsave("documents/papers/figures/plot-placebos-both.png", p_placebos_both, height = 8, width = 10)
 

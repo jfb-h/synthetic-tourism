@@ -228,7 +228,7 @@ However, based on juxtaposition of trends alone, it is difficult to assess the i
   image("figures/plot-difference.png"),
   scope: "parent",
   placement: top,
-  caption: [Synthetic and observed series of overnight stays (a), difference between synthetic and observed series (b). Blue shaded areas highlight the post-treatment different between the synthetic and observed series. The dashed line marks the opening of the Elbphilharmonie in January 2017, the grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
+  caption: [(a) Synthetic and observed series of overnight stays, (b) difference between synthetic and observed series. Blue shaded areas highlight the post-treatment different between the synthetic and observed series. The grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-difference>
 
 The synthetic control method estimates a surplus of 13 million overnight stays in the 7.5 years between the opening of the Elbphilharmonie in January 2017 and the end of the observation period in Q2 2024, compared to the counterfactual Hamburg without Elbphilharmonie. 
@@ -239,15 +239,10 @@ Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns
 This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
 Whether recent landmarks and the visibility they create systematically interact with such rebound effects is however speculative at best and beyond the scope of this study.
 
-<<<<<<< HEAD
 The synthetic control method is only meaningful if a sufficiently good pre-intervention match between the synthetic and the observed outcome series can be achieved.
 In addition to visual guidance to this effect provided in @figure-difference, @table-comparison provides numerical comparisons between the observed and synthetic units and the donor pool average for overnight stays (2007 to 2011 period), as well as GDP and population statistics.
 While the donor pool average is far below Hamburg in both the outcome variable (overnight stays) as well as the additional predictors (per-capita GDP and population), the weighted average of the synthetic unit comes quite close, with an error of less than 1% for most predictors, except for overnight stays in 1998-2001 (\<5%) and population (12.8%). Regarding the composition of the estimate, the optimization procedure allocates most of the weight to five cities: Berlin (0.35), Bonn (0.35), Düsseldorf (0.22), Cologne (0.06), and Amsterdam (0.03). While the large weight for Berlin seems plausible given the surface-level similarities in size, economy, and geography, the equally large weight for Bonn is more difficult to explain.
 This is a known limitation of the synthetic control method - the optimal weights are not always easily interpreted @abadie2021.
-=======
-Regarding the estimate, the optimization procedure allocates most of the weight to five cities: Berlin (0.35), Bonn (0.35), Düsseldorf (0.22), Cologne (0.06), and Amsterdam (0.03). While the large weight for Berlin seems plausible given the surface-level similarities in size, economy, and geography, the equally large weight for Bonn is more difficult to explain.
-This is a known limitation of the synthetic control method, where the optimal weights are not always easily interpretable @abadie2021.
->>>>>>> b677776ccc6d531051c4cc8182cbc50ff25848ee
 Similarly, variable importance weights are available for inspection but somewhat difficult to assess:
 The most important predictor (0.20) is the number of overnight stays in Q4 over the period 2002 to 2006.
 Overall, it seems that Q4 is more relevant than the other quarters for identifying a good match for Hamburg's pre-intervention tourism dynamics.
@@ -266,42 +261,46 @@ This is indeed the case for Hamburg, with a post-intervention error that is more
 //   - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
 // ]
 
+
+== Robustness checks via placebo trials
+
+While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'.
+
 #figure(
   image("figures/plot-mspe.png"),
   caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for the treated and the control units.]
 )<figure-mspe>
 
-== Robustness checks via placebo trials
-
-While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'.
-This is arguably especially important in a case like the one discussed here, where a global shock introduces uncertainty into the studied system. We accordingly conduct two kinds of placebo trials @abadie2021:
-First, a unit-switching placebo trial which implies running the synthetic control method for units that did not receive the intervention.
-And second, a temporal placebo trial, pretending that the intervention took place at a different time than the actual intervention.
+This is arguably especially important in a case like the one discussed here, where a global shock in the form of the covid pandemic introduces uncertainty into the studied system. We accordingly conduct two kinds of placebo trials:
+First, a unit-switching placebo trial which implies running the synthetic control method for units that did not receive the intervention @abadie2015.
+And second, a backdating placebo trial, pretending that the intervention took place at an earlier point in time than the actual intervention @abadie2021.
 If effects similar in size to the one identified by running the synthetic control method for the correct unit at the correct time can be obtained by placebo trials, the result is deemed not robust.
 @figure-robustness (a) shows the results of the unit-switiching placebo trial with the analysis repeated for all control units in the donor pool.
 While there is a significant amount of variation for the control unit trials, none of them match the same effect magnitude as the one identified for Hamburg.
 The closest control is Rotterdam, which is the only control unit with a considerably elevated ratio of post-intervention to pre-intervention MSPE (@figure-mspe).
 This might be an indication of Rotterdam having received its own 'intervention' during the same period in the form of considerable efforts to increase its touristic appeal (SOURCE).
 However, the difference series for Rotterdam shows considerable fluctuation even after the end of the covid pandemic and its characteristics should probably not be overstated.
-
-The second robustness check also gives no indication that a similar effect to the one obtained for the actual intervention can be recovered from a temporal placebo.
-@figure-robustness (b) shows the result of running the synthetic control procedure with the intervention advanced from 2017 to 2010: The synthetic series does not significantly diverge from the observed series after the placebo intervention, but only after the opening of the Elbphilharmonie in 2017.
+The backdating robustness check also gives no indication that a similar effect to the one obtained for the actual intervention can be recovered from a temporal placebo.
+@figure-robustness (b) shows the result of running the synthetic control procedure with the intervention advanced from 2017 to 2010: The synthetic series does not significantly diverge from the observed series between the placebo intervention and the actual intervention, but does still recover the divergence observed after the opening of the Elbphilharmonie in 2017.
 Together, these results make us confident that the observed divergence is not purely a result of noise.
 However, this does not mean that the result is not noisy; there is still a significant amount of variation which likely renders the estimate of the actual effect rather imprecise and accordingly care should be taken in its interpretation.
+
+
+
+A final potential source of confounding is the designation of the _Speicherstadt_, in which Elbphilharmonie is located, as world heritage in 2015.
+This carries the risk of misattribution of a potential world heritage effect on overnight stays to the Elbphilharmonie.
+Since this is also an idiosyncratic shock to the treated unit and occurred at a similar time, such misattribution would not be caught by the synthetic control method.
+Accordingly, we rely on Google search trend data to assess the degree to which world heritage might have had an impact on tourism similar to the one of the Elbphilharmonie. @figure-google shows the search index for the two terms 'Elbphilharmonie' and 'Speicherstadt' and shows a clear difference in visibility:
+While there is a notable spike around the opening of the Elbphilharmonie, there is only a miniscule reaction in search behaviour around the time of the world heritage nomination.
+Because Google Trends has been shown to be a reasonable tool to approximate destination interest or to forecast tourism demand and evaluate the impact of major events (Dinis et al., 2019; Önder, 2017; Botha & Saayman, 2024), we are reasonably confident that the possibility of misattribution error does not dominate our findings.
 
 
 #figure(
   image("figures/plot-placebos-both.png"),
   scope: "parent",
   placement: top,
-  caption: [Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines; the dashed line marks the opening of the Elbphilharmonie) (a). Synthetic and observed series of overnight stays with the intervention advanced to 2010 (b).]
+  caption: [(a) Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). (b) Synthetic and observed series with the intervention predated to 2010.]
 )<figure-robustness>
-#todo[
-  - #strike[Tabelle 1]
-  - beide checks begründen
-  - Annotationen dashed line
-  - Google trends
-]
 
 
 = Conclusion
@@ -314,6 +313,14 @@ Second, by employing a synthetic control method, we introduce a robust econometr
 This methodological approach not only strengthens causal inference but also establishes a replicable model for future studies in local and regional tourism analysis.
 Third, we contribute to the empirical literature on the impact of exceptional architecture on tourism, addressing previous studies with mixed findings or cases influenced by a synergy of multiple contextual factors affecting tourism development.
 By applying this rigorous methodology, we reconstructed the counterfactual trajectory that tourism in Hamburg would have followed in the absence of the Elbphilharmonie’s construction.
+
+#figure(
+  image("figures/google-trends.png"),
+  scope: "parent",
+  placement: top,
+  caption: [Google trends for search terms 'Elbphilharmonie' and 'Speicherstadt'.]
+)<figure-google>
+
 
 
 
