@@ -318,11 +318,11 @@ By applying this rigorous methodology, we reconstructed the counterfactual traje
   image("figures/google-trends.png"),
   scope: "parent",
   placement: top,
-  caption: [Google trends for search terms 'Elbphilharmonie' and 'Speicherstadt'.]
+  caption: [
+    Google trends for search terms 'Elbphilharmonie' and 'Speicherstadt'. 
+    Data retrieved from #cite(<googletrends2025>, form: "prose").
+  ]
 )<figure-google>
-
-
-
 
 
 We constructed a control group from XXX ….
