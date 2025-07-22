@@ -290,9 +290,9 @@ However, this does not mean that the result is not noisy; there is still a signi
 A final potential source of confounding is the designation of the _Speicherstadt_, in which Elbphilharmonie is located, as world heritage in 2015.
 This carries the risk of misattribution of a potential world heritage effect on overnight stays to the Elbphilharmonie.
 Since this is also an idiosyncratic shock to the treated unit and occurred at a similar time, such misattribution would not be caught by the synthetic control method.
-Accordingly, we rely on Google search trend data to assess the degree to which world heritage might have had an impact on tourism similar to the one of the Elbphilharmonie. @figure-google shows the search index for the two terms 'Elbphilharmonie' and 'Speicherstadt' and shows a clear difference in visibility:
+Accordingly, we rely on Google search trend data @googletrends2025 to assess the degree to which world heritage might have had an impact on tourism similar to the one of the Elbphilharmonie. @figure-google shows the search index for the two terms 'Elbphilharmonie' and 'Speicherstadt' and shows a clear difference in visibility:
 While there is a notable spike around the opening of the Elbphilharmonie, there is only a miniscule reaction in search behaviour around the time of the world heritage nomination.
-Because Google Trends has been shown to be a reasonable tool to approximate destination interest or to forecast tourism demand and evaluate the impact of major events (Dinis et al., 2019; Önder, 2017; Botha & Saayman, 2024), we are reasonably confident that the possibility of misattribution error does not dominate our findings.
+Because Google Trends has been shown to be a reasonable tool to approximate destination interest or to forecast tourism demand and evaluate the impact of major events @dinis2019 @onder2017 @botha2024, we are quite confident that the possibility of misattribution error does not dominate our findings.
 
 
 #figure(
@@ -318,11 +318,11 @@ By applying this rigorous methodology, we reconstructed the counterfactual traje
   image("figures/google-trends.png"),
   scope: "parent",
   placement: top,
-  caption: [Google trends for search terms 'Elbphilharmonie' and 'Speicherstadt'.]
+  caption: [
+    Google trends for search terms 'Elbphilharmonie' and 'Speicherstadt'. 
+    Data retrieved from #cite(<googletrends2025>, form: "prose").
+  ]
 )<figure-google>
-
-
-
 
 
 We constructed a control group from XXX ….
