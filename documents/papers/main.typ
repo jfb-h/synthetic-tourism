@@ -25,21 +25,21 @@
   
   authors: (
     (
-      name: "Author 1",
-      orcid: "",
-      email: "author1@lmu.de",
+      name: "Yannick Eckhardt",
+      orcid: "https://orcid.org/0009-0001-0963-083X",
+      email: "y.eckhardt@lmu.de",
       affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich]
     ),
     (
-      name: "Author 2",
-      orcid: "",
-      email: "author2@lmu.de",
+      name: "Jakob Hoffmann",
+      orcid: "https://orcid.org/0000-0001-5764-6281",
+      email: "jakob.hoffmann@lmu.de",
       affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich]
     ),
     (
-      name: "Author 3",
-      orcid: "",
-      email: "author3@lmu.de",
+      name: "Philipp Namberger",
+      orcid: "https://orcid.org/0000-0001-8472-912X",
+      email: "philipp.namberger@lmu.de",
       affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich]
     ),
   ),
@@ -109,7 +109,7 @@ Architecturally integrated in/on the brick corpus of a former cocoa warehouse in
 The constructions were completed in November 2016 and officially opened in early January 2017. The striking design features a conspicuous iceberg/wave structure made of glass that stands 110 meters tall.
 Designed by internationally renowned architects Herzog & de Meuron, who also created the Tate Modern in London and the 'Bird's Nest' Olympic Stadium in Beijing, the building is situated in a prominent location @alaily-mattar2018, and - on par with comparable iconic architectural landmarks @ghalejough2024 - has sparked extensive media coverage.
 These factors qualify it as a distinct type of exceptional architecture known as ‘star architecture’ @dreher2022.
-But the Elbphilharmonie also shares another attribute often associated with star architecture – it is “expensive and controversial” @alaily-mattar2022a[p. 3].
+But the Elbphilharmonie also shares another attribute often associated with star architecture: it is “expensive and controversial” @alaily-mattar2022a[p. 3].
 Initially estimated at 187 million euros, the construction cost eventually rose to 866 million euros, making it one of the most expensive concert halls ever built @hofmeister2021.
 During the selection process, there were some controversies, notably the awarding of the design contract to architects Herzog & de Meuron without an open bidding process or architectural competition @alaily-mattar2021a[p. 101].
 From a functional perspective, the structure serves as a concert hall, which also includes a hotel and private residences.
@@ -204,9 +204,9 @@ Data on GDP and population were obtained from Eurostat for the corresponding NUT
   caption: [Quarterly number of overnight stays for Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted. The grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.]
 ) <figure-descriptive>
 
-Hamburg has witnessed a steady increase in tourism over the past 30 years, similar to that of other German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 sampled cities, and reveals a growth trajectory comparable to Munich or Amsterdam: Over the observation period from 1998 to 2024, overnight stays in Hamburg have more than tripled, from around 4.5 million to almost 16 million. 
-Of the cities highlighted in @figure-descriptive, Berlin visually leads the comparison, having experienced strong growth since the early to mid-2000s, driven by its status as the capital, the hosting of international events, and its high-capacity infrastructure. The city benefits from major trade fairs such as IFA (Internationale Funkausstellung) and ITB (Internationale Tourismus-Börse), large-scale congresses and events such as GITEX Europe, and international sporting events including the 2024 European Football Championship. Munich also shows strong growth, supported by major cultural and sporting events such as the 2022 European Athletics Championships, the 2024 Football Championship, large concerts (e.g. Adele and Taylor Swift in 2024), and the annual Oktoberfest. Amsterdam likewise sees increasing demand, though growth is tempered by regulatory limits introduced under the ‘Tourism in Balance’ policy, adopted in 2021 following a public initiative, which caps tourist hotel overnight stays at 20 million per year @cityofamsterdam2025. In contrast, Hamburg lacks a similarly consistent event engine and and has initially not shown the same dynamic growth. The dip in overnight stays around 2001 in Berlin, Amsterdam, and Munich is likely related to the global travel uncertainty following the 9/11 attacks, which more strongly impacted internationally oriented hubs (source), whereas Hamburg, with its more domestically focused tourism, was less affected.
-However, based on juxtaposition of trends alone, it is difficult to assess the impact of the construction of the Elbphilharmonie, which will be inspected with the synthetic control method in the next section.
+Hamburg has experienced a steady increase in tourism over the past 30 years, mirroring trends observed in other major German and Northern European cities. @figure-descriptive shows the quarterly number of overnight stays for Hamburg and the 22 other sampled cities, revealing a growth trajectory that aligns closely with cities such as Munich or Amsterdam. From 1998 to 2024, overnight stays in Hamburg more than tripled, rising from approximately 4.5 million to nearly 16 million. Among the highlighted cities, Berlin stands out with the steepest increase, particularly from the early to mid-2000s. This growth can be attributed to Berlin’s evolving role as the capital of reunified Germany, its emergence as a global cultural and political hub, and a surge in international conferences, exhibitions, and events. Munich also exhibits strong growth, supported by its prominence in the business travel sector and large-scale cultural events. Amsterdam shows consistent increases in demand, though this has been more recently tempered by regulatory constraints. The city's 'Tourism in Balance' policy, introduced in 2021, caps annual tourist hotel overnight stays at 20 million in response to concerns over overtourism and resident wellbeing @cityofamsterdam2025.
+In contrast, Hamburg has traditionally lacked the same scale of recurring mega-events or administrative centrality. While it today has a strong domestic tourism base and a vibrant cultural sector, its international profile has historically been more modest. A notable moment in the data is the dip around 2001 across several cities, particularly Berlin, Amsterdam, and Munich. This downturn likely reflects the global travel shock triggered by the 9/11 terrorist attacks, which disproportionately affected internationally exposed destinations. Hamburg, whose tourism at the time was more domestically oriented, appears less impacted by the immediate fallout. Despite Hamburg’s steady long-term growth, these descriptive trends alone are insufficient to isolate the effect of a single intervention such as the construction of the Elbphilharmonie. To more precisely evaluate its impact, we turn to the synthetic control method in the following section.
+
 
 /* #todo[
 - table nearest neighbor (Jakob)
