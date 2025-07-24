@@ -229,7 +229,7 @@ In contrast, Hamburg has traditionally lacked the same scale of recurring mega-e
 
 The synthetic control method estimates a surplus of 13 million overnight stays in the 7.5 years between the opening of the Elbphilharmonie in January 2017 and the end of the observation period in Q2 2024, compared to the counterfactual Hamburg without Elbphilharmonie. 
 @figure-difference shows the quarterly series of overnight stays for Hamburg and its 'synthetic twin' (a) and the difference between the two (b).
-Despite the volatility due to the COVID-19 pandemic, there is a clearly visible divergence in the period following the intervention, with larger than expected numbers of overnight stays especially in the period after the end of the pandemic.
+Despite the volatility due to the COVID-19 pandemic, there is a clearly visible divergence in the period following the intervention, with a pronounced increase in overnight stays especially in the period after the end of the pandemic.
 The difference peaks in Q2 2022, where an extra 1,039,103 overnight stays are recorded.
 Vice-versa, troughs of the difference plot align with pandemic-induced lockdowns in Germany (as indicated by the shaded areas in @figure-difference) and are followed by peaks.
 This might be an indication of the Elbphilharmonie -- still being relatively recent at the time of the pandemic -- contributing to Hamburg attracting 'revenge tourism', i.e., tourism driven by a disproportionate willingness to travel after the lockdown @vogler2022.
