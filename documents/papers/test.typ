@@ -10,5 +10,7 @@
 
 @googletrends2025
 
+@alaily-mattar2022
+
 #bibliography("test-biblatex.bib", style: "egg.csl")
 
