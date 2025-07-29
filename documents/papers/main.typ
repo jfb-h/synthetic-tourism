@@ -46,7 +46,7 @@
   
   keywords: ("exceptional architecture", "tourism", "synthetic control", "Elbphilharmonie"),
 
-  references: "references.bib",
+  references: "references-disconnected.bib",
 
   abstract: [
     Exceptional architecture is widely recognized for its transformative impact on the cultural and economic landscape of cities. However, pinpointing its specific influence on tourism, particularly in terms of measurable increases in visitor numbers, remains analytically challenging and empirically underexplored. This study addresses that gap by investigating the causal effects of the Elbphilharmonie concert hall in Hamburg on local tourism development. Employing the synthetic control method, we create a counterfactual scenario to estimate how Hamburg’s tourism trajectory might have unfolded without the construction of the Elbphilharmonie. Our robust findings indicate that the concert hall has had a major effect on tourism. In the seven and a half years from its opening in January 2017 to the second quarter of 2024, the Elbphilharmonie is associated with an estimated 13 million additional overnight stays.
@@ -276,7 +276,7 @@ If effects similar in size to the one identified by running the synthetic contro
 While there is a significant amount of variation for the control unit trials, none of them match the same effect magnitude as the one identified for Hamburg.
 The closest control is Rotterdam, which is the only control unit with a considerably elevated ratio of post-intervention to pre-intervention MSPE (@figure-mspe).
 This can be attributed to the fact that Rotterdam underwent its own ‘intervention’ during the same period, marked by a boost of its touristic appeal through progressive architecture (e.g. the Markthal or Depot Boijmans Van Beuningen) and cultural events @nientied2021, earning it the label 'the capital of coolness' @nieuwland2021.
-However, the difference series for Rotterdam shows considerable fluctuation even after the end of the covid pandemic and its characteristics should probably not be overstated. It should be noted, that while Rotterdam was included in the donor pool for the construction of synthetic Hamburg, it obtained zero weights and therefore did not contribute to the final composition of the synthetic control unit.
+However, the difference series for Rotterdam shows considerable fluctuation even after the end of the covid pandemic and its characteristics should probably not be overstated.
 The backdating robustness check also gives no indication that a similar effect to the one obtained for the actual intervention can be recovered from a temporal placebo.
 @figure-robustness (b) shows the result of running the synthetic control procedure with the intervention advanced from 2017 to 2010: The synthetic series does not significantly diverge from the observed series between the placebo intervention and the actual intervention, but does still recover the divergence observed after the opening of the Elbphilharmonie in 2017.
 Together, these results make us confident that the observed divergence is not purely a result of noise.
