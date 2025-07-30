@@ -4,6 +4,8 @@
   affiliations: (),
   abstract: none,
   keywords: (),
+  JEL: none,
+  note: none,
   references: "references.bib",
   body
 ) = {
@@ -43,13 +45,20 @@
         column-gutter: 1em,
         row-gutter: 24pt,
         ..authors.map(author => text(11pt)[
-          *#author.name* \
+          *#author.name*
+          #if author.mark {super($dagger$)} \
           #author.affiliation \
           #link("mailto:" + author.email)
         ]),
       )
       
-      #v(1em)
+      #v(0.5em)
+
+      #if note != none [
+        #set align(left)
+        #set text(10pt, style: "italic")
+        #note
+      ]
     ],
   )
 
@@ -59,6 +68,16 @@
     _Abstract._
     #abstract
   ]
+  
+  if JEL != none {
+    v(0.1em)
+    text(style: "italic")[JEL Codes: #JEL]
+  }
+  
+  if keywords != none {
+    v(0.1em)
+    text()[_Keywords:_ #keywords.join(", ")]
+  }
 
   body
 

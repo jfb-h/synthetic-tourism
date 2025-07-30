@@ -37,21 +37,26 @@
       name: "Yannick Eckhardt",
       orcid: "https://orcid.org/0009-0001-0963-083X",
       email: "y.eckhardt@lmu.de",
-      affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich]
+      affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich],
+      mark: true
     ),
     (
       name: "Jakob Hoffmann",
       orcid: "https://orcid.org/0000-0001-5764-6281",
       email: "jakob.hoffmann@lmu.de",
-      affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich]
+      affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich],
+      mark: true
     ),
     (
       name: "Philipp Namberger",
       orcid: "https://orcid.org/0000-0001-8472-912X",
       email: "philipp.namberger@lmu.de",
-      affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich]
+      affiliation: [Economic Geography Group \ Department of Geography \ LMU Munich],
+      mark: true
     ),
   ),
+  
+  note: [#super($dagger$) Authors have contributed equally and are listed alphabetically.],
   
   keywords: ("exceptional architecture", "tourism", "synthetic control", "Elbphilharmonie"),
 
