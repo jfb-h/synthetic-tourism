@@ -46,7 +46,7 @@
   
   keywords: ("exceptional architecture", "tourism", "synthetic control", "Elbphilharmonie"),
 
-  references: "references-disconnected.bib",
+  references: "references.bib",
 
   abstract: [
     Exceptional architecture is widely recognized for its transformative impact on the cultural and economic landscape of cities. However, pinpointing its specific influence on tourism, particularly in terms of measurable increases in visitor numbers, remains analytically challenging and empirically underexplored. This study addresses that gap by investigating the causal effects of the Elbphilharmonie concert hall in Hamburg on local tourism development. Employing the synthetic control method, we create a counterfactual scenario to estimate how Hamburg’s tourism trajectory might have unfolded without the construction of the Elbphilharmonie. Our robust findings indicate that the concert hall has had a major effect on tourism. In the seven and a half years from its opening in January 2017 to the second quarter of 2024, the Elbphilharmonie is associated with an estimated 13 million additional overnight stays.

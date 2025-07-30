@@ -62,5 +62,5 @@
 
   body
 
-  bibliography(references, title: "References", style: "apa.csl")
+  bibliography(references, title: "References", style: "egg.csl")
 }

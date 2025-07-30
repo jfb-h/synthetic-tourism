@@ -45,7 +45,7 @@
       [Variable],
       [Hamburg],
       [Synthetic Hamburg],
-      [Control cases],
+      [Mean Control cases],
     ),
     table.hline(), 
     // [Overn. stays 1998-2001 Q1], [1,000,424], [974,827], [483,916],
@@ -71,7 +71,7 @@
     [POP 2014-2016], [1,765,514], [1,539,810], [849,368],
     table.hline(), 
     table.footer(table.cell(text(style: "italic", size: 10pt)[
-        Note: All values are avereages over the indicated period. Synthetic Hamburg is the weighted avereage of control cases using the optimized weights, while the control cases column reports the simple average.
+        Note: All values are avereages over the indicated period. Synthetic Hamburg is the weighted avereage of control cases using the optimized weights (where Berlin, Bonn, Düsseldorf, Cologne, and Amsterdam were selected as relevant donors), while the control cases column reports the simple average.
     ], colspan: 4))
   )
 )
