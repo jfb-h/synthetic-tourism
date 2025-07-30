@@ -331,7 +331,7 @@ Using the synthetic control method, we construct a data-driven counterfactual sc
 Our analysis provides evidence that the Elbphilharmonie generated an estimated 13 million additional overnight stays in the seven and a half years following its opening in 2017.
 The findings are robust in the face of both case-based and temporal placebo studies.
 To contextualize these findings, a rough projection based on the average on-site travel expenses of €129 per person per day in 2023 @hamburgtourismus2024 suggests that this translates into approximately €1.7 billion in additional touristic spending by overnight visitors.
-While this is of course only a very rough (albeit conservative) estimate, it suggests that despite the at the time heavily critisized runaway cost of the project, which is estimated to have approached 870 million Euros in the end @maak2015, the cost was macroeconomically amortized in a relatively short timespan.
+While this is of course only a very rough (albeit conservative) estimate, it suggests that despite the at the time heavily critisized runaway cost of the project, which is estimated to have approached €870 million in the end @maak2015, the cost was macroeconomically amortized in a relatively short timespan.
 
 Altough our analysis is in line with the Elbphilharmonie having been an economic success for the city of Hamburg, it doesn't indicate that this need be the case for all architectural lighthouse projects.
 Indeed many case studies outline how such projects failed to meet economic or cultural expectations, such as the PalaFuksas in Turino @vanolo2022, the Phæno in Wolfsburg @alaily-mattar2019 or the Oscar Niemeyer Centre in Avilés @somozamedina2019.
