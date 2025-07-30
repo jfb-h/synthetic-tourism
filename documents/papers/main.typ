@@ -273,17 +273,6 @@ A more accessible metric is the ratio of post-intervention to pre intervention m
 Given a significant effect of the intervention, this should be large for the treated unit but not for the control units.
 This is indeed the case for Hamburg, with a post-intervention error that is more than 60 times higher than before the intervention, clearly indicating a change-point in the tourism dynamics around the opening of the Elbphilharmonie.
 
-
-
-
-// #todo[
-//   estimate
-//   - seasonality of difference (Philipp?)
-//   - variable importance
-//   - monetary estimate based on per-visitor per-day spending / overnight stay cost / Durchschnittliche Vor-Ort Reiseausgaben Pro Person und Tag in HH 2023: 129 Euro (CPS GFK Destinationsmonitor HH) / (Philipp)
-// ]
-
-
 #figure(
   image("figures/plot-mspe.png"),
   caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for the treated and the control units.]

@@ -278,6 +278,12 @@ p_placebo_unit <- plot_data |>
 
 # MSPE plot
 
+names_new <- c("Essen", "Dusseldorf","Bremerhaven", "Duisburg","Berlin", 
+"Stuttgart", "Bielefeld", "Bonn","Wuppertal", "Nuremberg", 
+"Hannover","Cologne","Helsinki","Munster", "Copenhagen",
+"Munich", "Bochum","Amsterdam", "Dortmund","Bremen",
+"Rotterdam", "Hamburg") 
+
 p4 <- synth_out |> 
   grab_significance(time_window = time_window) |> 
     mutate(
@@ -286,8 +292,9 @@ p4 <- synth_out |>
         type, 
         levels = c("Donor", "Treated"), 
         labels = c("control", "treated")
-      )
-    ) |> 
+      ),
+    ) |>
+    mutate(unit_name = factor(unit_name, labels = names_new)) |>
     ggplot(aes(unit_name, mspe_ratio, fill = type)) + 
     geom_col(alpha = 0.65) + 
     coord_flip() + 
