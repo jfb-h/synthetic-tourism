@@ -362,4 +362,8 @@ Research reconciling economic effects and their contribution to and interaction 
 )<figure-google>
 
 
+#text(14pt)[*Acknowledgements*]
+
+We would like to thank Denise Gutiérrez and Raphael John for their help and the stimulating discussions. This manuscript benefited from language refinement using the LMU Munich-licensed version of Grammarly (v1.2.180.1720).
+
 
