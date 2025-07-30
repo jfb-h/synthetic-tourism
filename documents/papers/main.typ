@@ -7,12 +7,14 @@
     
     // Does Exceptional Architecture Boost Local Tourism? A Case Study of Hamburg’s Elbphilharmonie
     // Local Tourism Impact of Exceptiona// l Architecture: The Case of Hamburg’s Elbphilharmonie
-    // Evaluating Exceptional Architecture’s Tourism Impact: Synthetic Control Study of Hamburg
+
+    Exceptional Architecture and Touristic Impact: \ A Synthetic Control Study of Hamburg's Elbphilharmonie
+
     // Exceptional Architecture and Tourism Growth: A Case Study of Hamburg’s Elbphilharmonie
 
     // The local impact of exceptional architecture on tourism: \ A synthetic control study of the Elbphilharmonie in Hamburg
 
-    A synthetic control study of the Elbphilharmonie's  \ touristic impact in Hamburg
+    // A synthetic control study of the Elbphilharmonie's  \ touristic impact in Hamburg
     
     // Hitting All the Right Notes? The Regional Impact of the Elbphilharmonie’s Exceptional Architecture on Tourism in Hamburg
     
