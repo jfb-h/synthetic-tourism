@@ -4,6 +4,11 @@
 #show: template.with(
   title: [
     // Tourism magnet or money sink? Measuring the impact of the \ Elbphilharmonie in Hamburg
+    
+    // Does Exceptional Architecture Boost Local Tourism? A Case Study of Hamburg’s Elbphilharmonie
+    // Local Tourism Impact of Exceptiona// l Architecture: The Case of Hamburg’s Elbphilharmonie
+    // Evaluating Exceptional Architecture’s Tourism Impact: Synthetic Control Study of Hamburg
+    // Exceptional Architecture and Tourism Growth: A Case Study of Hamburg’s Elbphilharmonie
 
     The local impact of exceptional architecture on tourism: \ A synthetic control study of the Elbphilharmonie in Hamburg
     
