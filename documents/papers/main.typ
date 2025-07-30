@@ -58,7 +58,7 @@
   
   note: [#super($dagger$) Authors have contributed equally and are listed alphabetically.],
   
-  keywords: ("exceptional architecture", "tourism", "synthetic control", "Elbphilharmonie"),
+  keywords: ("exceptional architecture", "tourism", "synthetic control", "Hamburg", "Elbphilharmonie"),
 
   references: "references.bib",
 
@@ -284,15 +284,14 @@ This is indeed the case for Hamburg, with a post-intervention error that is more
 // ]
 
 
-== Robustness checks via placebo trials
-
-While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'.
-
 #figure(
   image("figures/plot-mspe.png"),
   caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for the treated and the control units.]
 )<figure-mspe>
 
+== Robustness checks via placebo trials
+
+While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'.
 This is arguably especially important in a case like the one discussed here, where a global shock in the form of the covid pandemic introduces uncertainty into the studied system. We accordingly conduct two kinds of placebo trials:
 First, a unit-switching placebo trial which implies running the synthetic control method for units that did not receive the intervention @abadie2015.
 And second, a backdating placebo trial, pretending that the intervention took place at an earlier point in time than the actual intervention @abadie2021.
@@ -326,13 +325,31 @@ Because Google Trends has been shown to be a reasonable tool to approximate dest
 
 
 = Conclusion
-This study examines the local impact of exceptional architecture on tourism by analyzing the inauguration of the Elbphilharmonie in Hamburg. Using the synthetic control method, we construct a data-driven counterfactual to assess whether the building’s opening had a causal effect on overnight stays that would not have occurred otherwise. The findings provide robust evidence that the Elbphilharmonie generated an estimated 13 million additional overnight stays in the seven and a half years following its opening in 2017. To contextualize these findings, a rough projection based on the average on-site travel expenses of €129 per person per day in 2023 @hamburgtourismus2024 suggests that this translates into approximately €1.7 billion in additional touristic spending by overnight visitors.
 
-Our study contributes to the growing literature on urban megaprojects and tourism development in several ways. First, by applying the synthetic control method to the case of the Elbphilharmonie, a recent and high-profile example of exceptional architecture, we offer robust empirical evidence of its tourism effects. Second, we provide a transparent and replicable methodological framework for assessing the causal impacts of place-based interventions on tourism, responding to ongoing calls for greater rigor in tourism research @zopiatis2021. Third, we advance the conceptual understanding of how exceptional architecture can function not merely as an aesthetic spectacle but as a sustained driver of tourism flows, with effects that persist amid external shocks such as the COVID-19 pandemic and potentially contribute to the dynamics of post-pandemic “revenge tourism". 
-Our findings demonstrate that a single, exceptional architectural intervention can exert measurable and lasting effects on local tourism flows. More broadly, they offer empirical clarity to a field often marked by mixed results and context-specific contingencies. They contribute to debates on the role of urban megaprojects as an instrument of economic development in both industrialized and emerging economies @hassink2025a[p. 255], and add to calls for urban tourism to receive more scholarly attention @shoval2018. While some scholars caution that the tourism effects of exceptional architecture may be short-lived, the Elbphilharmonie appears to defy this pattern, showing persistent impact nearly eight years after its opening.
+This study examines the local impact of exceptional architecture on tourism by analyzing the inauguration of the Elbphilharmonie in Hamburg.
+Using the synthetic control method, we construct a data-driven counterfactual scenario to assess whether the construction of the Elbphilharmonie lead to an increase in overnight stays that would not have occurred otherwise.
+Our analysis provides evidence that the Elbphilharmonie generated an estimated 13 million additional overnight stays in the seven and a half years following its opening in 2017.
+The findings are robust in the face of both case-based and temporal placebo studies.
+To contextualize these findings, a rough projection based on the average on-site travel expenses of €129 per person per day in 2023 @hamburgtourismus2024 suggests that this translates into approximately €1.7 billion in additional touristic spending by overnight visitors.
+While this is of course only a very rough (albeit conservative) estimate, it suggests that despite the at the time heavily critisized runaway cost of the project, which is estimated to have approached 870 million Euros in the end @maak2015, the cost was macroeconomically amortized in a relatively short timespan.
 
-However, there are also critical voices, as such projects can reflect and reinforce power structures, serving the symbolic and material interests of dominant actors. They may be used to legitimize neoliberal agendas and promote 'post-political' forms of urban governance, where the spectacle of innovation conceals the exclusionary and commercial logics underlying development @sklair2006 @balke2018 @hausler2024.
-Future research can incorporate our findings and extend them beyond economic metrics and explore the broader cultural and institutional implications of exceptional architecture. Recent work suggests that such buildings may serve as ‘field-configuring places’ @capron2024, or function as sites of innovation and institutional change @dreher2022 @lawrence2015. 
+Altough our analysis is in line with the Elbphilharmonie having been an economic success for the city of Hamburg, it doesn't indicate that this need be the case for all architectural lighthouse projects.
+Indeed many case studies outline how such projects failed to meet expectations, such as the PalaFuksas in Turino @vanolo2022 or the Phæno in Wolfsburg @alaily-mattar2019.
+Comparative case studies and research on the economic and social mechanisms underlying the success or failure of these projects would make for a valuable contribution to this field of study and increase its relevance for decision makers.
+Finally, beyond economic impact, there are also social and cultural aspects to exceptional architecture, which are frequently discussed critically: Megaprojects can reflect and reinforce power structures, serving the symbolic and material interests of dominant actors.
+They may also be used to legitimize neoliberal agendas and promote 'post-political' forms of urban governance, where the spectacle of innovation conceals the exclusionary and commercial logics underlying development @sklair2006 @balke2018 @hausler2024.
+In contrast, other recent work suggests that such buildings may have positive social and cultural effects by serving as ‘field-configuring places’ @capron2024, or by functioning as sites of innovation and institutional change @dreher2022 @lawrence2015.
+Research reconciling economic effects and their contribution to and interaction with urban social structure and culture thus seems like another worthwhile avenue for future studies.
+
+// Our study contributes to the growing literature on urban megaprojects and tourism development in several ways.
+// First, by applying the synthetic control method to the case of the Elbphilharmonie, a recent and high-profile example of exceptional architecture, we offer robust empirical evidence of its tourism effects.
+// Second, we provide a transparent and replicable methodological framework for assessing the causal impacts of place-based interventions on tourism, responding to ongoing calls for greater rigor in tourism research @zopiatis2021.
+// Third, we advance the conceptual understanding of how exceptional architecture can function not merely as an aesthetic spectacle but as a sustained driver of tourism flows, with effects that persist amid external shocks such as the COVID-19 pandemic and potentially contribute to the dynamics of post-pandemic “revenge tourism". 
+
+// Our findings demonstrate that a single, exceptional architectural intervention can exert measurable and lasting effects on local tourism flows.
+// More broadly, they offer empirical clarity to a field often marked by mixed results and context-specific contingencies.
+// They contribute to debates on the role of urban megaprojects as an instrument of economic development in both industrialized and emerging economies @hassink2025a[p. 255], and add to calls for urban tourism to receive more scholarly attention @shoval2018.
+// While some scholars caution that the tourism effects of exceptional architecture may be short-lived, the Elbphilharmonie appears to defy this pattern, showing persistent impact nearly eight years after its opening.
 
 #figure(
   image("figures/google-trends.png"),
@@ -340,7 +357,7 @@ Future research can incorporate our findings and extend them beyond economic met
   placement: top,
   caption: [
     Google trends for search terms 'Elbphilharmonie' and 'Speicherstadt'. 
-    Data retrieved from #cite(<googletrends2025>, form: "prose").
+    Data retrieved \ from #cite(<googletrends2025>, form: "prose").
   ]
 )<figure-google>
 
