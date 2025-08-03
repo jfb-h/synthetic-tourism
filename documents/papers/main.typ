@@ -8,7 +8,7 @@
     // Does Exceptional Architecture Boost Local Tourism? A Case Study of Hamburg’s Elbphilharmonie
     // Local Tourism Impact of Exceptiona// l Architecture: The Case of Hamburg’s Elbphilharmonie
 
-    Exceptional Architecture and Touristic Impact: \ A Synthetic Control Study of Hamburg's Elbphilharmonie
+    Exceptional Architecture and Local Tourism Impact: \ A Synthetic Control Study of Hamburg's Elbphilharmonie
 
     // Exceptional Architecture and Tourism Growth: A Case Study of Hamburg’s Elbphilharmonie
 
@@ -63,11 +63,7 @@
   references: "references.bib",
 
   abstract: [
-    Exceptional architecture is widely recognized for its seeming impact on the cultural and economic trajectories of cities.
-    However, the specific attractive potential of any given project and thus its impact on the regional economy is often contentious, and identifying measurable increases for outcomes of interest, such as visitor numbers, is empirically challenging.
-    This study investigates the causal effects of the Elbphilharmonie concert hall in Hamburg on local tourism development.
-    Employing the synthetic control method, we create a counterfactual scenario to estimate how Hamburg’s tourism trajectory might have unfolded without the construction of the Elbphilharmonie.
-    Contrasting recent debates highlighting the often underwhelming nature of 'star architecture', our findings indicate that the concert hall has had a major effect on tourism: In the seven and a half years from its opening in January 2017 to the second quarter of 2024, the Elbphilharmonie is estimated to be responsible for 13 million additional overnight stays, despite the period covering the covid pandemic.
+    Exceptional architecture is widely recognized as shaping cities’ cultural and economic trajectories, yet its specific impact on measurable outcomes such as tourism remains empirically challenging. This study estimates the causal effect of Hamburg's Elbphilharmonie concert hall on local tourism development using the synthetic control method. By modeling a counterfactual scenario, we assess how tourism might have evolved without the project. In contrast to claims about the limited effect of 'star architecture', our findings show a major impact. From its 2017 opening to mid-2024, the Elbphilharmonie is associated with 13 million additional overnight stays, even when accounting for the COVID-19 pandemic.
   ],
 )
 
@@ -323,7 +319,7 @@ To contextualize these findings, a rough projection based on the average on-site
 While this is of course only a very rough (albeit conservative) estimate, it suggests that despite the at the time heavily critisized runaway cost of the project, which is estimated to have approached €870 million in the end @maak2015, the cost was macroeconomically amortized in a relatively short timespan.
 
 Altough our analysis is in line with the Elbphilharmonie having been an economic success for the city of Hamburg, it doesn't indicate that this need be the case for all architectural lighthouse projects.
-Indeed many case studies outline how such projects failed to meet economic or cultural expectations, such as the PalaFuksas in Turino @vanolo2022, the Phæno in Wolfsburg @alaily-mattar2019 or the Oscar Niemeyer Centre in Avilés @somozamedina2019.
+Indeed many case studies outline how such projects failed to meet economic or cultural expectations, such as the PalaFuksas in Turino @vanolo2022, the Phæno in Wolfsburg @alaily-mattar2019, or the Oscar Niemeyer Centre in Avilés @somozamedina2019.
 Comparative case studies and research on the economic and social mechanisms underlying the success or failure of these projects would make for a valuable contribution to this field of study and increase its relevance for decision makers.
 Finally, beyond economic impact, there are also social and cultural aspects to exceptional architecture, which are frequently discussed critically: Megaprojects can reflect and reinforce power structures, serving the symbolic and material interests of dominant actors.
 They may also be used to legitimize neoliberal agendas and promote 'post-political' forms of urban governance, where the spectacle of innovation conceals the exclusionary and commercial logics underlying development @sklair2006 @balke2018 @hausler2024.
