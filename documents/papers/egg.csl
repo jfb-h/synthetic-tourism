@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="never" page-range-format="expanded">
   <info>
-    <title>American Psychological Association 7th edition</title>
-    <title-short>APA</title-short>
+    <title>Economic Geography Group</title>
+    <title-short>EGG</title-short>
     <id>http://www.zotero.org/styles/apa</id>
     <link href="http://www.zotero.org/styles/apa" rel="self"/>
     <link href="http://www.zotero.org/styles/apa-6th-edition" rel="template"/>
     <link href="https://apastyle.apa.org/style-grammar-guidelines/references/examples" rel="documentation"/>
     <author>
-      <name>Brenton M. Wiernik</name>
-      <email>zotero@wiernik.org</email>
+      <name>Jakob Hoffmann</name>
     </author>
     <category citation-format="author-date"/>
-    <category field="psychology"/>
+    <category field="geography"/>
     <category field="generic-base"/>
     <updated>2025-01-22T18:45:37+00:00</updated>
     <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
