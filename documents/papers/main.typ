@@ -153,7 +153,7 @@ Secondly, when measuring the touristic development in Bilbao in the 1990s, multi
   image("figures/images.png"),
   scope: "parent",
   placement: top,
-  caption: [(a) Elbphilharmonie Hamburg with its wave-shaped glass façade ©T.Rätzke (b) View over the Speicherstadt ©T.Rätzke (c) Architecture and construction details ©Herzog&de Meuron (d) Brick corpus of the cocoa warehouse in 1967 ©Zoch. Source: @`elbphilharmonie&laeiszhalle2024`.]
+  caption: [(a) Elbphilharmonie Hamburg with its wave-shaped glass façade ©T.Rätzke (b) View over the Speicherstadt ©T.Rätzke (c) Architecture and construction details ©Herzog&de Meuron (d) Brick corpus of the cocoa warehouse in 1967 ©Zoch. @elbphilharmonie&laeiszhalle2024 (e) Location of the Elbphilharmonie and nearby attractions. Modified base map from #cite(<freieundhansestadthamburglgv2024>, form: "prose")]
 )
 
 = Data and Method
