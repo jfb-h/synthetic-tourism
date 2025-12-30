@@ -3,33 +3,7 @@
 
 #show: template.with(
   title: [
-    // Tourism magnet or money sink? Measuring the impact of the \ Elbphilharmonie in Hamburg
-    
-    // Does Exceptional Architecture Boost Local Tourism? A Case Study of Hamburg’s Elbphilharmonie
-    // Local Tourism Impact of Exceptiona// l Architecture: The Case of Hamburg’s Elbphilharmonie
-
     Exceptional Architecture and Local Tourism Impact: \ A Synthetic Control Study of Hamburg's Elbphilharmonie
-
-    // Exceptional Architecture and Tourism Growth: A Case Study of Hamburg’s Elbphilharmonie
-
-    // The local impact of exceptional architecture on tourism: \ A synthetic control study of the Elbphilharmonie in Hamburg
-
-    // A synthetic control study of the Elbphilharmonie's  \ touristic impact in Hamburg
-    
-    // Hitting All the Right Notes? The Regional Impact of the Elbphilharmonie’s Exceptional Architecture on Tourism in Hamburg
-    
-    // A Symphony for Tourism? The Regional Tourist Impact of Exceptional Architecture: A Synthetic Control Analysis of Hamburg’s Elbphilharmonie
-
-    // A Symphony for Tourism? The Elbphilharmonie’s Architectural Impact on Hamburg‘s Visitor Economy
-
-    // Tourism in Harmony: The Elbphilharmonie’s Role in Shaping Hamburg’s Visitor Economy 
-
-    // Building Tourism: Regional Effects of the Elbphilharmonie’s Exceptional Architecture in Hamburg 
-
-    // Tourism, exceptional architecture, and the COVID-19 aftermath: A synthetic control analysis of the Elbphilharmonie’s impact in Hamburg
-
-    // Iconic Architecture and Regional Tourism: Assessing the Elbphilharmonie’s Influence with Synthetic Control Methods
-
   ],
   
   authors: (
