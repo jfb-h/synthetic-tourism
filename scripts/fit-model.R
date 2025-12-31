@@ -4,126 +4,14 @@ library(patchwork)
 library(arrow)
 library(scales)
 
+source("scripts/run_scm.R")
+
 dat <- read_parquet("data/processed/data.parquet")
 
-quartermonth <- function(x) c(1, 4, 7, 10)[x]
-
-qids <- function(years, quarter, start = 1998) {
-  if (years[1] < start) stop("start outside of period")
-  s <- (years[1] - start) * 4 + quarter
-  seq(s, s + length(years) * 4 - 1, by = 4)
-}
-
-yids <- function(years, start = 1998) {
-  s <- (first(years) - start) * 4 + 1
-  e <- s + 3 + (last(years) - first(years)) * 4
-  s:e
-}
-
 i_observed <- 77
+maxyear <- max(dat$year)
 
-synth_out <-
-  dat |>
-  synthetic_control(
-    outcome = stays,
-    unit = city,
-    time = i,
-    i_unit = "Hamburg",
-    i_time = i_observed,
-    generate_placebos = TRUE
-  ) |>
-  # quarterly stays by 5 year periods
-  generate_predictor(
-    time_window = qids(1998:2001, 1),
-    stays_1998_2001_1 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(1998:2001, 2),
-    stays_1998_2001_2 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(1998:2001, 3),
-    stays_1998_2001_3 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(1998:2001, 4),
-    stays_1998_2001_4 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2002:2006, 1),
-    stays_2002_2006_1 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2002:2006, 2),
-    stays_2002_2006_2 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2002:2006, 3),
-    stays_2002_2006_3 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2002:2006, 4),
-    stays_2002_2006_4 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2007:2011, 1),
-    stays_2007_2011_1 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2007:2011, 2),
-    stays_2007_2011_2 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2007:2011, 3),
-    stays_2007_2011_3 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2007:2011, 4),
-    stays_2007_2011_4 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2012:2016, 1),
-    stays_2012_2016_1 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2012:2016, 2),
-    stays_2012_2016_2 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2012:2016, 3),
-    stays_2012_2016_3 = mean(stays, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = qids(2012:2016, 4),
-    stays_2012_2016_4 = mean(stays, na.rm = TRUE)
-  ) |>
-  # gdp
-  generate_predictor(
-    time_window = yids(2000:2004),
-    gdp_2000_2004 = mean(gdp, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = yids(2005:2009),
-    gdp_2005_2009 = mean(gdp, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = yids(2010:2014),
-    gdp_2010_2014 = mean(gdp, na.rm = TRUE)
-  ) |>
-  generate_predictor(
-    time_window = yids(2015:2016),
-    gdp_2015_2016 = mean(gdp, na.rm = TRUE)
-  ) |>
-  # ew
-  generate_predictor(
-    time_window = yids(2014:2016),
-    ew_2014_2016 = mean(ew, na.rm = TRUE)
-  ) |>
-  generate_weights(
-    optimization_window = yids(1998:2017),
-    margin_ipop = .02, sigf_ipop = 7, bound_ipop = 6
-  ) |>
-  generate_control()
+synth_out <- run_scm(dat, i_observed)
 
 # p1 <- synth_out |> plot_trends()
 # p2 <- synth_out |> plot_differences()
@@ -131,7 +19,7 @@ synth_out <-
 # p4 <- synth_out |> plot_placebos()
 # p_combined <- (p1 / p2) | (p3 / p4)
 
-quarter_numbers <- 1:106
+quarter_numbers <- 1:((maxyear - 1998 + 1) * 4 - 2)
 years <- 1998 + floor((quarter_numbers - 1) / 4)
 quarters <- ((quarter_numbers - 1) %% 4) + 1
 dates <- lubridate::ymd(paste(years, c(1,4,7,10)[quarters], "01", sep = "-"))
@@ -294,7 +182,7 @@ p4 <- synth_out |>
         labels = c("control", "treated")
       ),
     ) |>
-    mutate(unit_name = factor(unit_name, labels = names_new)) |>
+    # mutate(unit_name = factor(unit_name, labels = names_new)) |>
     ggplot(aes(unit_name, mspe_ratio, fill = type)) + 
     geom_col(alpha = 0.65) + 
     coord_flip() + 
@@ -475,16 +363,18 @@ ggsave("documents/papers/figures/plot-placebos-both.png", p_placebos_both, heigh
 
 # difference sum
 
-synth_out |>
- grab_synthetic_control(placebo = FALSE) |>
+# synth_out |>
+#  grab_synthetic_control(placebo = FALSE) |>
 
 # tables etc.
 
-synth_out |> tidysynth::grab_unit_weights()
+synth_out |> grab_unit_weights() |> arrange(-weight)
 
 synth_out |> grab_balance_table()
-# synth_out |> grab_significance()
-# synth_out |> grab_balance_table()
+
+synth_out |> grab_significance()
+
+synth_out |> grab_loss() |> pull(variable_mspe) |> first() |> sqrt()
 
 plot_data |> 
   filter(year(dates) >= 2017 & type_text == "Hamburg") |>

@@ -30,7 +30,7 @@ dat |>
     #scale_y_log10() +
     scale_color_brewer(palette="Dark2") +
       scale_x_date(
-      breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
+      breaks = seq(ymd("1998-01-01"), ymd("2026-01-01"), by = "2 years"),
       date_labels = "%Y"
     ) +
     labs(x = NULL, y = "Overnight stays", color = NULL) +

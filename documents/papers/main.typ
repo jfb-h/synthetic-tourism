@@ -52,7 +52,7 @@
 Exceptional architecture is known for its transformative power in shaping the economic and cultural landscape of its host city @alaily-mattar2022a @alaily-mattar2018b @dreher2023 @heidenreich2015.
 In the context of heightened urban competition @hausler2024 @sklair2017 @zenker2013, especially among urban destinations @defrantz2018, highly visible architectural projects can create recognizable regional identities and “act as a synecdoche for a city or region” @alaily-mattar2022a[p. 1], attracting tourists and inward investment in the process and thus providing a competitive edge @balke2018 @scerri2019.
 Particularly the opening of the Guggenheim Museum in Bilbao in 1997 has brought the topic into the spotlight of scholarly attention:
-Its inauguration has been linked to amplified tourism, a revitalized local economy, and an elevated cultural reputation @alaily-mattar2018b @plaza2006 @plaza2009. #highlight[However, the effectiveness of exceptional architecture in attracting tourists remains a subject of disagreement. According to #cite(<dreher2020>, form: "prose"), some studies emphasize the positive and lasting economic and tourism impacts, while others suggest that these effects are only short-lived and do not achieve the anticipated outcomes (p. 442).]
+Its inauguration has been linked to amplified tourism, a revitalized local economy, and an elevated cultural reputation @alaily-mattar2018b @plaza2006 @plaza2009. #highlight[However, the effectiveness of exceptional architecture in attracting tourists remains a subject of disagreement. According to #cite(<dreher2020>, form: "prose", supplement: [p. 442]), some studies emphasize the positive and lasting economic and tourism impacts, while others suggest that these effects are only short-lived and do not achieve the anticipated outcomes.]
 We contribute empirical evidence to this debate in the form of a focused case study measuring the touristic impact of the 'Elbphilharmonie' in Hamburg.
 The Elbphilharmonie (Elbe Philharmonic Hall), inaugurated in January 2017, is a multifunctional building in Hamburg that includes concert halls, a hotel, apartments, and a publicly accessible plaza.
 Designed by the renowned architects Herzog & de Meuron, the building stands out by its wave-shaped glass façade atop a historic warehouse at Hamburg’s harbor @dreher2020 @hofmeister2021.
@@ -74,17 +74,18 @@ In the following sections, we will first outline the theoretical and empirical d
 Over the past decades, tourism has evolved into one of the largest and fastest-growing industries globally, contributing substantially to the gross domestic product of many regions.
 For example, in 2019, tourism revenues in Europe amounted to a substantial 514.9 billion euros @worldtourismorganization2021.
 However, the pandemic triggered a sharp decline @plzakova2022 @worldtourismorganization2023, as travel restrictions, testing requirements, and quarantines created lasting travel hesitancy among some individuals @gossling2022 @mckercher2024.
-Nevertheless, and despite initial pessimistic forecasts, the tourism industry is undergoing a robust recovery in most places, a phenomenon powered by and often referred to as “revenge tourism” @meenakshi2024 @vogler2022.
-Motivated by a strong urge to travel once borders reopened, some travelers created ‘bucket lists’ to satisfy their craving for heightened excitement @meenakshi2024, making destinations renowned for their exceptional architecture an appealing choice.
-In response to the economic relevance to attract tourists and the increasing competition among urban centers for economic development @hausler2024 @sklair2017 @zenker2013, many cities have invested in prestigious architectural projects @andersson2014 @ponzini2020.
-The underlying idea is that exceptional architecture can stimulate new tourism, employment opportunities, and additional tax revenues, which can be economically beneficial for urban development @alaily-mattar2018a @ben-dalia2013 @plaza2006.
-This phenomenon occurs because exceptional architecture may act as a unique selling point that contributes to the attractive image of a city and adds a layer of urban prestige @andersson2014 @romao2025.
-As a result, these buildings often become representative symbols of urban progress, motivating tourists to choose their host cities as destinations @balke2018 @boniface2021 @scerri2019 @specht2014.
+Nevertheless, and despite initial pessimistic forecasts, the tourism industry has undergone a robust recovery in most places, a phenomenon powered by and often referred to as “revenge tourism” @meenakshi2024 @vogler2022.
+Once borders reopened, travelers were especially motivated to travel again, had in many cases accrued savings due to limited consumption, and had built long ‘bucket lists’ of target destinations @meenakshi2024, with places renowned for their exceptional architecture being an appealing choice.
+Tourism is also driven by increasing competition among urban centers for economic development @hausler2024 @sklair2017 @zenker2013, and many cities have invested in prestigious architectural projects to attract visitors @andersson2014 @ponzini2020.
+When exceptional architecture stimulates new tourism, it directly and indirectly creates employment opportunities and additional tax revenues, which is in turn again economically beneficial for urban development @alaily-mattar2018a @ben-dalia2013 @plaza2006.
+In this regard, exceptional architecture may act as a unique selling point that adds a layer of urban prestige @andersson2014 @romao2025 and often becomes a representative symbol of urban progress @balke2018 @boniface2021 @scerri2019 @specht2014.
 This aligns with the findings from #cite(<plaza2024>, form: "prose"), who link the effects of exceptional architecture with findings from cognitive psychology and social cognition @dimaggio1997.
 They emphasize that such architecture holds major cultural and symbolic meanings, as they can create strong symbolic associations and are easily remembered due to their distinctiveness, elevating the global visibility of their locations and making them memorable to potential visitors and media consumers.
 These architectural icons, therefore, can serve as crucial connectors in the global media landscape, reinforcing the prominence and boosting the attractiveness (for visitors) of their host locations.
-Taking a leading role and gaining visibility is especially important in the context of post-pandemic tourism, as the recovery intensifies competition among tourism-dependent economies to attract visitors @abbas2024. #highlight[While much of the literature focuses on newly built flagship projects, recent examples of exceptional architecture (e.g., Zeitz Museum of Contemporary Art Africa, Cape Town or Fondazione Prada, Milan), including the Elbphilharmonie, combine new design with the adaptive reuse of existing structures. Such hybrid projects integrate historical continuity with contemporary architectural expression, reinforcing urban identity and tourist appeal through both renewal and preservation @alaily-mattar2018a@ponzini2020.]
-However, measuring the precise effects of exceptional architecture on tourism remains challenging.
+Taking a leading role and gaining visibility is especially important in the context of post-pandemic tourism, as the recovery intensifies competition among tourism-dependent economies to attract visitors @abbas2024.
+#highlight[While much of the literature focuses on newly built flagship projects, recent examples of exceptional architecture (e.g., Zeitz Museum of Contemporary Art Africa, Cape Town or Fondazione Prada, Milan), including the Elbphilharmonie, combine new design with the adaptive reuse of existing structures. Such hybrid projects integrate historical continuity with contemporary architectural expression, reinforcing urban identity and tourist appeal through both renewal and preservation @alaily-mattar2018a@ponzini2020.]
+#highlight[The above deliberations support the expectation that the Elbphilharmone had a positive effect on tourism in Hamburg (as measured by overnight stays), the estimation of which is the primary goal of this study.
+While there are many plausible ways in which exceptional architecture can spur tourism growth and thus regional development, measuring its precise impact remains challenging and studies of other flagship projects have yielded mixed results.]
 For example, studies of the ‘Guggenheim Effect’ show that museum visitors played a major role in the growth of tourism in the Basque Country after the opening @plaza2000.
 However, there are methodological hurdles in determining the actual effects.
 In the specific case of the Guggenheim Museum, idiosyncratic factors such as the dissolution of the terrorist organization ETA, general tourism developments, economic cycles, the increasing attractiveness of neighboring regions, and comprehensive urban developments must be taken into account, making it challenging to isolate the phenomenon @plaza2000 @voltes-dorta2016.
@@ -141,9 +142,15 @@ More specifically, the synthetic control method proceeds by constructing a weigh
 Weights are determined in a way as to maximize the pre-intervention similarity of the synthetic and the real unit in terms of the quantity of interest. Similarity is determined based on a set of predictors, which themselves have associated importance weights also subject to optimization.
 Given sufficient pre-intervention similarity (taken to indicate that the behaviour of the quantity of interest is well-approximated by the weighted average of the control units), post-intervention deviations between the synthetic and the real case are then interpreted as a consequence of the intervention.
 
-An important assumption is the absence of other idiosyncratic shocks that could lead to a deviation of the treated unit in terms of the outcome of interest. While there was a considerable shock to tourism throughout the observation period in the form of the COVID-19 pandemic, this was not idiosyncratic: The pandemic lead to almost universal travel restrictions which in turn led to an almost universal and dramatic decline in visitor numbers (as can be seen in @figure-descriptive). Nevertheless, the pandemic led to considerable variability, which can make the identification of a clear signal more difficult. Accordingly, it is important to check the robustness of the causal interpretation of a treated-control divergence, which can be achieved thorugh two different kinds of placebo tests:
+An important assumption is the absence of other idiosyncratic shocks that could lead to a deviation of the treated unit in terms of the outcome of interest.
+While there was a considerable shock to tourism throughout the observation period in the form of the COVID-19 pandemic, this was 
+Nevertheless, the pandemic led to considerable variability, which can make the identification of a clear signal more difficult.
+Accordingly, it is important to check the robustness of the causal interpretation of a treated-control divergence, which can be achieved through two different kinds of placebo tests:
 First, placebos can be constructed by assigning the intervention to other units than the one for which it occurred.
-Second, instead of switching the unit, the analysis can be rerun with intervention shifted to different points in time. If these analyses yield similarly large post-intervention differences, results are likely to represent noise and should be interpreted with care.
+#highlight[TODO: Ausführen, LOO]
+Second, instead of switching the unit, the analysis can be rerun with the intervention shifted to a different point in time.
+Here, we conduct such a temporal placebo trial by setting the intervention date to the year 2010 instead of 2017.
+If these placebo trials yield similarly large post-intervention differences, results are likely to represent noise and should be interpreted with care.
 If these simulations yield similarly large effects as the actually treated unit, results are again deemed not robust. All analyses were conducted with the `tidysynth` package for the `R` programming language @dunford2025.
 
 
@@ -241,10 +248,18 @@ A more accessible metric is the ratio of post-intervention to pre intervention m
 Given a significant effect of the intervention, this should be large for the treated unit but not for the control units.
 This is indeed the case for Hamburg, with a post-intervention error that is more than 60 times higher than before the intervention, clearly indicating a change-point in the tourism dynamics around the opening of the Elbphilharmonie.
 
+// #figure(
+//   image("figures/plot-mspe.png"),
+//   caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for the treated and the control units.]
+// )<figure-mspe>
+
 #figure(
-  image("figures/plot-mspe.png"),
-  caption: [Ratio of mean squared predictive error (MSPE) before and after the intervention for the treated and the control units.]
+  include("figures/loo-rmspe.typ"),
+  scope: "parent",
+  placement: top,
+  
 )<figure-mspe>
+
 
 == Robustness checks via placebo trials
 While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting 'placebo trials'. This is arguably especially important in a case like the one discussed here, where a global shock in the form of the covid pandemic introduces uncertainty into the studied system. We accordingly conduct two kinds of placebo trials: First, a unit-switching placebo trial which implies running the synthetic control method for units that did not receive the intervention @abadie2015. And second, a backdating placebo trial, pretending that the intervention took place at an earlier point in time than the actual intervention @abadie2021.
@@ -259,16 +274,20 @@ A final potential source of confounding is the designation of the Speicherstadt,
   image("figures/plot-placebos-both.png"),
   scope: "parent",
   placement: top,
-  caption: [(a) Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). (b) Synthetic and observed series with the intervention predated to 2010.]
+  caption: [(a) Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). Only control units within 2 times the MSPE of Hamburg are shown to avoid visual clutter (see Abadie et al. 2010). (b) Temporal placebo test showing the synthetic and observed series with the intervention predated to 2010.]
 )<figure-robustness>
 
 
 = Discussion
 #highlight[This study uses a synthetic control approach to show that the opening of Hamburg’s Elbphilharmonie in 2017 generated approximately 13 million additional overnight stays over the following 7.5 years. To contextualize these findings, an illustrative projection based on the average on-site travel expenses of €129 per person per day in 2023 @hamburgtourismus2024 suggests approximately €1.7 billion in additional touristic spending by overnight visitors. Although this simple calculation is not a formal economic model, it provides a rough indication that, despite the at-the-time heavily criticized project cost of around €870 million @maak2015, the expense could have been broadly offset at the macroeconomic level within a relatively short period. Although our analysis is in line with the Elbphilharmonie having been an economic success for the city of Hamburg, it doesn't indicate that this need be the case for all architectural lighthouse projects. Indeed, many case studies outline how such projects failed to meet economic or cultural expectations, such as the PalaFuksas in Turino @vanolo2022, the Phæno in Wolfsburg @alaily-mattar2019, or the Oscar Niemeyer Centre in Avilés @somozamedina2019. 
 
-Methodwise, the donor pool is almost entirely composed of German cities, apart from Amsterdam with a weight of 0.03, which limits cross-country confounding from travel and policy differences, especially during the COVID-19 crisis. Although some variation across federal states existed, Germany followed a broadly coordinated pandemic policy timeline (e.g., the March 2020 contact ban, the mid-December 2020 winter tightening, and the April 2021 federal emergency brake) @bonisch2020 @schuppert2021. 
+As discussed earlier, the observation period overlaps the COVID-19 pandemic, which had severe consequences for tourism worldwide and thus might plausibly interfere with the estimation of the Elbphilharmonie effect on tourism. However, we believe the effect visible in this study to be more than just a pandemic-induced artefact for two reasons:
+First, the effect is already visible for the post-treatment period before the onset of the pandemic in 2020.
+Second, the donor pool is almost entirely composed of German cities, apart from Amsterdam with a weight of 0.03, which limits cross-country confounding from travel and policy differences, especially during the COVID-19 crisis.
+Although some variation across federal states existed, Germany followed a broadly coordinated pandemic policy timeline (e.g., the March 2020 contact ban, the mid-December 2020 winter tightening, and the April 2021 federal emergency brake) @bonisch2020 @schuppert2021.
+This reduces the likelihood of bias due to non-parallel recovery trends. Nevertheless, the possibility that pandemic induced revenge-tourism led to an amplification of the effect of lighthouse projects such as the Elbphilharmonie remains a challenging limitation of the approach presented here.
 
-Furthermore, exceptional architectural projects can evoke complex social effects on neighboring neighborhoods beyond their economic influence. These may include changes in the local housing market, shifts in resident demographics, and gentrification, as noted in earlier research @balke2018 @novy2019. Additionally, an increased volume of tourism can lead to overtourism that exceeds local social capacities and disrupts residents' everyday social life @namberger2019a.]
+Finally, exceptional architectural projects can evoke complex social effects on adjacent neighborhoods beyond their direct economic impact. These may include changes in the local housing market, shifts in resident demographics, and gentrification, as noted in earlier research @balke2018 @novy2019. Additionally, an increased volume of tourism can lead to overtourism that exceeds local social capacities and disrupts residents' everyday social life @namberger2019a.]
 
 = Conclusion
 #highlight[This study examines the local impact of exceptional architecture on tourism by analyzing the inauguration of the Elbphilharmonie in Hamburg. Using the synthetic control method, we construct a data-driven counterfactual scenario to assess whether the construction of the Elbphilharmonie lead to an increase in overnight stays that would not have occurred otherwise. 

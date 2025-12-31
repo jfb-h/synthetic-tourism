@@ -2,20 +2,54 @@ library(tidyverse)
 library(readxl)
 library(arrow)
 
+maxyear <- 2025
+
 cities <- c(
-  "Wuppertal", "Stuttgart", "Rotterdam", "Oslo", "Nürnberg",
-  "Münster", "München", "Kopenhagen", "Köln", "Helsinki", "Hannover",
-  "Hamburg", "Essen", "Düsseldorf", "Duisburg", "Dortmund", "Bremerhaven",
-  "Bremen", "Bonn", "Bochum", "Bielefeld", "Berlin", "Amsterdam"
+  "Amsterdam",
+  "Berlin",
+  "Bielefeld",
+  "Bochum",
+  "Bonn",
+  "Bremen",
+  "Bremerhaven",
+# "Brussels",
+  "Dortmund",
+  "Duisburg",
+  "Düsseldorf",
+  "Essen",
+# "Flensburg",
+# "Frankfurt",
+# "Göteborg",
+  "Hamburg",
+  "Hannover",
+  "Helsinki",
+# "Kiel",
+  "Kopenhagen",
+  "Köln",
+  "München",
+  "Münster",
+  "Nürnberg",
+  "Oslo",
+  "Rotterdam",
+# "Stockholm",
+  "Stuttgart",
+# "Tallinn",                  
+# "Uusimaa (Region Helsinki)",
+  "Wuppertal"
 )
 
 datanew <- read_xlsx("data/intermediate/tourism.xlsx") |>
   select(Jahr, Monat, Stadt, GAST02__Gaesteuebernachtungen__Anzahl, art)
 
+
 finalyeargr <- expand.grid(
-  Jahr = seq(1998, 2024),
+  Jahr = seq(1998, maxyear),
   Monat = seq(1, 12),
   Stadt = cities
+) |> filter(
+    !(Jahr == maxyear & Monat > 9)
+) |> arrange(
+  Jahr, Monat, Stadt
 )
 
 final2 <- left_join(finalyeargr, datanew, by = c("Jahr", "Monat", "Stadt"))
@@ -72,14 +106,14 @@ finalj <- final2 |>
   select(Jahr, Stadt, Quarter, total)
 
 finalgr <- expand.grid(
-  Jahr = seq(1998, 2024), Quarter = seq(1, 4),
+  Jahr = seq(1998, maxyear), Quarter = seq(1, 4),
   Stadt = cities
 )
 
 finaltest <- rbind(finalq, finalj)
 
 final <- left_join(finalgr, finaltest, by = c("Jahr", "Quarter", "Stadt")) |>
-  filter(!(Jahr == 2024 & (Quarter == 3 | Quarter == 4)))
+  filter(!(Jahr == maxyear & (Quarter == 3 | Quarter == 4)))
 
 ew <- read_csv2("data/intermediate/population.csv") |>
   janitor::clean_names() |>
