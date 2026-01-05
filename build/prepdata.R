@@ -2,141 +2,126 @@ library(tidyverse)
 library(readxl)
 library(arrow)
 
-maxyear <- 2025
+# Imports list with configuration options and file names
+source("scripts/config.R")
 
-cities <- c(
-  "Amsterdam",
-  "Berlin",
-  "Bielefeld",
-  "Bochum",
-  "Bonn",
-  "Bremen",
-  "Bremerhaven",
-# "Brussels",
-  "Dortmund",
-  "Duisburg",
-  "Düsseldorf",
-  "Essen",
-# "Flensburg",
-# "Frankfurt",
-# "Göteborg",
-  "Hamburg",
-  "Hannover",
-  "Helsinki",
-# "Kiel",
-  "Kopenhagen",
-  "Köln",
-  "München",
-  "Münster",
-  "Nürnberg",
-  "Oslo",
-  "Rotterdam",
-# "Stockholm",
-  "Stuttgart",
-# "Tallinn",                  
-# "Uusimaa (Region Helsinki)",
-  "Wuppertal"
-)
+read_overnight_stays <- function(CONF) {
+  read_xlsx(CONF$files$overnight_stays) |>
+  # column art identifies cities/periods with yearly data (Munich, Nuremberg and Frankfurt)
+    select(year=Jahr, month=Monat, city=Stadt, total=GAST02__Gaesteuebernachtungen__Anzahl, art)
+}
 
-datanew <- read_xlsx("data/intermediate/tourism.xlsx") |>
-  select(Jahr, Monat, Stadt, GAST02__Gaesteuebernachtungen__Anzahl, art)
-
-
-finalyeargr <- expand.grid(
-  Jahr = seq(1998, maxyear),
-  Monat = seq(1, 12),
-  Stadt = cities
-) |> filter(
-    !(Jahr == maxyear & Monat > 9)
-) |> arrange(
-  Jahr, Monat, Stadt
-)
-
-final2 <- left_join(finalyeargr, datanew, by = c("Jahr", "Monat", "Stadt"))
-
-finalq <- final2 |>
-  filter(art == FALSE) |>
-  mutate(Quarter = case_when(
-    Monat %in% c(1, 2, 3) ~ 1,
-    Monat %in% c(4, 5, 6) ~ 2,
-    Monat %in% c(7, 8, 9) ~ 3,
-    Monat %in% c(10, 11, 12) ~ 4
-  )) |>
-  group_by(Jahr, Stadt, Quarter) |>
-  summarise(
-    total = sum(GAST02__Gaesteuebernachtungen__Anzahl),
-    .groups = "drop"
-  )
-
-dataq2 <- datanew |>
-  select(Jahr, Stadt, Monat, art, GAST02__Gaesteuebernachtungen__Anzahl) |>
-  filter(art == FALSE, Stadt %in% c("München", "Nürnberg")) |>
-  mutate(Quarter = case_when(
-    Monat %in% c(1, 2, 3) ~ 1,
-    Monat %in% c(4, 5, 6) ~ 2,
-    Monat %in% c(7, 8, 9) ~ 3,
-    Monat %in% c(10, 11, 12) ~ 4
-  ))
-
-proportions <- dataq2 |>
-  filter(Jahr %in% 2006:2019) |>
-  group_by(Jahr, Stadt, Quarter) |>
-  summarise(
-    total = sum(GAST02__Gaesteuebernachtungen__Anzahl),
-    .groups = "drop"
+extend_to_month_city_grid <- function(data, CONF) {
+  expand.grid(
+    year = seq(CONF$minyear, CONF$maxyear),
+    month = seq(1, 12),
+    city = CONF$cities
   ) |>
-  group_by(Jahr, Stadt) |>
-  mutate(proportion = total / sum(total)) |>
-  group_by(Stadt, Quarter) |>
-  summarise(proportion = mean(proportion))
+  filter(!(year == CONF$maxyear & month > 9)) |>
+  arrange(year, month, city) |>
+  tibble() |>
+  left_join(data, by = c("year", "month", "city"))
+}
 
+add_quarters <- function(data) {
+    data |> mutate(quarter = case_when(
+      month %in% c(1, 2, 3) ~ 1,
+      month %in% c(4, 5, 6) ~ 2,
+      month %in% c(7, 8, 9) ~ 3,
+      month %in% c(10, 11, 12) ~ 4
+    ))
+}
 
-finalj <- final2 |>
-  filter(art == TRUE) |>
-  mutate(Quarter = case_when(
-    Monat %in% c(1, 2, 3) ~ 1,
-    Monat %in% c(4, 5, 6) ~ 2,
-    Monat %in% c(7, 8, 9) ~ 3,
-    Monat %in% c(10, 11, 12) ~ 4
-  )) |>
-  select(Jahr, Stadt, Quarter, GAST02__Gaesteuebernachtungen__Anzahl) |>
-  distinct() |>
-  left_join(proportions, by = c("Stadt", "Quarter")) |> # Join proportions
-  mutate(total = GAST02__Gaesteuebernachtungen__Anzahl * proportion) |>
-  select(Jahr, Stadt, Quarter, total)
+aggregate_by_quarter <- function(data) {
+  data |>
+    summarise(
+      total = sum(total),
+      .by = c(year, city, quarter)
+    )
+}
 
-finalgr <- expand.grid(
-  Jahr = seq(1998, maxyear), Quarter = seq(1, 4),
-  Stadt = cities
-)
+quarterly_interpolation_proportions <- function(data, cities, period) {
+  data |>
+    filter(city %in% cities & year %in% period) |>
+    mutate(proportion = total / sum(total), .by = c(city, year)) |>
+    summarise(proportion = mean(proportion), .by = c(city, quarter))
+}
 
-finaltest <- rbind(finalq, finalj)
+interpolate_quarterly_from_yearly_data <- function(data, proportions) {
+      data |> left_join(
+        proportions,
+        by = c("city", "quarter")) |>
+      mutate(total = total * proportion) |>
+      select(year, city, quarter, total)
+}
 
-final <- left_join(finalgr, finaltest, by = c("Jahr", "Quarter", "Stadt")) |>
-  filter(!(Jahr == maxyear & (Quarter == 3 | Quarter == 4)))
+add_date_from_quarter <- function(df) {
+  df |> mutate(date = as.Date(paste(year, (quarter - 1) * 3 + 1, 1, sep = "-")))
+}
 
-ew <- read_csv2("data/intermediate/population.csv") |>
-  janitor::clean_names() |>
-  pivot_longer(cols = starts_with("x"), names_to = "Year") |>
-  mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year))) |>
-  select(geo_labels, Year, value) |>
-  rename(ew = value)
+read_and_prepare_overnight_stays <- function(CONF) {
+  data <- read_overnight_stays(CONF) |>
+    extend_to_month_city_grid(CONF) |>
+    add_quarters()
 
-gdp <- read_csv2("data/intermediate/gdp.csv") |>
-  janitor::clean_names() |>
-  pivot_longer(cols = starts_with("x"), names_to = "Year") |>
-  mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year))) |>
-  select(geo_labels, Year, value) |>
-  rename(gdp = value)
+  cities = c("München", "Nürnberg", "Frankfurt")
+  period = c(2008:2018)
+  proportions <- quarterly_interpolation_proportions(aggregate_by_quarter(data), cities, period)
+  lookup_yearly <- enframe(CONF$interpolate_quarters, name = "city", value = "year") |> unnest(year)
 
-dat <- final |>
-  rename(city = Stadt, year = Jahr, stays = total, quarter = Quarter) |>
-  arrange(year, quarter) |>
-  mutate(i = cur_group_id(), .by = c(year, quarter)) |>
-  left_join(gdp, by = c("year" = "Year", "city" = "geo_labels")) |>
-  left_join(ew, by = c("year" = "Year", "city" = "geo_labels")) |>
-  mutate(gdp = as.numeric(gdp), ew = as.numeric(ew)) |>
-  filter(city != "Oslo") |>
-  tibble()
+  data_no_interpolation <- data |>
+    anti_join(lookup_yearly, by = c("city", "year")) |>
+    aggregate_by_quarter()
 
-write_parquet(dat, "data/processed/data.parquet")
+  data_interpolation <- data |>
+    inner_join(lookup_yearly, by = c("city", "year")) |>
+    summarize(total = first(total), .by = c("city", "quarter", "year")) |>
+    interpolate_quarterly_from_yearly_data(proportions)
+
+  data_combined <- data_no_interpolation |>
+    bind_rows(data_interpolation) |>
+    arrange(year, city, quarter)
+
+  data_combined
+}
+
+read_and_prepare_pop <- function(CONF) {
+  read_csv2(CONF$files$population) |>
+    janitor::clean_names() |>
+    pivot_longer(cols = starts_with("x"), names_to = "Year") |>
+    mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year))) |>
+    select(geo_labels, Year, value) |>
+    rename(pop = value)
+}
+
+read_and_prepare_gdp <- function(CONF) {
+  read_csv2(CONF$files$gdp) |>
+    janitor::clean_names() |>
+    pivot_longer(cols = starts_with("x"), names_to = "Year") |>
+    mutate(Year = as.numeric(gsub("[^0-9.-]", "", Year))) |>
+    select(geo_labels, Year, value) |>
+    rename(gdp = value)
+}
+
+combine_datasets <- function(overnight_stays, gdp, pop) {
+  overnight_stays |>
+    rename(stays = total) |>
+    arrange(year, quarter) |>
+    mutate(i = cur_group_id(), .by = c(year, quarter)) |>
+    left_join(gdp, by = c("year" = "Year", "city" = "geo_labels")) |>
+    left_join(pop, by = c("year" = "Year", "city" = "geo_labels")) |>
+    mutate(gdp = as.numeric(gdp), pop = as.numeric(pop)) |>
+    filter(city != "Oslo") |>
+    tibble()
+}
+
+main <- function(CONF) {
+  ons <- read_and_prepare_overnight_stays(CONF)
+  pop <- read_and_prepare_pop(CONF)
+  gdp <- read_and_prepare_gdp(CONF)
+  com <- combine_datasets(ons, gdp, pop)
+  write_parquet(com, "data/processed/data.parquet")
+}
+
+main(CONF)
+
