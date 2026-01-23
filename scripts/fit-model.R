@@ -3,161 +3,166 @@ library(tidysynth)
 library(patchwork)
 library(arrow)
 library(scales)
+library(tinytable)
 
 source("scripts/run_scm.R")
+source("scripts/config.R")
 
 dat <- read_parquet("data/processed/data.parquet")
 
 i_observed <- 77
-maxyear <- max(dat$year)
 
 synth_out <- run_scm(dat, i_observed)
 
 # p1 <- synth_out |> plot_trends()
 # p2 <- synth_out |> plot_differences()
-# p3 <- synth_out |> plot_weights()
+p3 <- synth_out |> plot_weights()
 # p4 <- synth_out |> plot_placebos()
-# p_combined <- (p1 / p2) | (p3 / p4)
+# (p1 / p2) | (p3 / p4)
 
+maxyear <- CONF$maxyear
 quarter_numbers <- 1:((maxyear - 1998 + 1) * 4 - 2)
 years <- 1998 + floor((quarter_numbers - 1) / 4)
 quarters <- ((quarter_numbers - 1) %% 4) + 1
-dates <- lubridate::ymd(paste(years, c(1,4,7,10)[quarters], "01", sep = "-"))
+dates <- lubridate::ymd(paste(years, c(1, 4, 7, 10)[quarters], "01", sep = "-"))
 
 # Difference plot
 
 d_diff <- synth_out |>
- grab_synthetic_control(placebo = FALSE) |>
+  grab_synthetic_control(placebo = FALSE) |>
   rename(synthetic = synth_y, observed = real_y) |>
   mutate(dates = dates)
 
 p1 <- d_diff |>
   pivot_longer(cols = c(observed, synthetic)) |>
-  ggplot(aes(dates, value, color = name)) + 
-    geom_rect(
-      aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
-      color = "grey90", fill = "grey90", alpha = 0.5
-    ) +
-    geom_rect(
-      aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
-      color = "grey90", fill = "grey90", alpha = 0.5
-    ) +
-    geom_rect(
-      aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
-      color = "grey90", fill = "grey90", alpha = 0.5
-    ) +
-    geom_ribbon(
-      data = filter(d_diff, dates >= ymd("2017-01-01")),
-      mapping = aes(x = dates, ymin = pmin(observed, synthetic), ymax = pmax(observed, synthetic)),
-      inherit.aes = FALSE,
-      fill = "#00aeff", alpha = 0.3
-    ) +
-    geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
-    geom_line(linewidth = 0.8, alpha = 0.7) + 
-    scale_color_manual(values = c("grey60", "black")) + 
-    scale_linetype_manual(values = c(1, 4)) + 
-    scale_y_continuous(labels = scales::comma) +
-    scale_x_date(
-      breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
-      date_labels = "%Y"
-    ) +
-    labs(y = "Observed and synthetic\novernight stays", x = NULL, color = NULL) +
-    theme_minimal() +
-    guides(linetype = FALSE) +
-    theme(legend.position = "top", legend.justification = "left")
+  ggplot(aes(dates, value, color = name)) +
+  geom_rect(
+    aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
+    color = "grey90", fill = "grey90", alpha = 0.5
+  ) +
+  geom_rect(
+    aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
+    color = "grey90", fill = "grey90", alpha = 0.5
+  ) +
+  geom_rect(
+    aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
+    color = "grey90", fill = "grey90", alpha = 0.5
+  ) +
+  geom_ribbon(
+    data = filter(d_diff, dates >= ymd("2017-01-01")),
+    mapping = aes(x = dates, ymin = pmin(observed, synthetic), ymax = pmax(observed, synthetic)),
+    inherit.aes = FALSE,
+    fill = "#00aeff", alpha = 0.3
+  ) +
+  geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) +
+  geom_line(linewidth = 0.8, alpha = 0.7) +
+  scale_color_manual(values = c("grey60", "black")) +
+  scale_linetype_manual(values = c(1, 4)) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_date(
+    breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
+    date_labels = "%Y"
+  ) +
+  labs(y = "Observed and synthetic\novernight stays", x = NULL, color = NULL) +
+  theme_minimal() +
+  guides(linetype = FALSE) +
+  theme(legend.position = "top", legend.justification = "left")
 
 p2 <- synth_out |>
- grab_synthetic_control(placebo = FALSE) |>
- mutate(diff = real_y - synth_y, dates = dates) |>    
-    ggplot(aes(dates, diff)) + 
-    geom_rect(
-      aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
-      fill = "grey90", alpha = 0.5
-    ) +
-    geom_rect(
-      aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
-      fill = "grey90", alpha = 0.5
-    ) +
-    geom_rect(
-      aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
-      fill = "grey90", alpha = 0.5
-    ) +
-    geom_area(
-      data = (\(df) filter(df, dates >= ymd("2017-01-01"))), 
-      aes(x = dates, y = diff), 
-      fill = "#00aeff", alpha = 0.3
-    ) +
-    geom_hline(yintercept = 0, color = "black", linetype = 2) + 
-    geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
-    annotate("text", x = ymd("2014-05-01"), y = 850000, label = "Opening of the\nElbphilharmonie") +
-    geom_line(linewidth = 1, alpha = 0.75, color = "black") + 
-    scale_y_continuous(labels = scales::comma) +
-    scale_x_date(
-      breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
-      date_labels = "%Y"
-    ) +
-    theme_minimal() +
-    labs(y = "Observed - synthetic \novernight stays", x = NULL)
+  grab_synthetic_control(placebo = FALSE) |>
+  mutate(diff = real_y - synth_y, dates = dates) |>
+  ggplot(aes(dates, diff)) +
+  geom_rect(
+    aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
+    fill = "grey90", alpha = 0.5
+  ) +
+  geom_rect(
+    aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
+    fill = "grey90", alpha = 0.5
+  ) +
+  geom_rect(
+    aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
+    fill = "grey90", alpha = 0.5
+  ) +
+  geom_area(
+    data = (\(df) filter(df, dates >= ymd("2017-01-01"))),
+    aes(x = dates, y = diff),
+    fill = "#00aeff", alpha = 0.3
+  ) +
+  geom_hline(yintercept = 0, color = "black", linetype = 2) +
+  geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) +
+  annotate("text", x = ymd("2014-05-01"), y = 850000, label = "Opening of the\nElbphilharmonie") +
+  geom_line(linewidth = 1, alpha = 0.75, color = "black") +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_date(
+    breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
+    date_labels = "%Y"
+  ) +
+  theme_minimal() +
+  labs(y = "Observed - synthetic \novernight stays", x = NULL)
 
-p_diff <- p1 / p2 + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
+p_diff <- p1 / p2 + plot_annotation(tag_levels = "a", tag_prefix = "(", tag_suffix = ")")
 
 ggsave("documents/papers/figures/plot-difference.png", p_diff, height = 6, width = 10)
 
 # difference sum
 
 synth_out |>
- grab_synthetic_control(placebo = FALSE) |>
- mutate(diff = real_y - synth_y, dates = dates) |>
- filter(dates > ymd("2017-01-01")) |>
- pull(diff) |>
- sum()
+  grab_synthetic_control(placebo = FALSE) |>
+  mutate(diff = real_y - synth_y, dates = dates) |>
+  filter(dates > ymd("2017-01-01")) |>
+  pull(diff) |>
+  sum()
 
 # Placebo test
 
 time_window <- unique(synth_out$.original_data[[1]][["i"]])
 sig_data <- synth_out |> grab_significance(time_window = time_window)
-thres <- sig_data |> filter(type == "Treated") |> pull(pre_mspe) |> sqrt()
+thres <- sig_data |>
+  filter(type == "Treated") |>
+  pull(pre_mspe) |>
+  sqrt()
 
-retain <- sig_data |> 
-  select(unit_name, pre_mspe) |> 
-  filter(sqrt(pre_mspe) <= thres * 2) |> 
+retain <- sig_data |>
+  select(unit_name, pre_mspe) |>
+  filter(sqrt(pre_mspe) <= thres * 2) |>
   pull(unit_name)
 
 plot_data <- synth_out |>
- grab_synthetic_control(placebo = TRUE) |>
- mutate(diff = real_y - synth_y) |>
- left_join(tibble(time_unit = 1:length(dates), dates = dates)) |>
- mutate(
-      type_text = ifelse(.placebo == 0, "Hamburg", "control units"), 
-      type_text = factor(type_text, levels = c("Hamburg", "control units"))
- ) |>
- filter(.id %in% retain)
+  grab_synthetic_control(placebo = TRUE) |>
+  mutate(diff = real_y - synth_y) |>
+  left_join(tibble(time_unit = 1:length(dates), dates = dates)) |>
+  mutate(
+    type_text = ifelse(.placebo == 0, "Hamburg", "control units"),
+    type_text = factor(type_text, levels = c("Hamburg", "control units"))
+  ) |>
+  filter(.id %in% retain)
 
-p_placebo_unit <- plot_data |> 
+p_placebo_unit <- plot_data |>
   ggplot(aes(
-    dates, 
-    diff, 
-    group = .id, 
-    color = type_text, 
-    alpha = type_text, 
+    dates,
+    diff,
+    group = .id,
+    color = type_text,
+    alpha = type_text,
     size = type_text
-  )) + 
-  geom_hline(yintercept = 0, color = "black", linetype = 2) + 
-  geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) + 
+  )) +
+  geom_hline(yintercept = 0, color = "black", linetype = 2) +
+  geom_vline(xintercept = ymd("2017-01-01"), color = "black", linetype = 2) +
   annotate("text", x = ymd("2014-05-01"), y = 850000, label = "Opening of the\nElbphilharmonie") +
-  geom_line() + 
-  scale_color_manual(values = c("black", "grey70")) + 
-  scale_alpha_manual(values = c(1, 0.4)) + 
-  scale_size_manual(values = c(1, 0.5)) + 
+  geom_line() +
+  scale_color_manual(values = c("black", "grey70")) +
+  scale_alpha_manual(values = c(1, 0.4)) +
+  scale_size_manual(values = c(1, 0.5)) +
   scale_y_continuous(labels = scales::comma) +
   scale_x_date(
-      breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
-      date_labels = "%Y"
-    ) +
+    breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
+    date_labels = "%Y"
+  ) +
   labs(
     color = NULL, linetype = NULL, group = NULL, alpha = NULL, size = NULL,
     x = NULL, y = "Observed - synthetic overnight stays"
-  ) + 
+  ) +
   guides(linetype = FALSE) +
   theme_minimal() +
   theme(legend.position = "bottom")
@@ -166,37 +171,39 @@ p_placebo_unit <- plot_data |>
 
 # MSPE plot
 
-names_new <- c("Essen", "Dusseldorf","Bremerhaven", "Duisburg","Berlin", 
-"Stuttgart", "Bielefeld", "Bonn","Wuppertal", "Nuremberg", 
-"Hannover","Cologne","Helsinki","Munster", "Copenhagen",
-"Munich", "Bochum","Amsterdam", "Dortmund","Bremen",
-"Rotterdam", "Hamburg") 
+names_new <- c(
+  "Essen", "Dusseldorf", "Bremerhaven", "Duisburg", "Berlin",
+  "Stuttgart", "Bielefeld", "Bonn", "Wuppertal", "Nuremberg",
+  "Hannover", "Cologne", "Helsinki", "Munster", "Copenhagen",
+  "Munich", "Bochum", "Amsterdam", "Dortmund", "Bremen",
+  "Rotterdam", "Hamburg"
+)
 
-p4 <- synth_out |> 
-  grab_significance(time_window = time_window) |> 
-    mutate(
-      unit_name = fct_reorder(as.character(unit_name), mspe_ratio),
-      type = factor(
-        type, 
-        levels = c("Donor", "Treated"), 
-        labels = c("control", "treated")
-      ),
-    ) |>
-    # mutate(unit_name = factor(unit_name, labels = names_new)) |>
-    ggplot(aes(unit_name, mspe_ratio, fill = type)) + 
-    geom_col(alpha = 0.65) + 
-    coord_flip() + 
-    labs(
-      y = "Post-treatment MSPE / pre-treatment MSPE", 
-      x = "", 
-      fill = "", 
-      color = "", 
-      title = ""
-    ) + 
-    scale_fill_manual(values = c("grey70", "black")) + 
-    scale_color_manual(values = c("grey70", "black")) + 
-    theme_minimal() + 
-    theme(legend.position = "bottom")
+p4 <- synth_out |>
+  grab_significance(time_window = time_window) |>
+  mutate(
+    unit_name = fct_reorder(as.character(unit_name), mspe_ratio),
+    type = factor(
+      type,
+      levels = c("Donor", "Treated"),
+      labels = c("control", "treated")
+    ),
+  ) |>
+  # mutate(unit_name = factor(unit_name, labels = names_new)) |>
+  ggplot(aes(unit_name, mspe_ratio, fill = type)) +
+  geom_col(alpha = 0.65) +
+  coord_flip() +
+  labs(
+    y = "Post-treatment MSPE / pre-treatment MSPE",
+    x = "",
+    fill = "",
+    color = "",
+    title = ""
+  ) +
+  scale_fill_manual(values = c("grey70", "black")) +
+  scale_color_manual(values = c("grey70", "black")) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
 
 ggsave("documents/papers/figures/plot-mspe.png", p4, height = 7, width = 5)
 
@@ -280,52 +287,52 @@ synth_out_placebo <-
 
 
 d_diff_placebo <- synth_out_placebo |>
- grab_synthetic_control(placebo = FALSE) |>
+  grab_synthetic_control(placebo = FALSE) |>
   rename(synthetic = synth_y, observed = real_y) |>
   mutate(dates = dates)
 
 p_placebo_backdating <- d_diff_placebo |>
   pivot_longer(cols = c(observed, synthetic)) |>
-  ggplot(aes(dates, value, color = name)) + 
-    geom_rect(
-      aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
-      color = "grey90", fill = "grey90", alpha = 0.5
-    ) +
-    geom_rect(
-      aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
-      color = "grey90", fill = "grey90", alpha = 0.5
-    ) +
-    geom_rect(
-      aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
-      color = "grey90", fill = "grey90", alpha = 0.5
-    ) +
-    geom_ribbon(
-      data = filter(d_diff, dates >= ymd("2010-01-01")),
-      mapping = aes(x = dates, ymin = pmin(observed, synthetic), ymax = pmax(observed, synthetic)),
-      inherit.aes = FALSE,
-      fill = "#00aeff", alpha = 0.3
-    ) +
-    geom_vline(xintercept = ymd("2010-01-01"), color = "black", linetype = 2) + 
-    geom_vline(xintercept = ymd("2017-01-01"), color = "grey70", linetype = 2) + 
-    annotate("text", x = ymd("2008-01-01"), y = 4500000, label = "placebo\nintervention") +
-    annotate("text", x = ymd("2015-01-01"), y = 4500000, label = "real\nintervention", color = "grey70") +
-    geom_line(linewidth = 0.8, alpha = 0.7) + 
-    scale_color_manual(values = c("grey60", "black")) + 
-    scale_linetype_manual(values = c(1, 4)) + 
-    scale_y_continuous(labels = scales::comma) +
-    scale_x_date(
-      breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
-      date_labels = "%Y"
-    ) +
-    labs(y = "Observed and synthetic\novernight stays", x = NULL, color = NULL) +
-    theme_minimal() +
-    guides(linetype = FALSE) +
-    theme(legend.position = "top", legend.justification = "left")
+  ggplot(aes(dates, value, color = name)) +
+  geom_rect(
+    aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
+    color = "grey90", fill = "grey90", alpha = 0.5
+  ) +
+  geom_rect(
+    aes(xmin = ymd("2020-11-01"), xmax = ymd("2020-12-31"), ymin = -Inf, ymax = Inf),
+    color = "grey90", fill = "grey90", alpha = 0.5
+  ) +
+  geom_rect(
+    aes(xmin = ymd("2020-12-01"), xmax = ymd("2021-05-31"), ymin = -Inf, ymax = Inf),
+    color = "grey90", fill = "grey90", alpha = 0.5
+  ) +
+  geom_ribbon(
+    data = filter(d_diff, dates >= ymd("2010-01-01")),
+    mapping = aes(x = dates, ymin = pmin(observed, synthetic), ymax = pmax(observed, synthetic)),
+    inherit.aes = FALSE,
+    fill = "#00aeff", alpha = 0.3
+  ) +
+  geom_vline(xintercept = ymd("2010-01-01"), color = "black", linetype = 2) +
+  geom_vline(xintercept = ymd("2017-01-01"), color = "grey70", linetype = 2) +
+  annotate("text", x = ymd("2008-01-01"), y = 4500000, label = "placebo\nintervention") +
+  annotate("text", x = ymd("2015-01-01"), y = 4500000, label = "real\nintervention", color = "grey70") +
+  geom_line(linewidth = 0.8, alpha = 0.7) +
+  scale_color_manual(values = c("grey60", "black")) +
+  scale_linetype_manual(values = c(1, 4)) +
+  scale_y_continuous(labels = scales::comma) +
+  scale_x_date(
+    breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
+    date_labels = "%Y"
+  ) +
+  labs(y = "Observed and synthetic\novernight stays", x = NULL, color = NULL) +
+  theme_minimal() +
+  guides(linetype = FALSE) +
+  theme(legend.position = "top", legend.justification = "left")
 
 # p_placebo_backdating_diff <- synth_out_placebo |>
 #  grab_synthetic_control(placebo = FALSE) |>
-#  mutate(diff = real_y - synth_y, dates = dates) |>    
-#     ggplot(aes(dates, diff)) + 
+#  mutate(diff = real_y - synth_y, dates = dates) |>
+#     ggplot(aes(dates, diff)) +
 #     geom_rect(
 #       aes(xmin = ymd("2020-03-01"), xmax = ymd("2020-05-31"), ymin = -Inf, ymax = Inf),
 #       fill = "grey90", alpha = 0.5
@@ -339,16 +346,16 @@ p_placebo_backdating <- d_diff_placebo |>
 #       fill = "grey90", alpha = 0.5
 #     ) +
 #     geom_area(
-#       data = (\(df) filter(df, dates >= ymd("2017-01-01"))), 
-#       aes(x = dates, y = diff), 
+#       data = (\(df) filter(df, dates >= ymd("2017-01-01"))),
+#       aes(x = dates, y = diff),
 #       fill = "#00aeff", alpha = 0.3
 #     ) +
-#     geom_hline(yintercept = 0, color = "black", linetype = 2) + 
-#     geom_vline(xintercept = ymd("2010-01-01"), color = "black", linetype = 2) + 
-#     geom_vline(xintercept = ymd("2017-01-01"), color = "grey70", linetype = 2) + 
+#     geom_hline(yintercept = 0, color = "black", linetype = 2) +
+#     geom_vline(xintercept = ymd("2010-01-01"), color = "black", linetype = 2) +
+#     geom_vline(xintercept = ymd("2017-01-01"), color = "grey70", linetype = 2) +
 #     annotate("text", x = ymd("2008-01-01"), y = 850000, label = "placebo\nintervention") +
 #     annotate("text", x = ymd("2015-01-01"), y = 850000, label = "real\nintervention", color = "grey70") +
-#     geom_line(linewidth = 1, alpha = 0.75, color = "black") + 
+#     geom_line(linewidth = 1, alpha = 0.75, color = "black") +
 #     scale_y_continuous(labels = scales::comma) +
 #     scale_x_date(
 #       breaks = seq(ymd("1998-01-01"), ymd("2025-01-01"), by = "2 years"),
@@ -357,28 +364,59 @@ p_placebo_backdating <- d_diff_placebo |>
 #     theme_minimal() +
 #     labs(y = "Observed - synthetic \novernight stays", x = NULL)
 
-p_placebos_both <- p_placebo_unit / p_placebo_backdating + plot_annotation(tag_levels = "a",  tag_prefix = "(", tag_suffix = ")")
+p_placebos_both <- p_placebo_unit / p_placebo_backdating + plot_annotation(tag_levels = "a", tag_prefix = "(", tag_suffix = ")")
 
 ggsave("documents/papers/figures/plot-placebos-both.png", p_placebos_both, height = 8, width = 10)
 
 # difference sum
+synth_out |>
+ grab_synthetic_control(placebo = FALSE) |>
+  mutate(diff = real_y - synth_y) |>
+  summarize(total = sum(diff))
 
-# synth_out |>
-#  grab_synthetic_control(placebo = FALSE) |>
+# unit weights
+synth_out |>
+  grab_unit_weights() |>
+  arrange(-weight)
 
-# tables etc.
+# predictor comparison
+synth_out |> grab_balance_table() |>
+  filter(
+    variable %in% paste0("stays_2010_2011_", 1:4) |
+      variable == "gdp_2005_2009" |
+      variable == "pop_2009_2010"
+  ) |>
+  rename(
+    Variable = variable,
+    `Synthetic Hamburg` = synthetic_Hamburg,
+    `Donor pool mean` = donor_sample
+  ) |>
+  tt(
+    notes = paste0(
+      "Note: All values are averages over the indicated period. ",
+      "Synthetic Hamburg is the weighted average of control cases using the optimized weights (where Berlin, Düsseldorf, Cologne, Stuttgart, and Hannover were selected as relevant donors), ",
+      "while the last column reports the simple average of all donors."
+    )
+  ) |>
+  format_tt(
+    digits = 2,
+    num_mark_big = ","
+  ) |>
+  style_tt(
+    align = "lrrr"
+  ) |>
+  save_tt(
+    "documents/papers/figures/table-match.typ",
+    overwrite = TRUE
+  )
 
-synth_out |> grab_unit_weights() |> arrange(-weight)
-
-synth_out |> grab_balance_table()
-
+# placebo RMSPE ratio
 synth_out |> grab_significance()
 
-synth_out |> grab_loss() |> pull(variable_mspe) |> first() |> sqrt()
-
-plot_data |> 
-  filter(year(dates) >= 2017 & type_text == "Hamburg") |>
-  select(dates, real_y, synth_y) |>
-  mutate(diff = real_y - synth_y) |>
-  write_csv("data/intermediate/post-intervention-differences.csv")
+# RMSPE
+synth_out |>
+  grab_loss() |>
+  pull(variable_mspe) |>
+  first() |>
+  sqrt()
 

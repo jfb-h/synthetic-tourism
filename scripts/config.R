@@ -1,7 +1,6 @@
 CONF <- {
-  
   # files containing the data for the analysis
-  files = list(
+  files <- list(
     overnight_stays = "data/intermediate/tourism.xlsx",
     population = "data/intermediate/population.csv",
     gdp = "data/intermediate/gdp.csv"
@@ -50,7 +49,9 @@ CONF <- {
     "Stuttgart",
     # "Tallinn",
     # "Uusimaa (Region Helsinki)",
+    # "Vienna",
     "Wuppertal"
+    # "Zurich"
   )
 
   list(
