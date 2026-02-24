@@ -104,7 +104,7 @@ block[ // start block
     table.footer(
       repeat: false,
       // tinytable notes after
-    table.cell(align: left, colspan: 4, text([Pre-intervention RMSPE and treatment effect for Hamburg refer to the baseline estimate.])),
+    table.cell(align: left, colspan: 4, text([Note: Pre-intervention RMSPE and treatment effect for Hamburg refer to the baseline estimate. Berlin is highlighted because the estimate is sensitive to its exclusion from the donor pool.])),
     ),
     
 

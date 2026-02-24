@@ -81,5 +81,5 @@
 
   body
 
-  bibliography(references, title: "References", style: "egg.csl")
+  bibliography(references, title: "References", style: "american-psychological-association")
 }
