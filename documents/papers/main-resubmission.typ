@@ -159,6 +159,7 @@ As primary predictors for the identification of weights that minimize pre-interv
 This specification allows for different periodicity patterns (e.g., coastal vs. alpine tourism) to influence the selection of optimal weights.
 In addition, we also use 5-year periodic averages for per capita GDP as well as population size in the three years preceeding the intervention as predictors. GDP per capita and population size are valuable additional predictors for constructing the synthetic Hamburg as they capture the key economic and demographic fundamentals that influence tourism demand and ensure the control units reflect similar structural conditions prior to the intervention.
 For the candidate pool of control cases we selected 18 German cities, including Berlin, Munich, and Cologne as comparatively sized candidates, as well as Rotterdam, Amsterdam, Copenhagen, and Helsinki.
+#highlight[The German units capture national touristic trends and mostly uniform policy responses during the pandemic. The international cities were included to account for tourism dynamics specific to Northern European maritime hubs. Rotterdam, in particular, serves as a primary structural peer because of its shared identity as a major harbor city that has undergone a transition toward a culture-driven waterfront economy.TThese international units were selected as they represent recognized functional and economic benchmarks for Hamburg (JRC, 2023). We deliberately restricted this selection to a few high-quality cases to ensure a robust counterfactual. This focused donor pool minimizes cross-country confounding variables, such as diverging national travel restrictions and lockdown timings, which would otherwise introduce significant noise into the synthetic series during the COVID-19 period.]
 The former capture national touristic trends, as well as Germany-specific policy responses to the pandemic. 
 The latter were included to allow for tourism dynamics specific to the hanseatic cities of the North Sea and Baltic Sea coastal areas. 
 Inclusion of further cities or removal of the included smaller German cities did not lead to significant differences in the findings, supporting the selection reported here.
@@ -191,7 +192,7 @@ For Munich and Nuremberg, pre 2005 data was only available on a yearly basis. Fo
 //Copenhagen, 1998-2024: Overnight stay by type of overnight accommodations, region, nationality of the guest and period. Code: TURIST. Statistics Denmark, online. 
 // Helsinki, 1998-2024: Monthly hotel capacity and nights spent by municipality, 1995M01-2025M03. Code: 11lm. Statistics Finland, online. 
 
-= Results and discussion
+= Results
 
 == Tourism development in Hamburg
 
