@@ -370,9 +370,9 @@ ggsave("documents/papers/figures/plot-placebos-both.png", p_placebos_both, heigh
 
 # difference sum
 synth_out |>
- grab_synthetic_control(placebo = FALSE) |>
+  grab_synthetic_control(placebo = FALSE) |>
   mutate(diff = real_y - synth_y) |>
-  summarize(total = sum(diff))
+  summarize(real = sum(real_y), synth = sum(synth_y), total = sum(diff))
 
 # unit weights
 synth_out |>
@@ -380,7 +380,8 @@ synth_out |>
   arrange(-weight)
 
 # predictor comparison
-synth_out |> grab_balance_table() |>
+synth_out |>
+  grab_balance_table() |>
   filter(
     variable %in% paste0("stays_2010_2011_", 1:4) |
       variable == "gdp_2005_2009" |
@@ -419,4 +420,3 @@ synth_out |>
   pull(variable_mspe) |>
   first() |>
   sqrt()
-

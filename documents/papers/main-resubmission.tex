@@ -7,31 +7,32 @@
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{multirow}
 \usepackage[table]{xcolor}
-\usepackage[round]{natbib}
+\usepackage[style=authoryear, backend=biber, natbib=true, maxcitenames=2, maxbibnames=99]{biblatex}
+\addbibresource{references.bib}
 \usepackage[hidelinks]{hyperref}
-\usepackage{float}
-\usepackage{caption}
-\usepackage{amsmath}
 \usepackage{eurosym}
 \usepackage{setspace}
 
 \geometry{a4paper, left=3cm, right=3cm, top=3cm, bottom=3cm}
-\captionsetup{font=small}
 \onehalfspacing
 
-\title{\textbf{Exceptional Architecture and Local Tourism Impact:\\
-A Synthetic Control Study of Hamburg's Elbphilharmonie}}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{4}
+\setcounter{totalnumber}{6}
 
-\author{Yannick Eckhardt$^{1,\dagger}$ \and Jakob Hoffmann$^{1,\dagger}$ \and Philipp Namberger$^{1,\dagger}$}
+\title{Exceptional Architecture and Local Tourism Impact:
+A Synthetic Control Study of Hamburg's Elbphilharmonie}
+
+\author{Yannick Eckhardt$^{1}$ \and Jakob Hoffmann$^{1}$ \and Philipp Namberger$^{1}$}
 
 \date{%
   $^1$ Economic Geography Group, Department of Geography, LMU Munich\\[0.3em]
   \small\href{mailto:y.eckhardt@lmu.de}{y.eckhardt@lmu.de} \quad
   \href{mailto:jakob.hoffmann@lmu.de}{jakob.hoffmann@lmu.de} \quad
   \href{mailto:philipp.namberger@lmu.de}{philipp.namberger@lmu.de}\\[0.3em]
-  \small$^\dagger$ Authors have contributed equally and are listed alphabetically.%
 }
 
 \begin{document}
@@ -40,7 +41,7 @@ A Synthetic Control Study of Hamburg's Elbphilharmonie}}
 
 
 \begin{abstract}
-\noindent Exceptional architecture is widely recognized for its seeming impact on the cultural and economic trajectories of cities. However, the specific attractive potential of any given project and thus its impact on the regional economy is often contentious, and identifying measurable increases for outcomes of interest, such as visitor numbers, is empirically challenging. This study investigates the causal effects of the Elbphilharmonie concert hall in Hamburg on local tourism development. Employing the synthetic control method, we create a counterfactual scenario to estimate how Hamburg's tourism trajectory might have unfolded without the construction of the Elbphilharmonie. Contrasting recent debates highlighting the often underwhelming nature of `star architecture', our findings indicate that the concert hall has had a major effect on tourism: In the eight and a half years from its opening in January 2017 to the second quarter of 2025, the Elbphilharmonie is estimated to be responsible for 18 million additional overnight stays. We conclude by discussing the impact of the covid pandemic and an identified sensitivity to the inclusion of Berlin as a comparison unit.
+  \noindent Exceptional architecture is widely recognized for its seeming impact on the cultural and economic trajectories of cities. However, the specific attractive potential of any given project and thus its impact on the regional economy is often contentious, and identifying measurable increases for outcomes of interest, such as visitor numbers, is empirically challenging. This study investigates the causal effects of the Elbphilharmonie concert hall in Hamburg on local tourism development. Employing the synthetic control method, we create a counterfactual scenario to estimate how Hamburg's tourism trajectory might have unfolded without the construction of the Elbphilharmonie. Contrasting recent debates highlighting the often underwhelming nature of `star architecture', our findings indicate that the concert hall has had a major effect on tourism: In the eight and a half years from its opening in January 2017 to the second quarter of 2025, the Elbphilharmonie is estimated to be responsible for 18 million (7\%) additional overnight stays. We conclude by discussing the impact of the covid pandemic and an identified sensitivity to the inclusion of Berlin as a comparison unit.
 \end{abstract}
 
 \noindent\textbf{Keywords:} exceptional architecture, tourism, synthetic control, Hamburg, Elbphilharmonie
@@ -74,7 +75,7 @@ From a functional perspective, the structure serves as a concert hall, which als
 
 To study the impact of exceptional architecture on local tourism, using the Elbphilharmonie in Hamburg as an example, is beneficial in two ways. Firstly, the relatively low number of foreign concert attendees suggests that, if there was a positive effect, it is the architectural attraction itself rather than the concerts that attracts tourists, providing empirical support for the assumptions of \citet{dreher2020}. Secondly, when measuring the touristic development in Bilbao in the 1990s, multiple factors beyond the opening of the Guggenheim Museum contributed to the city's attractive for tourists, including extensive urban redevelopment of former industrial areas, economic diversification, and a decline in ETA-related violence \citep{keating2003, gomez2001}. Or, as \citet{hassink2025a} frame it, ``the megaproject of the museum and its surrounding area [\ldots] became the symbol of urban change but, arguably, it was not its cause'' (p.~257). In contrast, during the opening of the Elbphilharmonie, Hamburg did not experience similar large scale idiosyncratic contextual factors (for a discussion, see Section~5), making it more feasible to accurately estimate the isolated causal effects of exceptional architecture on tourism.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/images.png}
   \caption{(a) Elbphilharmonie Hamburg with its wave-shaped glass façade \copyright~T.~Rätzke (b) View over the Speicherstadt \copyright~T.~Rätzke (c) Architecture and construction details \copyright~Herzog\,\&\,de\,Meuron (d) Brick corpus of the cocoa warehouse in 1967 \copyright~Zoch. Source: \citet{elbphilharmonie2024} (e) Location of the Elbphilharmonie and nearby attractions. Modified base map from \citet{freieundhansestadthamburglgv2024}.}
@@ -107,7 +108,7 @@ For Munich and Nuremberg, pre-2005 data was only available on a yearly basis. Fo
 
 \subsection{Tourism development in Hamburg}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/plot-descriptive.png}
   \caption{Quarterly number of overnight stays for Hamburg and the 22 sampled control cases. Hamburg and selected comparable cities are highlighted. The grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.}
@@ -121,7 +122,7 @@ In contrast, Hamburg has traditionally lacked the same scale of recurring mega-e
 
 \subsection{The Elbphilharmonie effect}
 
-\begin{table}[t]
+\begin{table}[htbp]
   \centering
   \caption{Pre-intervention comparison of selected predictors}
   \label{table-comparison}
@@ -143,7 +144,7 @@ In contrast, Hamburg has traditionally lacked the same scale of recurring mega-e
   \end{minipage}
 \end{table}
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/plot-difference.png}
   \caption{(a) Synthetic and observed series of overnight stays, (b) difference between synthetic and observed series. Blue shaded areas highlight the post-treatment difference between the synthetic and observed series. The grey shaded areas mark major pandemic-related lockdowns from March to May 2020 and from late 2020 to May 2021.}
@@ -163,14 +164,14 @@ A more accessible metric is the ratio of post-intervention to pre-intervention m
 
 While the synthetic control research design is not amenable to classical statistical hypothesis tests, the robustness of the results can nevertheless be assessed by conducting `placebo trials'. This is arguably especially important in a case like the one discussed here, where a global shock in the form of the covid pandemic introduces uncertainty into the studied system. We accordingly conduct two kinds of placebo trials: First, a unit-switching placebo trial which implies running the synthetic control method for units that did not receive the intervention \citep{abadie2015}. And second, a backdating placebo trial, pretending that the intervention took place at an earlier point in time than the actual intervention \citep{abadie2021}.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/plot-placebos-both.png}
   \caption{(a) Difference between observed and synthetic overnight stays for Hamburg (black line) and placebo test with control units (grey lines). Only control units within 2 times the MSPE of Hamburg are shown to avoid visual clutter (see \citealt{abadie2010}). (b) Temporal placebo test showing the synthetic and observed series with the intervention predated to 2010.}
   \label{figure-robustness}
 \end{figure}
 
-\begin{table}[t]
+\begin{table}[htbp]
   \centering
   \caption{Sensitivity statistics based on placebo and LOO tests}
   \label{table-mspe}
@@ -238,7 +239,7 @@ However, while this study reports a major tourism impact, the findings remain su
 
 Practically, the results indicate that high-profile architectural projects can produce lasting tourism benefits when incorporated into broader urban strategies, although outcomes depend on the specific local context \citep{alaily-mattar2020a}. Decision-makers must weigh the high upfront costs against potential macroeconomic returns, noting that success is not guaranteed. Beyond economic impact, megaprojects are frequently discussed critically: they can reflect and reinforce power structures, serving the symbolic and material interests of dominant actors, or legitimize neoliberal agendas where the spectacle of innovation conceals exclusionary logics \citep{novy2019, balke2018}. In contrast, other recent work suggests that such buildings may have positive social effects by serving as `field-configuring places' \citep{capron2024} or sites of institutional change \citep{dreher2022}. Comparative case studies investigating the mechanisms underlying the success or failure of these projects would make for a valuable contribution to this field. Finally, beyond economic impact, there are also social and cultural aspects to exceptional architecture, which are frequently discussed critically: Megaprojects can reflect and reinforce power structures, serving the symbolic and material interests of dominant actors. They may also be used to legitimize neoliberal agendas and promote `post-political' forms of urban governance, where the spectacle of innovation and strategic planning conceals the exclusionary and commercial logics underlying development \citep{novy2019, balke2018, hausler2024, bassols2019}. In contrast, other recent work suggests that such buildings may have positive social and cultural effects by serving as `field-configuring places' \citep{capron2024}, or by functioning as sites of innovation and institutional change \citep{dreher2022, lawrence2015}. Research reconciling economic effects and their contribution to and interaction with urban social structure and culture thus seems like another worthwhile avenue for future studies.
 
-\begin{figure}[t]
+\begin{figure}[htbp]
   \centering
   \includegraphics[width=\textwidth]{figures/google-trends.png}
   \caption{Google trends for search terms `Elbphilharmonie' and `Speicherstadt'. Data retrieved from \citet{googletrends}.}
@@ -258,7 +259,6 @@ No potential conflict of interest was reported by the author(s).
 
 No funding was received.
 
-\bibliographystyle{plainnat}
-\bibliography{references}
+\printbibliography
 
 \end{document}
