@@ -1,0 +1,731 @@
+\begin{thebibliography}{86}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abadie(2021)]{abadie2021}
+Alberto Abadie.
+\newblock Using synthetic controls: {{Feasibility}}, data requirements, and
+  methodological aspects.
+\newblock \emph{Journal of Economic Literature}, 59\penalty0 (2):\penalty0
+  391--425, June 2021.
+\newblock ISSN 0022-0515.
+\newblock \doi{10.1257/jel.20191450}.
+
+\bibitem[Abadie and Gardeazabal(2003)]{abadie2003}
+Alberto Abadie and Javier Gardeazabal.
+\newblock The economic costs of conflict: A case study of the {{Basque
+  Country}}.
+\newblock \emph{The American Economic Review}, 93\penalty0 (1):\penalty0
+  113--132, 2003.
+
+\bibitem[Abadie et~al.(2010)Abadie, Diamond, and Hainmueller]{abadie2010}
+Alberto Abadie, Alexis Diamond, and Jens Hainmueller.
+\newblock Synthetic control methods for comparative case studies: {Estimating}
+  the effect of {California}’s tobacco control program.
+\newblock \emph{Journal of the American Statistical Association}, 105\penalty0
+  (490):\penalty0 493--505, June 2010.
+\newblock ISSN 0162-1459, 1537-274X.
+\newblock \doi{10.1198/jasa.2009.ap08746}.
+\newblock URL
+  \url{http://www.tandfonline.com/doi/abs/10.1198/jasa.2009.ap08746}.
+
+\bibitem[Abadie et~al.(2015)Abadie, Diamond, and Hainmueller]{abadie2015}
+Alberto Abadie, Alexis Diamond, and Jens Hainmueller.
+\newblock Comparative politics and the synthetic control method.
+\newblock \emph{American Journal of Political Science}, 59\penalty0
+  (2):\penalty0 495--510, February 2015.
+\newblock ISSN 00925853.
+\newblock \doi{10.1111/ajps.12116}.
+
+\bibitem[Abbas et~al.(2024)Abbas, Mamirkulova, {Al-Sulaiti}, {Al-Sulaiti}, and
+  Dar]{abbas2024}
+Jaffar Abbas, Gulnara Mamirkulova, Ibrahim {Al-Sulaiti}, Khalid~Ibrahim
+  {Al-Sulaiti}, and Imran~Bashir Dar.
+\newblock Mega-infrastructure development, tourism sustainability and quality
+  of life assessment at world heritage sites: Catering to {{COVID-19}}
+  challenges.
+\newblock \emph{Kybernetes}, 54\penalty0 (4):\penalty0 1993--2018, January
+  2024.
+\newblock ISSN 0368-492X.
+\newblock \doi{10.1108/K-07-2023-1345}.
+
+\bibitem[{Alaily-Mattar} and Thierstein(2018)]{alaily-mattar2018a}
+Nadia {Alaily-Mattar} and Alain Thierstein.
+\newblock Urban transformations through exceptional architecture: Introduction
+  to the special issue.
+\newblock \emph{Journal of Urban Design}, 23\penalty0 (2):\penalty0 165--168,
+  March 2018.
+\newblock ISSN 1357-4809, 1469-9664.
+\newblock \doi{10.1080/13574809.2018.1429903}.
+
+\bibitem[{Alaily-Mattar} and Thierstein(2020)]{alaily-mattar2020a}
+Nadia {Alaily-Mattar} and Alain Thierstein.
+\newblock \emph{The Circulation of News and Images: {{Star}} Architecture and
+  Its Media Effects}, pages 97--114.
+\newblock Springer, Cham, 2020.
+\newblock ISBN 978-3-030-23924-4 978-3-030-23925-1.
+\newblock \doi{10.1007/978-3-030-23925-1_7}.
+
+\bibitem[{Alaily-Mattar} et~al.(2018{\natexlab{a}}){Alaily-Mattar}, Bartmanski,
+  Dreher, Koch, L{\"o}w, Pape, and Thierstein]{alaily-mattar2018}
+Nadia {Alaily-Mattar}, Dominik Bartmanski, Johannes Dreher, Michael Koch,
+  Martina L{\"o}w, Timothy Pape, and Alain Thierstein.
+\newblock Situating {{Architectural Performance}}: '{{Star Architecture}}' and
+  {{Its Roles}} in {{Repositioning}} the {{Cities}} of {{Graz}}, {{Lucerne}}
+  and {{Wolfsburg}}.
+\newblock \emph{European Planning Studies}, 26\penalty0 (9):\penalty0
+  1874--1900, September 2018{\natexlab{a}}.
+\newblock ISSN 0965-4313, 1469-5944.
+\newblock \doi{10.1080/09654313.2018.1465896}.
+
+\bibitem[{Alaily-Mattar} et~al.(2018{\natexlab{b}}){Alaily-Mattar}, Dreher, and
+  Thierstein]{alaily-mattar2018b}
+Nadia {Alaily-Mattar}, Johannes Dreher, and Alain Thierstein.
+\newblock Repositioning cities through star architecture: How does it work?
+\newblock \emph{Journal of Urban Design}, 23\penalty0 (2):\penalty0 169--192,
+  April 2018{\natexlab{b}}.
+\newblock ISSN 13574809.
+\newblock \doi{10.1080/13574809.2017.1408401}.
+
+\bibitem[{Alaily-Mattar} et~al.(2019){Alaily-Mattar}, B{\"u}ren, and
+  Thierstein]{alaily-mattar2019}
+Nadia {Alaily-Mattar}, Nicolas B{\"u}ren, and Alain Thierstein.
+\newblock Transforming the media exposure of a city through star architecture
+  projects?
+\newblock \emph{disP - The Planning Review}, 55\penalty0 (2):\penalty0 36--48,
+  April 2019.
+\newblock ISSN 0251-3625, 2166-8604.
+\newblock \doi{10.1080/02513625.2019.1630187}.
+
+\bibitem[{Alaily-Mattar} et~al.(2021){Alaily-Mattar}, Akhavan, and
+  Hein]{alaily-mattar2021a}
+Nadia {Alaily-Mattar}, Mina Akhavan, and Carola Hein.
+\newblock Marking a new chapter in the history of our city. {{Newspaper}}
+  narratives of proposed waterfront star architecture.
+\newblock \emph{European Journal of Creative Practices in Cities and
+  Landscapes}, 4\penalty0 (1):\penalty0 95--112, August 2021.
+\newblock \doi{10.6092/ISSN.2612-0496/11959}.
+
+\bibitem[{Alaily-Mattar} et~al.(2022){Alaily-Mattar}, Hall, and
+  Thierstein]{alaily-mattar2022a}
+Nadia {Alaily-Mattar}, Joelean Hall, and Alain Thierstein.
+\newblock The problematization of 'star architecture' in architecture research.
+\newblock \emph{European Planning Studies}, 30\penalty0 (1):\penalty0 13--31,
+  January 2022.
+\newblock ISSN 09654313.
+\newblock \doi{10.1080/09654313.2021.1889476}.
+
+\bibitem[Albalate et~al.(2023)Albalate, Campos, and Jim{\'e}nez]{albalate2023}
+Daniel Albalate, Javier Campos, and Juan~Luis Jim{\'e}nez.
+\newblock Local tourism effects of {{HSR}} in small cities: Three synthetic
+  control case studies.
+\newblock \emph{Current Issues in Tourism}, 26\penalty0 (14):\penalty0
+  2301--2316, July 2023.
+\newblock ISSN 1368-3500, 1747-7603.
+\newblock \doi{10.1080/13683500.2022.2086106}.
+
+\bibitem[Alberti et~al.(2023)Alberti, Caperna, Mauri, Panella, Tacao~Moura,
+  Banys, Symeonidis, Dominguez~Torreiro, and
+  Saisana]{europeancommission.jointresearchcentre.2023a}
+V~Alberti, G~Caperna, C~Mauri, F~Panella, C~Tacao~Moura, K~Banys, K~Symeonidis,
+  M~Dominguez~Torreiro, and M~Saisana.
+\newblock \emph{Cultural and {{Creative Cities Monitor}}: 2023 {{Update}}},
+  volume JRC134516.
+\newblock Publications Office of the European Union, Luxembourg, 2023.
+\newblock \doi{10.2760/975348}.
+
+\bibitem[Andersson(2014)]{andersson2014}
+Ida Andersson.
+\newblock Beyond "{{Guggenheiming}}": {{From}} flagship buildings to flagship
+  space in {{Sweden}}.
+\newblock \emph{Norwegian Journal of Geography}, 68\penalty0 (4):\penalty0
+  228--237, September 2014.
+\newblock ISSN 00291951.
+\newblock \doi{10.1080/00291951.2014.927915}.
+
+\bibitem[Antonaglia et~al.(2024)Antonaglia, De~Simone, Dorato, Gaeta, and
+  Pinto]{antonaglia2024}
+Federica Antonaglia, Elina De~Simone, Lorenzo Dorato, Giuseppe~Lucio Gaeta, and
+  Mauro Pinto.
+\newblock The effect of natural disasters on inbound tourism: Synthetic control
+  evidence from {{Italy}}.
+\newblock \emph{Journal of Regional Science}, 65\penalty0 (2):\penalty0
+  429--445, December 2024.
+\newblock ISSN 0022-4146, 1467-9787.
+\newblock \doi{10.1111/jors.12745}.
+
+\bibitem[Ashworth and Page(2011)]{ashworth2011}
+Gregory Ashworth and Stephen~J. Page.
+\newblock Urban tourism research: {{Recent}} progress and current paradoxes.
+\newblock \emph{Tourism Management}, 32\penalty0 (1):\penalty0 1--15, February
+  2011.
+\newblock ISSN 02615177.
+\newblock \doi{10.1016/j.tourman.2010.02.002}.
+
+\bibitem[Balke et~al.(2018)Balke, Reuber, and Wood]{balke2018}
+Jan Balke, Paul Reuber, and Gerald Wood.
+\newblock Iconic architecture and place-specific neoliberal governmentality:
+  {{Insights}} from {{Eamburg}}'s {{Elbe}} philharmonic hall.
+\newblock \emph{Urban Studies}, 55\penalty0 (5):\penalty0 997--1012, April
+  2018.
+\newblock ISSN 0042-0980, 1360-063X.
+\newblock \doi{10.1177/0042098017694132}.
+
+\bibitem[Bassols(2019)]{bassols2019}
+Narc{\'i}s Bassols.
+\newblock Evolving iconization and destination building: {{The}} example of
+  {{Cartagena}}, {{Colombia}}.
+\newblock \emph{Tourism Planning \& Development}, 16\penalty0 (3):\penalty0
+  334--352, May 2019.
+\newblock ISSN 2156-8316, 2156-8324.
+\newblock \doi{10.1080/21568316.2018.1501730}.
+
+\bibitem[{Baum-Snow} and Ferreira(2015)]{baum-snow2015}
+Nathaniel {Baum-Snow} and Fernando Ferreira.
+\newblock \emph{Causal {{Inference}} in {{Urban}} and {{Regional Economics}}},
+  volume~5, pages 3--68.
+\newblock Elsevier, January 2015.
+\newblock ISBN 1574-0080.
+\newblock \doi{10.1016/B978-0-444-59517-1.00001-5}.
+
+\bibitem[{Ben-Dalia} et~al.(2013){Ben-Dalia}, {Collins-Kreiner}, and
+  Churchman]{ben-dalia2013}
+Sharon {Ben-Dalia}, Noga {Collins-Kreiner}, and Arza Churchman.
+\newblock Evaluation of an urban tourism destination.
+\newblock \emph{Tourism Geographies}, 15\penalty0 (2):\penalty0 233--249, May
+  2013.
+\newblock ISSN 1461-6688, 1470-1340.
+\newblock \doi{10.1080/14616688.2011.647329}.
+
+\bibitem[Boniface et~al.(2021)Boniface, Cooper, and Cooper]{boniface2021}
+Brian~G. Boniface, Robyn Cooper, and Christopher~P. Cooper.
+\newblock \emph{Worldwide Destinations: The Geography of Travel and Tourism}.
+\newblock Routledge, London, 2021.
+\newblock ISBN 978-0-367-20041-1 978-0-367-20040-4.
+
+\bibitem[B{\"o}nisch et~al.(2020)B{\"o}nisch, Wegscheider, Krause, Sehner,
+  Wiegel, Zapf, Moser, and Becher]{bonisch2020}
+Sebastian B{\"o}nisch, Karl Wegscheider, Linda Krause, Susanne Sehner, Sarah
+  Wiegel, Antonia Zapf, Silke Moser, and Heiko Becher.
+\newblock Effects of {{Coronavirus Disease}} ({{COVID-19}}) {{Related Contact
+  Restrictions}} in {{Germany}}, {{March}} to {{May}} 2020, on the {{Mobility}}
+  and {{Relation}} to {{Infection Patterns}}.
+\newblock \emph{Frontiers in Public Health}, 8:\penalty0 568287, October 2020.
+\newblock ISSN 2296-2565.
+\newblock \doi{10.3389/fpubh.2020.568287}.
+
+\bibitem[Botha and Saayman(2024)]{botha2024}
+Ils{\'e} Botha and Andrea Saayman.
+\newblock Does {{Google Analytics}} improve the prediction of tourism demand
+  recovery?
+\newblock \emph{Forecasting}, 6\penalty0 (4):\penalty0 908--924, October 2024.
+\newblock ISSN 2571-9394.
+\newblock \doi{10.3390/forecast6040045}.
+
+\bibitem[Brandano and Crociata(2023)]{brandano2023}
+Maria~Giovanna Brandano and Alessandro Crociata.
+\newblock Cohesion policy, tourism and culture in {{Italy}}: A regional policy
+  evaluation.
+\newblock \emph{Regional Studies}, 57\penalty0 (4):\penalty0 763--779, April
+  2023.
+\newblock ISSN 0034-3404, 1360-0591.
+\newblock \doi{10.1080/00343404.2022.2106365}.
+
+\bibitem[{\c C}akar et~al.(2025){\c C}akar, Morrison, and
+  Gowreesunkar]{cakar2025}
+Kadir {\c C}akar, Alastair~M. Morrison, and Vanessa G.~B. Gowreesunkar.
+\newblock Substitution effects in tourism and hospitality: Influential factors,
+  examples, and propositions.
+\newblock \emph{Tourism Recreation Research}, 50\penalty0 (7):\penalty0
+  1852--1861, November 2025.
+\newblock ISSN 0250-8281, 2320-0308.
+\newblock \doi{10.1080/02508281.2024.2423410}.
+
+\bibitem[Capron and Delacour(2024)]{capron2024}
+Etienne Capron and H{\'e}l{\`e}ne Delacour.
+\newblock Field-configuring places: {{Unpacking}} the role of place in field
+  evolution.
+\newblock \emph{Organization Studies}, 45\penalty0 (11):\penalty0 1669--1696,
+  November 2024.
+\newblock ISSN 0170-8406, 1741-3044.
+\newblock \doi{10.1177/01708406241280010}.
+
+\bibitem[{City of Amsterdam}(2025)]{cityofamsterdam2025}
+{City of Amsterdam}.
+\newblock Uitvoeringsprogramma {{Bezoekerseconomie}} 2025.
+\newblock Technical report, Gemeente Amsterdam, Amsterdam, 2025.
+
+\bibitem[De~Frantz(2018)]{defrantz2018}
+Monika De~Frantz.
+\newblock Tourism marketing and urban politics: Cultural planning in a
+  {{European}} capital.
+\newblock \emph{Tourism Geographies}, 20\penalty0 (3):\penalty0 481--503, May
+  2018.
+\newblock ISSN 1461-6688, 1470-1340.
+\newblock \doi{10.1080/14616688.2017.1354392}.
+
+\bibitem[DiMaggio(1997)]{dimaggio1997}
+Paul DiMaggio.
+\newblock Culture and cognition.
+\newblock \emph{Annual Review of Sociology}, 23\penalty0 (1):\penalty0
+  263--287, August 1997.
+\newblock ISSN 0360-0572, 1545-2115.
+\newblock \doi{10.1146/annurev.soc.23.1.263}.
+
+\bibitem[Dinis et~al.(2019)Dinis, Breda, Costa, and Pacheco]{dinis2019}
+Gorete Dinis, Z{\'e}lia Breda, Carlos Costa, and Osvaldo Pacheco.
+\newblock Google {{Trends}} in tourism and hospitality research: A systematic
+  literature review.
+\newblock \emph{Journal of Hospitality and Tourism Technology}, 10\penalty0
+  (4):\penalty0 747--763, November 2019.
+\newblock ISSN 1757-9880, 1757-9880.
+\newblock \doi{10.1108/jhtt-08-2018-0086}.
+
+\bibitem[Doerr et~al.(2020)Doerr, Dorn, Gaebler, and Potrafke]{doerr2020}
+Luisa Doerr, Florian Dorn, Stefanie Gaebler, and Niklas Potrafke.
+\newblock How new airport infrastructure promotes tourism: Evidence from a
+  synthetic control approach in {{German}} regions.
+\newblock \emph{Regional Studies}, 54\penalty0 (10):\penalty0 1402--1412,
+  October 2020.
+\newblock ISSN 0034-3404, 1360-0591.
+\newblock \doi{10.1080/00343404.2020.1714022}.
+
+\bibitem[{DPA}(2024)]{dpa2024}
+{DPA}.
+\newblock Mehr als 20 {{Millionen Besucher}} auf {{Plaza}} der
+  {{Elbphilharmonie}}.
+\newblock \emph{Sueddeutsche Zeitung}, February 2024.
+
+\bibitem[Dreher et~al.(2023)Dreher, {Alaily-Mattar}, and
+  Thierstein]{dreher2023}
+J.~Dreher, N.~{Alaily-Mattar}, and A.~Thierstein.
+\newblock Star architecture projects and their effects: Tracing the evidence.
+\newblock \emph{Journal of Urbanism: International Research on Placemaking and
+  Urban Sustainability}, 16\penalty0 (1):\penalty0 65--83, January 2023.
+\newblock ISSN 1754-9175, 1754-9183.
+\newblock \doi{10.1080/17549175.2021.1924838}.
+
+\bibitem[Dreher and Thiel(2022)]{dreher2022}
+Johannes Dreher and Joachim Thiel.
+\newblock Star architecture projects and the geographies of innovation across
+  the construction supply chain: The case of the {{Elbphilharmonie}}.
+\newblock \emph{European Planning Studies}, 30\penalty0 (1):\penalty0 105--120,
+  January 2022.
+\newblock ISSN 0965-4313, 1469-5944.
+\newblock \doi{10.1080/09654313.2021.1951176}.
+
+\bibitem[Dreher et~al.(2020)Dreher, {Alaily-Mattar}, and
+  Thierstein]{dreher2020}
+Johannes Dreher, Nadia {Alaily-Mattar}, and Alain Thierstein.
+\newblock Star architecture projects. {{The}} assessment of spatial economic
+  effects by means of a spatial incidence analysis.
+\newblock \emph{Raumforschung und Raumordnung \textbar{} Spatial Research and
+  Planning}, 78\penalty0 (5):\penalty0 439--453, October 2020.
+\newblock ISSN 1869-4179.
+\newblock \doi{10.2478/rara-2020-0029}.
+
+\bibitem[Dunford(2025)]{dunford2025}
+Eric Dunford.
+\newblock Tidysynth: {{A}} tidy implementation of the synthetic control method,
+  2025.
+
+\bibitem[{Elbphilharmonie \& Laeiszhalle}(2024)]{elbphilharmonie2024}
+{Elbphilharmonie \& Laeiszhalle}.
+\newblock Press kit: {{Elbphilharmonie Hamburg}}.
+\newblock https://www.elbphilharmonie.de/en/press/elbphilharmonie, December
+  2024.
+
+\bibitem[{Freie und Hansestadt Hamburg
+  LGV}(2025)]{freieundhansestadthamburglgv2024}
+{Freie und Hansestadt Hamburg LGV}.
+\newblock Internetstadtplan {{Hamburg}}, September 2025.
+
+\bibitem[Gelman and Imbens(2013)]{gelman2013a}
+Andrew Gelman and Guido Imbens.
+\newblock Why ask why? {{Forward}} causal inference and reverse causal
+  questions.
+\newblock Technical Report w19614, National Bureau of Economic Research,
+  Cambridge, November 2013.
+
+\bibitem[Ghalejough et~al.(2024)Ghalejough, Abbasi, Haghparast, and
+  Gharehbaglou]{ghalejough2024}
+Ali~Pourahmad Ghalejough, Sadegh~Avval Abbasi, Farzin Haghparast, and Minou
+  Gharehbaglou.
+\newblock Star architecture in online public discourse: Exploring reddit
+  user-generated content on the {{Vessel}}, {{New York}}, through a text
+  analytics approach.
+\newblock \emph{Archnet-IJAR: International Journal of Architectural Research},
+  online ahead-of-print, September 2024.
+\newblock ISSN 2631-6862, 1938-7806.
+\newblock \doi{10.1108/ARCH-03-2024-0095}.
+
+\bibitem[G{\'o}mez and Gonz{\'a}lez(2001)]{gomez2001}
+Mar{\'i}~V. G{\'o}mez and Sara Gonz{\'a}lez.
+\newblock A reply to {{Beatriz Plaza}}'s `{{The Guggenheim}}-{{Bilbao Museum
+  Effect}}'.
+\newblock \emph{International Journal of Urban and Regional Research},
+  25\penalty0 (4):\penalty0 898--900, December 2001.
+\newblock ISSN 0309-1317, 1468-2427.
+\newblock \doi{10.1111/1468-2427.00351}.
+
+\bibitem[{Google Trends}(2025)]{googletrends}
+{Google Trends}.
+\newblock Global search interest in {Elbphilharmonie} and {Speicherstadt} since
+  2014.
+\newblock URL
+  \url{https://trends.google.de/trends/explore?date=all&q=Elbphilharmonie,Speicherstadt}.
+
+\bibitem[G{\"o}ssling and Schweiggart(2022)]{gossling2022}
+Stefan G{\"o}ssling and Nadja Schweiggart.
+\newblock Two years of {{COVID-19}} and tourism: What we learned, and what we
+  should have learned.
+\newblock \emph{Journal of Sustainable Tourism}, 30\penalty0 (4):\penalty0
+  915--931, April 2022.
+\newblock ISSN 0966-9582.
+\newblock \doi{10.1080/09669582.2022.2029872}.
+
+\bibitem[{Hamburg Tourismus}(2024)]{hamburgtourismus2024}
+{Hamburg Tourismus}.
+\newblock {{CPS GfK Destinationmonitor Deutschland}}: {{Urlaubs-}} und
+  {{Freizeitreisen}} der {{Deutschen}} nach {{Hamburg}}.
+\newblock Technical report, Hamburg Tourismus GmbH, Hamburg, 2024.
+
+\bibitem[Hassink et~al.(2025)Hassink, Kogler, Ponzini, and Ren]{hassink2025a}
+Robert Hassink, Dieter~F Kogler, Davide Ponzini, and Xuefei Ren.
+\newblock The symbolic value of megaprojects in urban and regional development.
+\newblock \emph{Cambridge Journal of Regions, Economy and Society},
+  18:\penalty0 255--263, May 2025.
+\newblock ISSN 1752-1378, 1752-1386.
+\newblock \doi{10.1093/cjres/rsaf009}.
+
+\bibitem[H{\"a}usler and H{\"a}usler(2024)]{hausler2024}
+Eric H{\"a}usler and J{\"u}rgen H{\"a}usler.
+\newblock \emph{How Cities Become Brands: Developing City Brands Purposefully
+  and Thoughtfully}.
+\newblock Springer, Wiesbaden, 2024.
+\newblock ISBN 978-3-658-43775-6 978-3-658-43776-3.
+\newblock \doi{10.1007/978-3-658-43776-3}.
+
+\bibitem[Heidenreich and Plaza(2015)]{heidenreich2015}
+Martin Heidenreich and Beatriz Plaza.
+\newblock Renewal through culture? {{The}} role of museums in the renewal of
+  industrial regions in {{Europe}}.
+\newblock \emph{European Planning Studies}, 23\penalty0 (8):\penalty0
+  1441--1455, August 2015.
+\newblock ISSN 0965-4313, 1469-5944.
+\newblock \doi{10.1080/09654313.2013.817544}.
+
+\bibitem[Heuer and Runde(2022)]{heuer2022}
+Tobias Heuer and Jochen Runde.
+\newblock The elbphilharmonie and the hamburg effect: On the social
+  positioning, identities and system functions of a building and a city.
+\newblock \emph{European Planning Studies}, 30\penalty0 (1):\penalty0 85--104,
+  January 2022.
+\newblock ISSN 0965-4313, 1469-5944.
+\newblock \doi{10.1080/09654313.2021.1908232}.
+
+\bibitem[Hiller(1998)]{hiller1998}
+Harry~H. Hiller.
+\newblock Assessing the impact of mega-events: A linkage model.
+\newblock \emph{Current Issues in Tourism}, 1\penalty0 (1):\penalty0 47--57,
+  January 1998.
+\newblock ISSN 1368-3500, 1747-7603.
+\newblock \doi{10.1080/13683509808667832}.
+
+\bibitem[Hofmeister(2021)]{hofmeister2021}
+Sandra Hofmeister, editor.
+\newblock \emph{Herzog \& de {{Meuron}}: {{Architektur}} Und {{Baudetails}} /
+  Architecture and Construction Details}.
+\newblock Edition {{DETAIL}}. Edition Detail, M\"unchen, 2021.
+\newblock ISBN 978-3-95553-561-2.
+
+\bibitem[Holz et~al.(2023)Holz, Alatur, Schulz, and Verheyen]{holz2023}
+Lena Holz, Mehmet Alatur, Tom~R. Schulz, and D{\'e}sir{\'e}e Verheyen.
+\newblock Elbphilharmonie und {{Laeiszhalle Hamburg Jahresbericht}} 2022/2023.
+\newblock Technical report, {Operating Company of Elbphilharmonie and
+  Laeiszhalle}, Hamburg, 2023.
+
+\bibitem[Holz et~al.(2024)Holz, Schulz, and Verheyen]{holz2024}
+Lena Holz, Tom~R. Schulz, and D{\'e}sir{\'e}e Verheyen.
+\newblock Elbphilharmonie und {{Laeiszhalle Hamburg Jahresbericht}} 2023/2024.
+\newblock Technical report, {Operating Company of Elbphilharmonie and
+  Laeiszhalle}, Hamburg, 2024.
+
+\bibitem[Just(2022)]{just2022}
+Marianna Just.
+\newblock Kultur- \& {Tourismusstrategie} für {Hamburg}, 2022.
+
+\bibitem[Keating and De~Frantz(2003)]{keating2003}
+Michael Keating and Monika De~Frantz.
+\newblock Culture-led strategies for urban regeneration: A comparative
+  perspective on {{Bilbao}}.
+\newblock \emph{International Journal of Iberian Studies}, 16\penalty0
+  (3):\penalty0 187--194, October 2003.
+\newblock ISSN 1364-971X.
+
+\bibitem[Kim and Lee(2023)]{kim2023}
+Hyejin Kim and Jongkwan Lee.
+\newblock Natural disasters, risk and migration: Evidence from the 2017
+  {{Pohang}} earthquake in {{Korea}}.
+\newblock \emph{Journal of Economic Geography}, 23\penalty0 (5):\penalty0
+  1017--1035, September 2023.
+\newblock ISSN 1468-2702, 1468-2710.
+\newblock \doi{10.1093/jeg/lbad007}.
+
+\bibitem[Landis(2022)]{landis2022}
+John Landis.
+\newblock \emph{Urban Regeneration Meets Sustainability - {{HafenCity}},
+  {{Hamburg}}}, pages 407--428.
+\newblock Edward Elgar Publishing, December 2022.
+\newblock ISBN 978-1-80392-063-4 978-1-80392-062-7.
+\newblock \doi{10.4337/9781803920634.00019}.
+
+\bibitem[Lawrence and Dover(2015)]{lawrence2015}
+Thomas~B. Lawrence and Graham Dover.
+\newblock Place and institutional work: {{Creating}} housing for the
+  hard-to-house.
+\newblock \emph{Administrative Science Quarterly}, 60\penalty0 (3):\penalty0
+  371--410, September 2015.
+\newblock ISSN 0001-8392, 1930-3815.
+\newblock \doi{10.1177/0001839215589813}.
+
+\bibitem[Maak(2015)]{maak2015}
+Niklas Maak.
+\newblock {Millionengrab Elbphilharmonie: Der gro\ss e Eisberg \"uber der
+  Stadt}.
+\newblock
+  https://www.faz.net/aktuell/feuilleton/millionengrab-elbphilharmonie-der-grosse-eisberg-ueber-der-stadt-13427408.html,
+  2015.
+
+\bibitem[Maitland(2010)]{maitland2010}
+Robert Maitland.
+\newblock Everyday life as a creative experience in cities.
+\newblock \emph{International Journal of Culture, Tourism and Hospitality
+  Research}, 4\penalty0 (3):\penalty0 176--185, August 2010.
+\newblock ISSN 1750-6182.
+\newblock \doi{10.1108/17506181011067574}.
+
+\bibitem[McKercher and Tkaczynski(2024)]{mckercher2024}
+Bob McKercher and Aaron Tkaczynski.
+\newblock The reticent tourist in a {{COVID-adapted}} world.
+\newblock \emph{Tourism Management}, 2024\penalty0 (103):\penalty0 104885,
+  August 2024.
+\newblock ISSN 0261-5177.
+\newblock \doi{10.1016/j.tourman.2024.104885}.
+
+\bibitem[Meenakshi et~al.(2024)Meenakshi, Dhir, Mahto, Nicolau, and
+  Kaur]{meenakshi2024}
+N.~Meenakshi, Amandeep Dhir, Raj~V. Mahto, Juan~Luis Nicolau, and Puneet Kaur.
+\newblock Travelers' coping strategies in the backdrop of revenge tourism.
+\newblock \emph{Journal of Travel Research}, 63\penalty0 (6):\penalty0
+  1473--1489, July 2024.
+\newblock ISSN 0047-2875, 1552-6763.
+\newblock \doi{10.1177/00472875231193596}.
+
+\bibitem[Namberger et~al.(2019)Namberger, Jackisch, Schmude, and
+  Karl]{namberger2019a}
+Philipp Namberger, Sascha Jackisch, J{\"u}rgen Schmude, and Marion Karl.
+\newblock Overcrowding, {{Overtourism}} and {{Local Level Disturbance}}: {{How
+  Much Can Munich Handle}}?
+\newblock \emph{Tourism Planning \& Development}, 16\penalty0 (4):\penalty0
+  452--472, July 2019.
+\newblock ISSN 2156-8316, 2156-8324.
+\newblock \doi{10.1080/21568316.2019.1595706}.
+
+\bibitem[Nientied(2021)]{nientied2021}
+Peter Nientied.
+\newblock Rotterdam and the question of new urban tourism.
+\newblock \emph{International Journal of Tourism Cities}, 7\penalty0
+  (2):\penalty0 344--360, July 2021.
+\newblock ISSN 2056-5607, 2056-5607.
+\newblock \doi{10.1108/ijtc-03-2020-0033}.
+
+\bibitem[Novy and Colomb(2019)]{novy2019}
+Johannes Novy and Claire Colomb.
+\newblock Urban tourism as a source of contention and social mobilisations: A
+  critical review.
+\newblock \emph{Tourism Planning \& Development}, 16\penalty0 (4):\penalty0
+  358--375, July 2019.
+\newblock ISSN 2156-8316, 2156-8324.
+\newblock \doi{10.1080/21568316.2019.1577293}.
+
+\bibitem[{\"O}nder(2017)]{onder2017}
+Irem {\"O}nder.
+\newblock Forecasting tourism demand with {{Google}} trends: {{Accuracy}}
+  comparison of countries versus cities.
+\newblock \emph{International Journal of Tourism Research}, 19\penalty0
+  (6):\penalty0 648--660, November 2017.
+\newblock ISSN 1099-2340, 1522-1970.
+\newblock \doi{10.1002/jtr.2137}.
+
+\bibitem[Plaza(2000)]{plaza2000}
+Beatriz Plaza.
+\newblock Evaluating the influence of a large cultural artifact in the
+  attraction of tourism: {{The Guggenheim}} museum {{Bilbao}} case.
+\newblock \emph{Urban Affairs Review}, 36\penalty0 (2):\penalty0 264--274,
+  November 2000.
+\newblock ISSN 1078-0874, 1552-8332.
+\newblock \doi{10.1177/10780870022184859}.
+
+\bibitem[Plaza(2006)]{plaza2006}
+Beatriz Plaza.
+\newblock The return on investment of the guggenheim museum {{Bilbao}}.
+\newblock \emph{International Journal of Urban and Regional Research},
+  30\penalty0 (2):\penalty0 452--467, June 2006.
+\newblock ISSN 0309-1317, 1468-2427.
+\newblock \doi{10.1111/j.1468-2427.2006.00672.x}.
+
+\bibitem[Plaza et~al.(2009)Plaza, Tironi, and Haarich]{plaza2009}
+Beatriz Plaza, Manuel Tironi, and Silke~N. Haarich.
+\newblock Bilbao's art scene and the "{{Guggenheim}} effect" revisited.
+\newblock \emph{European Planning Studies}, 17\penalty0 (11):\penalty0
+  1711--1729, November 2009.
+\newblock ISSN 0965-4313, 1469-5944.
+\newblock \doi{10.1080/09654310903230806}.
+
+\bibitem[Plaza et~al.(2024)Plaza, Esteban, Aranburu, and Johny]{plaza2024}
+Beatriz Plaza, Marisol Esteban, Ibon Aranburu, and Jensy Johny.
+\newblock Iconic architecture as a catalyst for wine tourism: A case study of
+  {{Marqu\'es}} de {{Riscal}}.
+\newblock \emph{European Countryside}, 16\penalty0 (1):\penalty0 168--182,
+  March 2024.
+\newblock ISSN 1803-8417.
+\newblock \doi{10.2478/euco-2024-0010}.
+
+\bibitem[Plz{\'a}kov{\'a} and Smeral(2022)]{plzakova2022}
+Lucie Plz{\'a}kov{\'a} and Egon Smeral.
+\newblock Impact of the {{COVID-19}} crisis on european tourism.
+\newblock \emph{Tourism Economics}, 28\penalty0 (1):\penalty0 91--109, February
+  2022.
+\newblock ISSN 1354-8166, 2044-0375.
+\newblock \doi{10.1177/13548166211031113}.
+
+\bibitem[Ponzini et~al.(2020)Ponzini, {Alaily-Mattar}, and
+  Thierstein]{ponzini2020}
+Davide Ponzini, Nadia {Alaily-Mattar}, and Alain Thierstein.
+\newblock \emph{Introduction: {{Star}} Architecture in and across Cities in
+  {{Europe}}}, pages 1--19.
+\newblock Springer, Cham, 2020.
+\newblock ISBN 978-3-030-23924-4 978-3-030-23925-1.
+\newblock \doi{10.1007/978-3-030-23925-1_1}.
+
+\bibitem[Rom{\~a}o(2025)]{romao2025}
+Jo{\~a}o Rom{\~a}o.
+\newblock \emph{Economic {{Geography}} of {{Tourism}}}.
+\newblock Advances in {{Spatial Science}}. Springer, Cham, 2025.
+\newblock ISBN 978-3-031-88625-6 978-3-031-88626-3.
+\newblock \doi{10.1007/978-3-031-88626-3}.
+
+\bibitem[Scerri et~al.(2019)Scerri, Edwards, and Foley]{scerri2019}
+Moira Scerri, Deborah Edwards, and Carmel Foley.
+\newblock Design, architecture and the value to tourism.
+\newblock \emph{Tourism Economics}, 25\penalty0 (5):\penalty0 695--710, August
+  2019.
+\newblock ISSN 1354-8166.
+\newblock \doi{10.1177/1354816618802107}.
+
+\bibitem[Schuppert et~al.(2021)Schuppert, Polotzek, Karschau, and
+  Karagiannidis]{schuppert2021}
+Andreas Schuppert, Katja Polotzek, Jens Karschau, and Christian Karagiannidis.
+\newblock Effectiveness of extended shutdown measures during the
+  \textasciiacute{{Bundesnotbremse}}\textasciiacute{} introduced in the third
+  {{SARS-CoV-2}} wave in {{Germany}}.
+\newblock \emph{Infection}, 49\penalty0 (6):\penalty0 1331--1335, December
+  2021.
+\newblock ISSN 0300-8126, 1439-0973.
+\newblock \doi{10.1007/s15010-021-01713-7}.
+
+\bibitem[Sklair(2017)]{sklair2017}
+Leslie Sklair.
+\newblock Iconic architecture and the rise of globalizing cities.
+\newblock \emph{Brown Journal of World Affairs}, 23\penalty0 (2):\penalty0
+  127--137, 2017.
+\newblock ISSN 10800786.
+
+\bibitem[Somoza~Medina(2019)]{somozamedina2019}
+Xos{\'e} Somoza~Medina.
+\newblock \emph{Governance and {{Sustainability}} of {{Cultural Megaprojects}}.
+  {{Case Studies}} from {{Spain}}}, pages 633--646.
+\newblock Springer {{Proceedings}} in {{Business}} and {{Economics}}. Springer,
+  Cham, 2019.
+\newblock ISBN 978-3-030-03909-7 978-3-030-03910-3.
+
+\bibitem[Specht(2014)]{specht2014}
+Jan Specht.
+\newblock \emph{Architectural Tourism: {{Building}} for Urban Travel
+  Destinations}.
+\newblock Springer Fachmedien Wiesbaden, Wiesbaden, 2014.
+\newblock ISBN 978-3-658-06023-7 978-3-658-06024-4.
+\newblock \doi{10.1007/978-3-658-06024-4}.
+
+\bibitem[Sun et~al.(2023)Sun, Choe, and Webster]{sun2023}
+Guibo Sun, Eun~Yeong Choe, and Chris Webster.
+\newblock Natural experiments in healthy cities research: How can urban
+  planning and design knowledge reinforce the causal inference?
+\newblock \emph{Town Planning Review}, 94\penalty0 (1):\penalty0 87--108,
+  January 2023.
+
+\bibitem[Tkalec et~al.(2017)Tkalec, Zilic, and Recher]{tkalec2017}
+Marina Tkalec, Ivan Zilic, and Vedran Recher.
+\newblock The effect of film industry on tourism: {{Game}} of thrones and
+  {{Dubrovnik}}.
+\newblock \emph{International Journal of Tourism Research}, 19\penalty0
+  (6):\penalty0 705--714, November 2017.
+\newblock ISSN 1099-2340, 1522-1970.
+\newblock \doi{10.1002/jtr.2142}.
+
+\bibitem[Vanolo(2022)]{vanolo2022}
+Alberto Vanolo.
+\newblock Shops, food, regeneration and a controversial signature building in
+  {{Turin}}, {{Italy}}.
+\newblock \emph{European Planning Studies}, 30\penalty0 (1):\penalty0 178--194,
+  January 2022.
+\newblock ISSN 0965-4313.
+\newblock \doi{10.1080/09654313.2021.1903399}.
+
+\bibitem[Vogler(2022)]{vogler2022}
+Ralf Vogler.
+\newblock Revenge and catch-up travel or degrowth? {{Debating}} tourism post
+  {{COVID-19}}.
+\newblock \emph{Annals of Tourism Research}, 2022\penalty0 (93):\penalty0
+  103272, March 2022.
+\newblock ISSN 0160-7383.
+\newblock \doi{10.1016/j.annals.2021.103272}.
+
+\bibitem[{Voltes-Dorta} et~al.(2016){Voltes-Dorta}, Jim{\'e}nez, and
+  {Su{\'a}rez-Alem{\'a}n}]{voltes-dorta2016}
+Augusto {Voltes-Dorta}, Juan~Luis Jim{\'e}nez, and Ancor
+  {Su{\'a}rez-Alem{\'a}n}.
+\newblock The impact of {{ETA}}'s dissolution on domestic tourism in {{Spain}}.
+\newblock \emph{Defence and Peace Economics}, 27\penalty0 (6):\penalty0
+  854--870, November 2016.
+\newblock ISSN 1024-2694.
+\newblock \doi{10.1080/10242694.2015.1025485}.
+
+\bibitem[{World Tourism Organization}(2021)]{worldtourismorganization2021}
+{World Tourism Organization}, editor.
+\newblock \emph{International Tourism Highlights, 2020 Edition}.
+\newblock World Tourism Organization (UNWTO), Madrid, January 2021.
+\newblock ISBN 978-92-844-2245-6.
+\newblock \doi{10.18111/9789284422456}.
+
+\bibitem[{World Tourism Organization}(2023)]{worldtourismorganization2023}
+{World Tourism Organization}, editor.
+\newblock \emph{International Tourism Highlights, 2023 Edition}.
+\newblock World Tourism Organization (UNWTO), Madrid, December 2023.
+\newblock ISBN 978-92-844-2498-6.
+\newblock \doi{10.18111/9789284424986}.
+
+\bibitem[Zenker and Beckmann(2013)]{zenker2013}
+Sebastian Zenker and Suzanne~C Beckmann.
+\newblock Measuring brand image effects of flagship projects for place brands:
+  {{The}} case of {{Hamburg}}.
+\newblock \emph{Journal of Brand Management}, 20\penalty0 (8):\penalty0
+  642--655, September 2013.
+\newblock ISSN 1350-231X, 1479-1803.
+\newblock \doi{10.1057/bm.2013.6}.
+
+\end{thebibliography}

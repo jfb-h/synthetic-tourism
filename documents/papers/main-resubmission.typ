@@ -139,7 +139,7 @@ Weight optimization follows the nested convex optimization procedure outlined in
 Given sufficient pre-intervention similarity (taken to indicate that the behaviour of the quantity of interest is well-approximated by the weighted average of the control units), post-intervention deviations between the synthetic and the real case are then interpreted as a consequence of the intervention.
 
 An important assumption is the absence of other idiosyncratic shocks that could lead to a deviation of the treated unit in terms of the outcome of interest.
-While there was a considerable shock to tourism throughout the observation period in the form of the COVID-19 pandemic, this was 
+While there was a considerable shock to tourism throughout the observation period in the form of the COVID-19 pandemic, this was not unique to Hamburg but more or less universal.
 Nevertheless, the pandemic led to considerable variability, which can make the identification of a clear signal more difficult.
 Accordingly, it is important to check the robustness of the causal interpretation of a treated-control divergence, which can be achieved through two different kinds of placebo tests:
 First, placebos can be constructed by assigning the intervention to other units than the one for which it occurred.
